@@ -1,0 +1,55 @@
+doc_id,symbol,company,period_end,unit,consolidated,field,value_current,value_prior,page,labeller,notes
+LUCK_FY2026,LUCK,Lucky Cement Limited,2026-06-30,thousands,true,revenue,516358811,454059966,289,claude-draft,Net revenue | verify: burhan
+LUCK_FY2026,LUCK,Lucky Cement Limited,2026-06-30,thousands,true,profit_before_tax,116190243,105746566,289,claude-draft,'Profit before taxation' (after levy) | verify: burhan
+LUCK_FY2026,LUCK,Lucky Cement Limited,2026-06-30,thousands,true,net_profit,89042169,76956147,289,claude-draft,attributable to owners; total PAT 96456241 | verify: burhan
+LUCK_FY2026,LUCK,Lucky Cement Limited,2026-06-30,thousands,true,eps_basic,60.78,52.53,289,claude-draft,PKR | verify: burhan
+LUCK_FY2026,LUCK,Lucky Cement Limited,2026-06-30,thousands,true,total_assets,793907012,729225509,288,claude-draft, | verify: burhan
+LUCK_FY2026,LUCK,Lucky Cement Limited,2026-06-30,thousands,true,total_equity,473904846,388041438,288,claude-draft,'Total equity' incl. NCI | verify: burhan
+PIOC_FY2026,PIOC,Pioneer Cement Limited,2026-06-30,thousands,false,revenue,38578528,33308611,149,claude-draft,Revenue from contracts with customers - net; no consolidated statements | verify: burhan
+PIOC_FY2026,PIOC,Pioneer Cement Limited,2026-06-30,thousands,false,profit_before_tax,10087307,8087516,149,claude-draft,'Profit before taxation' (after final tax) | verify: burhan
+PIOC_FY2026,PIOC,Pioneer Cement Limited,2026-06-30,thousands,false,net_profit,6594152,4876097,149,claude-draft, | verify: burhan
+PIOC_FY2026,PIOC,Pioneer Cement Limited,2026-06-30,thousands,false,eps_basic,29.03,21.47,149,claude-draft, | verify: burhan
+PIOC_FY2026,PIOC,Pioneer Cement Limited,2026-06-30,thousands,false,total_assets,79437602,86366859,147,claude-draft, | verify: burhan
+PIOC_FY2026,PIOC,Pioneer Cement Limited,2026-06-30,thousands,false,total_equity,49522014,47126981,148,claude-draft,no 'Total equity' label; unlabelled share capital+reserves subtotal | verify: burhan
+OGDC_FY2026,OGDC,Oil & Gas Development Company Limited,2026-06-30,thousands,true,revenue,449190752,401177969,157,claude-draft,Revenue from contracts with customers (gross of royalty) | verify: burhan
+OGDC_FY2026,OGDC,Oil & Gas Development Company Limited,2026-06-30,thousands,true,profit_before_tax,259133104,279313761,157,claude-draft,'Profit before income tax' (after final taxes) | verify: burhan
+OGDC_FY2026,OGDC,Oil & Gas Development Company Limited,2026-06-30,thousands,true,net_profit,242371881,169902514,157,claude-draft,no NCI | verify: burhan
+OGDC_FY2026,OGDC,Oil & Gas Development Company Limited,2026-06-30,thousands,true,eps_basic,56.35,39.5,157,claude-draft, | verify: burhan
+OGDC_FY2026,OGDC,Oil & Gas Development Company Limited,2026-06-30,thousands,true,total_assets,1852826589,1654605970,156,claude-draft,no 'Total assets' label; column total; two printed pages per PDF page | verify: burhan
+OGDC_FY2026,OGDC,Oil & Gas Development Company Limited,2026-06-30,thousands,true,total_equity,1519547299,1348236596,156,claude-draft,no 'Total equity' label | verify: burhan
+POL_FY2026,POL,Pakistan Oilfields Limited,2026-06-30,thousands,true,revenue,64248245,58554896,160,claude-draft,NET SALES | verify: burhan
+POL_FY2026,POL,Pakistan Oilfields Limited,2026-06-30,thousands,true,profit_before_tax,43706018,33779346,160,claude-draft,'PROFIT BEFORE INCOME TAX' (after final taxes) | verify: burhan
+POL_FY2026,POL,Pakistan Oilfields Limited,2026-06-30,thousands,true,net_profit,33801664,22960162,160,claude-draft,attributable to owners; total 33842926 | verify: burhan
+POL_FY2026,POL,Pakistan Oilfields Limited,2026-06-30,thousands,true,eps_basic,119.08,80.89,160,claude-draft, | verify: burhan
+POL_FY2026,POL,Pakistan Oilfields Limited,2026-06-30,thousands,true,total_assets,202224026,180943417,159,claude-draft,no label; column total | verify: burhan
+POL_FY2026,POL,Pakistan Oilfields Limited,2026-06-30,thousands,true,total_equity,94392570,82825018,158,claude-draft,no label; incl. NCI (owners 94278056) | verify: burhan
+PRL_FY2026,PRL,Pakistan Refinery Limited,2026-06-30,thousands,false,revenue,350838916,310351355,67,claude-draft,no consolidated statements; BS and P&L on same PDF page | verify: burhan
+PRL_FY2026,PRL,Pakistan Refinery Limited,2026-06-30,thousands,false,profit_before_tax,24146650,-3963329,67,claude-draft,'Profit / (loss) before taxation' (BEFORE final tax here); prior year LOSS | verify: burhan
+PRL_FY2026,PRL,Pakistan Refinery Limited,2026-06-30,thousands,false,net_profit,15779957,-4659666,67,claude-draft,prior year LOSS | verify: burhan
+PRL_FY2026,PRL,Pakistan Refinery Limited,2026-06-30,thousands,false,eps_basic,25.05,-7.4,67,claude-draft,prior year loss per share | verify: burhan
+PRL_FY2026,PRL,Pakistan Refinery Limited,2026-06-30,thousands,false,total_assets,130748549,107940926,67,claude-draft,no label; column total | verify: burhan
+PRL_FY2026,PRL,Pakistan Refinery Limited,2026-06-30,thousands,false,total_equity,42769992,26604224,67,claude-draft,no label | verify: burhan
+HUBC_FY2026,HUBC,The Hub Power Company Limited,2026-06-30,thousands,true,revenue,71126352,83351492,275,claude-draft,continuing operations | verify: usman
+HUBC_FY2026,HUBC,The Hub Power Company Limited,2026-06-30,thousands,true,profit_before_tax,69600910,64115150,275,claude-draft,"continuing operations, after levy | verify: usman"
+HUBC_FY2026,HUBC,The Hub Power Company Limited,2026-06-30,thousands,true,net_profit,49630724,46131156,275,claude-draft,attributable to owners; total 56257178 | verify: usman
+HUBC_FY2026,HUBC,The Hub Power Company Limited,2026-06-30,thousands,true,eps_basic,38.26,35.56,275,claude-draft,attributable to owners | verify: usman
+HUBC_FY2026,HUBC,The Hub Power Company Limited,2026-06-30,thousands,true,total_assets,422563444,414722187,277,claude-draft, | verify: usman
+HUBC_FY2026,HUBC,The Hub Power Company Limited,2026-06-30,thousands,true,total_equity,258007509,243921905,277,claude-draft,no label; incl. NCI (owners 235381655) | verify: usman
+AGIL_FY2026,AGIL,Agriauto Industries Limited,2026-06-30,thousands,true,revenue,17383149,11863435,151,claude-draft,Turnover - net | verify: usman
+AGIL_FY2026,AGIL,Agriauto Industries Limited,2026-06-30,thousands,true,profit_before_tax,1685924,206236,151,claude-draft,text uses ﬁ ligature ('Proﬁt') | verify: usman
+AGIL_FY2026,AGIL,Agriauto Industries Limited,2026-06-30,thousands,true,net_profit,1203408,238324,151,claude-draft,ﬁ ligature | verify: usman
+AGIL_FY2026,AGIL,Agriauto Industries Limited,2026-06-30,thousands,true,eps_basic,33.43,6.62,151,claude-draft, | verify: usman
+AGIL_FY2026,AGIL,Agriauto Industries Limited,2026-06-30,thousands,true,total_assets,10416925,9654576,150,claude-draft, | verify: usman
+AGIL_FY2026,AGIL,Agriauto Industries Limited,2026-06-30,thousands,true,total_equity,7192975,6052567,150,claude-draft,no label | verify: usman
+GHNI_FY2026,GHNI,Ghandhara Industries Limited,2026-06-30,thousands,false,revenue,60658134,37462866,112,claude-draft,Sales - net; no consolidated statements | verify: usman
+GHNI_FY2026,GHNI,Ghandhara Industries Limited,2026-06-30,thousands,false,profit_before_tax,11412478,6453181,112,claude-draft,'Profit before income taxation' (after final taxes) | verify: usman
+GHNI_FY2026,GHNI,Ghandhara Industries Limited,2026-06-30,thousands,false,net_profit,6926718,4583655,112,claude-draft,Profit for the year | verify: usman
+GHNI_FY2026,GHNI,Ghandhara Industries Limited,2026-06-30,thousands,false,eps_basic,162.57,107.58,112,claude-draft, | verify: usman
+GHNI_FY2026,GHNI,Ghandhara Industries Limited,2026-06-30,thousands,false,total_assets,46268569,29275270,110,claude-draft, | verify: usman
+GHNI_FY2026,GHNI,Ghandhara Industries Limited,2026-06-30,thousands,false,total_equity,22355334,13551899,111,claude-draft, | verify: usman
+POWER_FY2026,POWER,Power Cement Limited,2026-06-30,thousands,false,revenue,33978969,29520136,168,claude-draft,no consolidated statements | verify: usman
+POWER_FY2026,POWER,Power Cement Limited,2026-06-30,thousands,false,profit_before_tax,5595964,1572313,168,claude-draft, | verify: usman
+POWER_FY2026,POWER,Power Cement Limited,2026-06-30,thousands,false,net_profit,3784470,814996,168,claude-draft, | verify: usman
+POWER_FY2026,POWER,Power Cement Limited,2026-06-30,thousands,false,eps_basic,2.86,0.44,168,claude-draft,basic (diluted 2.72) | verify: usman
+POWER_FY2026,POWER,Power Cement Limited,2026-06-30,thousands,false,total_assets,47400245,47680009,166,claude-draft, | verify: usman
+POWER_FY2026,POWER,Power Cement Limited,2026-06-30,thousands,false,total_equity,24014746,23529257,167,claude-draft, | verify: usman
