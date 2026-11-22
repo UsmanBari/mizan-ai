@@ -57,9 +57,24 @@ class Judge:
             return self.cache[key]
         if self.llm is None:
             return {"correct": None, "reason": "no judge configured"}
-        r = self.llm.chat([{"role": "system", "content": JUDGE_PROMPT},
-                           {"role": "user", "content": f"Question: {q}\nGold: {gold}\nCandidate: {pred}"}],
-                          json_mode=True, max_tokens=200)
+        r = None
+        delay = 5
+        for attempt in range(6):
+            try:
+                r = self.llm.chat([{"role": "system", "content": JUDGE_PROMPT},
+                                   {"role": "user", "content": f"Question: {q}\nGold: {gold}\nCandidate: {pred}"}],
+                                  json_mode=True, max_tokens=200)
+                break
+            except Exception as e:
+                msg = str(e)
+                retryable = any(k in msg for k in ("503", "429", "overloaded", "UNAVAILABLE", "RESOURCE_EXHAUSTED",
+                                                    "timed out", "Timeout", "Connection"))
+                if not retryable or attempt == 5:
+                    return {"correct": None, "reason": f"judge error: {msg[:100]}"}
+                time.sleep(delay)
+                delay = min(delay * 2, 60)
+        if r is None:
+            return {"correct": None, "reason": "judge failed"}
         try:
             out = extract_json(r.content)
             out = {"correct": bool(out.get("correct")), "reason": str(out.get("reason", ""))[:200]}
