@@ -1,0 +1,92 @@
+[
+ {
+  "id": "financebench_id_07966",
+  "type": "metrics-generated",
+  "question": "What is the FY2017 - FY2019 3 year average of capex as a % of revenue for Activision Blizzard? Answer in units of percents and round to one decimal place. Calculate (or extract) the answer from the statement of income and the cash flow statement.",
+  "gold": "1.9%",
+  "answer": "I could not complete the analysis within the step limit.",
+  "grounding": 1.0,
+  "gold_page_retrieved": true,
+  "cause": "agent_step_limit"
+ },
+ {
+  "id": "financebench_id_00591",
+  "type": "novel-generated",
+  "question": "Does Adobe have an improving Free cashflow conversion as of FY2022?",
+  "gold": "Yes, the FCF conversion (using net income as the denominator) for Adobe has improved by ~13% from 143% in 2021 to 156% in 2022",
+  "answer": "I could not complete the analysis within the step limit.",
+  "grounding": 1.0,
+  "gold_page_retrieved": true,
+  "cause": "agent_step_limit"
+ },
+ {
+  "id": "financebench_id_00540",
+  "type": "domain-relevant",
+  "question": "Roughly how many times has AES Corporation sold its inventory in FY2022? Calculate inventory turnover ratio for the FY2022; if conventional inventory management is not meaningful for the company then state that and explain why.",
+  "gold": "AES has converted inventory 9.5 times in FY 2022.",
+  "answer": "For FY2022, conventional inventory management **is meaningful** for AES Corporation, as the company maintains significant inventories consisting primarily of fuel and other raw materials used to generate power, as well as operational spare parts and supplies used to maintain power generation and distribution facilities. \n\n### **Inventory Turnover Calculation for FY2022**\n* **Total Cost of Sales (Consolidated):** $10,069 million \n* **Inventory Balance as of December 31, 2021:** $604 million \n* **Inventory Balance as of December 31, 2022:** $1,055 million \n* **Average Inventory for FY2022:** $\\frac{\\$604\\text{ million} + \\$1,055\\text{ million}}{2} = \\$829.5\\text{ million}$ \n* **Inventory Turnover Ratio:** $\\frac{\\$10,069\\text{ million}}{\\$829.5\\text{ million}} \\approx 12.14\\text{ times}$\n\nThus, AES Corporation sold its inventory approximately **12.14 times** during FY2022.",
+  "grounding": 0.538,
+  "gold_page_retrieved": true,
+  "cause": "ungrounded_number (hallucination)"
+ },
+ {
+  "id": "financebench_id_06655",
+  "type": "metrics-generated",
+  "question": "What is Amazon's FY2017 days payable outstanding (DPO)? DPO is defined as: 365 * (average accounts payable between FY2016 and FY2017) / (FY2017 COGS + change in inventory between FY2016 and FY2017). Round your answer to two decimal places. Address the question by using the line items and information shown within the balance sheet and the P&L statement.",
+  "gold": "93.86",
+  "answer": "I could not complete the analysis within the step limit.",
+  "grounding": 1.0,
+  "gold_page_retrieved": true,
+  "cause": "agent_step_limit"
+ },
+ {
+  "id": "financebench_id_08135",
+  "type": "metrics-generated",
+  "question": "What is Amazon's year-over-year change in revenue from FY2016 to FY2017 (in units of percents and round to one decimal place)? Calculate what was asked by utilizing the line items clearly shown in the statement of income.",
+  "gold": "30.8%",
+  "answer": "I could not complete the analysis within the step limit.",
+  "grounding": 1.0,
+  "gold_page_retrieved": true,
+  "cause": "agent_step_limit"
+ },
+ {
+  "id": "financebench_id_01936",
+  "type": "novel-generated",
+  "question": "What is the nature & purpose of AMCOR's restructuring liability as oF Q2 of FY2023 close?",
+  "gold": "87% of the total restructuring liability is related Employee liabilities.",
+  "answer": "Based on Amcor\u2019s Q2 FY2023 Form 10-Q (for the period ended December 31, 2022), the nature and purpose of Amcor's restructuring liability, along with its components and expectations, are as follows:\n\n### 1. Nature & Purpose of Restructuring Activities\n- **Nature of Activities:** Amcor's restructuring activities during the six months ended December 31, 2022, were primarily comprised of restructuring activities related to the **Russia-Ukraine conflict**. In comparison, the prior year's activities included expenses related to the 2019 plan from the **integration of acquired Bemis operations** (which was substantially completed at the end of fiscal year 2022). These expenses primarily relate to Amcor's **Flexibles reportable segment**.\n- **Financial Statement Presentation:** The accruals related to restructuring activities are recorded on the unaudited condensed consolidated balance sheets under **other current liabilities** and **other non-current liabilities**.\n\n### 2. Restructuring Liability Breakdown (as of December 31, 2022)\nAs of the close of Q2 FY2023 (December 31, 2022), the total restructuring plan liability stands at **USD 93 million** (compared to USD 118 million at June 30, 2022). The breakdown by cost category is as follows:\n- **Employee Costs:** USD 81 million\n- **Fixed Asset Related Costs:** USD 2 million\n- **Other Costs:** USD 10 million\n- **Total Restructuring Costs Liability:** USD 93 million\n\n### 3. Movement in Liability During the First Six Months of FY2023\n- **Liability balance at June 30, 2022:** USD 118 million\n  - Employee Costs: USD 97 million\n  - Fixed Asset Related Costs: USD 3 million\n  - Other Costs: USD 18 million\n- **Net charges to earnings:** USD 2 million (all in employee costs)\n- **Cash paid:** USD (25) million total (comprising USD (16) million for employee costs, USD (1) million for fixed asset related costs, and USD (8) million for other costs)\n- **Reversal of unused amounts:** USD (2) million (in employee costs)\n- **Liability balance at December 31, 2022:** USD 93 million\n\n### 4. Expected Timing of Payments\nAmcor expects the **majority** of the liability for employee costs, fixed-asset-related costs, and other costs as of December 31, 2022, to be paid **within the next twelve months**.",
+  "grounding": 1.0,
+  "gold_page_retrieved": true,
+  "cause": "wrong_value_or_reasoning_with_evidence"
+ },
+ {
+  "id": "financebench_id_01928",
+  "type": "novel-generated",
+  "question": "What Was AMCOR's Adjusted Non GAAP EBITDA for FY 2023",
+  "gold": "AMCOR's Adj. EBITDA was $2,018mn in FY 2023",
+  "answer": "I could not complete the analysis within the step limit.",
+  "grounding": 1.0,
+  "gold_page_retrieved": false,
+  "cause": "agent_step_limit"
+ },
+ {
+  "id": "financebench_id_00476",
+  "type": "domain-relevant",
+  "question": "Which debt securities are registered to trade on a national securities exchange under American Express' name as of 2022?",
+  "gold": "There are none",
+  "answer": "I could not complete the analysis within the step limit.",
+  "grounding": 1.0,
+  "gold_page_retrieved": true,
+  "cause": "agent_step_limit"
+ },
+ {
+  "id": "financebench_id_00723",
+  "type": "domain-relevant",
+  "question": "Does AMEX have an improving operating margin profile as of 2022? If operating margin is not a useful metric for a company like this, then state that and explain why.",
+  "gold": "Performance is not measured through operating margin",
+  "answer": "I could not complete the analysis within the step limit.",
+  "grounding": 1.0,
+  "gold_page_retrieved": false,
+  "cause": "agent_step_limit"
+ }
+]

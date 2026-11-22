@@ -1,0 +1,312 @@
+[
+ {
+  "id": "financebench_id_00499",
+  "type": "domain-relevant",
+  "question": "Is 3M a capital-intensive business based on FY2022 data?",
+  "gold": "No, the company is managing its CAPEX and Fixed Assets pretty efficiently, which is evident from below key metrics:\nCAPEX/Revenue Ratio: 5.1%\nFixed assets/Total Assets: 20%\nReturn on Assets= 12.4%",
+  "answer": "I cannot find in the provided filings whether 3M is characterized as a capital-intensive business for FY2022.",
+  "grounding": 1.0,
+  "gold_page_retrieved": false,
+  "cause": "refusal_after_retrieval_miss"
+ },
+ {
+  "id": "financebench_id_01865",
+  "type": "novel-generated",
+  "question": "If we exclude the impact of M&A, which segment has dragged down 3M's overall growth in 2022?",
+  "gold": "The consumer segment shrunk by 0.9% organically.",
+  "answer": "I cannot find the answer to this question in the provided passages.",
+  "grounding": 1.0,
+  "gold_page_retrieved": false,
+  "cause": "refusal_after_retrieval_miss"
+ },
+ {
+  "id": "financebench_id_00807",
+  "type": "domain-relevant",
+  "question": "Does 3M have a reasonably healthy liquidity profile based on its quick ratio for Q2 of FY2023? If the quick ratio is not relevant to measure liquidity, please state that and explain why.",
+  "gold": "No. The quick ratio for 3M was 0.96 by Jun'23 close, which needs a bit of an improvement to touch the 1x mark",
+  "answer": "The provided filings do not contain a quick ratio or the specific components needed to calculate it, and the company instead assesses its liquidity and financial position using measures such as net debt and working capital.",
+  "grounding": 1.0,
+  "gold_page_retrieved": true,
+  "cause": "refusal_despite_evidence"
+ },
+ {
+  "id": "financebench_id_00941",
+  "type": "domain-relevant",
+  "question": "Which debt securities are registered to trade on a national securities exchange under 3M's name as of Q2 of 2023?",
+  "gold": "Following debt securities registered under 3M's name are listed to trade on the New York Stock Exchange:\n-1.500% Notes due 2026 (Trading Symbol: MMM26)\n-1.750% Notes due 2030 (Trading Symbol: MMM30)\n-1.500% Notes due 2031 (Trading Symbol: MMM31)",
+  "answer": "I cannot find information about which specific debt securities are registered to trade on a national securities exchange under 3M's name as of Q2 of 2023 in the provided filings.",
+  "grounding": 1.0,
+  "gold_page_retrieved": false,
+  "cause": "refusal_after_retrieval_miss"
+ },
+ {
+  "id": "financebench_id_02987",
+  "type": "metrics-generated",
+  "question": "What is the FY2019 fixed asset turnover ratio for Activision Blizzard? Fixed asset turnover ratio is defined as: FY2019 revenue / (average PP&E between FY2018 and FY2019). Round your answer to two decimal places. Base your judgments on the information provided primarily in the statement of income and the statement of financial position.",
+  "gold": "24.26",
+  "answer": "I cannot find the property, plant, and equipment (PP&E) figures for FY2018 and FY2019 in the provided passages, so the fixed asset turnover ratio cannot be calculated.",
+  "grounding": 1.0,
+  "gold_page_retrieved": false,
+  "cause": "refusal_after_retrieval_miss"
+ },
+ {
+  "id": "financebench_id_07966",
+  "type": "metrics-generated",
+  "question": "What is the FY2017 - FY2019 3 year average of capex as a % of revenue for Activision Blizzard? Answer in units of percents and round to one decimal place. Calculate (or extract) the answer from the statement of income and the cash flow statement.",
+  "gold": "1.9%",
+  "answer": "I cannot find the capital expenditures (capex) or purchases of property and equipment for Activision Blizzard for the years 2017, 2018, and 2019 in the provided passages, so I cannot calculate the 3-year average of capex as a percentage of revenue.",
+  "grounding": 1.0,
+  "gold_page_retrieved": false,
+  "cause": "refusal_after_retrieval_miss"
+ },
+ {
+  "id": "financebench_id_04735",
+  "type": "metrics-generated",
+  "question": "You are an investment banker and your only resource(s) to answer the following question is (are): the statement of financial position and the cash flow statement. Here's the question: what is the FY2015 operating cash flow ratio for Adobe? Operating cash flow ratio is defined as: cash from operations / total current liabilities. Round your answer to two decimal places.",
+  "gold": "0.66",
+  "answer": "I cannot find the total current liabilities for FY2015 in the provided statement of financial position (Consolidated Balance Sheets) and cash flow statement to calculate the operating cash flow ratio.",
+  "grounding": 1.0,
+  "gold_page_retrieved": true,
+  "cause": "refusal_despite_evidence"
+ },
+ {
+  "id": "financebench_id_03856",
+  "type": "metrics-generated",
+  "question": "What is the FY2017 operating cash flow ratio for Adobe? Operating cash flow ratio is defined as: cash from operations / total current liabilities. Round your answer to two decimal places. Please utilize information provided primarily within the balance sheet and the cash flow statement.",
+  "gold": "0.83",
+  "answer": "I cannot find the total current liabilities for FY2017 in the provided passages, so the operating cash flow ratio cannot be calculated.",
+  "grounding": 1.0,
+  "gold_page_retrieved": true,
+  "cause": "refusal_despite_evidence"
+ },
+ {
+  "id": "financebench_id_00438",
+  "type": "domain-relevant",
+  "question": "Does Adobe have an improving operating margin profile as of FY2022? If operating margin is not a useful metric for a company like this, then state that and explain why.",
+  "gold": "No the operating margins of Adobe have recently declined from 36.8% in FY 2021 to 34.6% in FY2022. A drop by 2.2% in a year.",
+  "answer": "As of FY2022, Adobe's Chief Executive Officer (the chief operating decision maker) reviews revenue and gross margin information for each of the reportable segments, but does not review operating expenses on a segment by segment basis.",
+  "grounding": 1.0,
+  "gold_page_retrieved": false,
+  "cause": "retrieval_miss"
+ },
+ {
+  "id": "financebench_id_00591",
+  "type": "novel-generated",
+  "question": "Does Adobe have an improving Free cashflow conversion as of FY2022?",
+  "gold": "Yes, the FCF conversion (using net income as the denominator) for Adobe has improved by ~13% from 143% in 2021 to 156% in 2022",
+  "answer": "I cannot find information about Adobe's Free cashflow conversion as of FY2022 in the provided passages.",
+  "grounding": 1.0,
+  "gold_page_retrieved": false,
+  "cause": "refusal_after_retrieval_miss"
+ },
+ {
+  "id": "financebench_id_00540",
+  "type": "domain-relevant",
+  "question": "Roughly how many times has AES Corporation sold its inventory in FY2022? Calculate inventory turnover ratio for the FY2022; if conventional inventory management is not meaningful for the company then state that and explain why.",
+  "gold": "AES has converted inventory 9.5 times in FY 2022.",
+  "answer": "Conventional inventory management and the calculation of an inventory turnover ratio are not meaningful for The AES Corporation because its inventory primarily consists of specialized items such as fuel, raw materials used to generate power, and operational spare parts and supplies used to maintain power generation and distribution facilities rather than goods held for resale in a traditional retail or manufacturing sense.",
+  "grounding": 1.0,
+  "gold_page_retrieved": false,
+  "cause": "retrieval_miss"
+ },
+ {
+  "id": "financebench_id_06655",
+  "type": "metrics-generated",
+  "question": "What is Amazon's FY2017 days payable outstanding (DPO)? DPO is defined as: 365 * (average accounts payable between FY2016 and FY2017) / (FY2017 COGS + change in inventory between FY2016 and FY2017). Round your answer to two decimal places. Address the question by using the line items and information shown within the balance sheet and the P&L statement.",
+  "gold": "93.86",
+  "answer": "I cannot find the Cost of Goods Sold (COGS) in the provided passages to calculate the FY2017 days payable outstanding (DPO).",
+  "grounding": 1.0,
+  "gold_page_retrieved": true,
+  "cause": "refusal_despite_evidence"
+ },
+ {
+  "id": "financebench_id_03882",
+  "type": "metrics-generated",
+  "question": "What is Amcor's year end FY2020 net AR (in USD millions)? Address the question by adopting the perspective of a financial analyst who can only use the details shown within the balance sheet.",
+  "gold": "$1616.00",
+  "answer": "I cannot find the net accounts receivable (AR) for the year ended FY2020 in the provided passages.",
+  "grounding": 1.0,
+  "gold_page_retrieved": false,
+  "cause": "refusal_after_retrieval_miss"
+ },
+ {
+  "id": "financebench_id_01935",
+  "type": "novel-generated",
+  "question": "What was the key agenda of the AMCOR's 8k filing dated 1st July 2022?",
+  "gold": "Amcor Finance (USA), Inc. and Amcor Flexibles North America, Inc., entered into supplemental indentures relating to Guaranteed Senior Notes due 2026 and 2028. This involved the substitution of the Substitute Issuer (Amcor Flexibles North America) for the Former Issuer (Amcor Finance) and the assumption of covenants under the indentures. (In essence a novation agreement)",
+  "answer": "I cannot find the key agenda explicitly described in the provided filings beyond the filing being a Form 8-K Current Report dated July 1, 2022 (reporting an event of June 30, 2022), which includes exhibits such as supplemental indentures.",
+  "grounding": 1.0,
+  "gold_page_retrieved": true,
+  "cause": "refusal_despite_evidence"
+ },
+ {
+  "id": "financebench_id_00799",
+  "type": "domain-relevant",
+  "question": "Has AMCOR's quick ratio improved or declined between FY2023 and FY2022? If the quick ratio is not something that a financial analyst would ask about a company like this, then state that and explain why.",
+  "gold": "The quick ratio has slightly improved from 0.67 times to 0.69 times between FY 2023 and FY 2022.(3.4% jump)",
+  "answer": "To calculate the quick ratio, we take (Cash and cash equivalents + Short-term marketable securities + Accounts receivable) / Current liabilities. Based on the consolidated balance sheets, the figures are as follows:\n\nAs of June 30, 2022:\n- Cash and cash equivalents: $775 million\n- Trade receivables, net: $1,935 million\n- Total Quick Assets: $775 + $1,935 = $2,710 million\n\nAs of June 30, 2023:\n- Cash and cash equivalents: $689 million\n- Trade receivables, net: $1,875 million\n- Total Quick Assets: $689 + $1,875 = $2,564 million\n\nWhile precise current liabilities are not explicitly aggregated into a single line item in the provided passages, comparing the quick assets alone shows a decline from $2,710 million in FY2022 to $2,564 million in FY2023.",
+  "grounding": 0.714,
+  "gold_page_retrieved": false,
+  "cause": "retrieval_miss"
+ },
+ {
+  "id": "financebench_id_01936",
+  "type": "novel-generated",
+  "question": "What is the nature & purpose of AMCOR's restructuring liability as oF Q2 of FY2023 close?",
+  "gold": "87% of the total restructuring liability is related Employee liabilities.",
+  "answer": "As of December 31, 2022, the restructuring plan liability of $93 million (consolidated) consists of employee costs ($81 million), fixed asset related costs ($2 million), and other costs ($10 million). These restructuring activities were primarily comprised of activities related to the Russia-Ukraine conflict and primarily relate to the Flexibles reportable segment. The Company expects the majority of the liability for employee, fixed assets related, and other costs as of December 31, 2022 to be paid within the next twelve months.",
+  "grounding": 1.0,
+  "gold_page_retrieved": true,
+  "cause": "wrong_value_or_reasoning_with_evidence"
+ },
+ {
+  "id": "financebench_id_03069",
+  "type": "metrics-generated",
+  "question": "Answer the following question as if you are an equity research analyst and have lost internet connection so you do not have access to financial metric providers. According to the details clearly outlined within the P&L statement and the statement of cash flows, what is the FY2015 depreciation and amortization (D&A from cash flow statement) % margin for AMD?",
+  "gold": "4.2%",
+  "answer": "I cannot find the FY2015 depreciation and amortization figure from the cash flow statement in the provided passages.",
+  "grounding": 1.0,
+  "gold_page_retrieved": false,
+  "cause": "refusal_after_retrieval_miss"
+ },
+ {
+  "id": "financebench_id_00757",
+  "type": "novel-generated",
+  "question": "Did AMD report customer concentration in FY22?",
+  "gold": "Yes, one customer accounted for 16% of consolidated net revenue",
+  "answer": "I cannot find information regarding customer concentration in FY22 in the provided passages.",
+  "grounding": 0.0,
+  "gold_page_retrieved": false,
+  "cause": "refusal_after_retrieval_miss"
+ },
+ {
+  "id": "financebench_id_00476",
+  "type": "domain-relevant",
+  "question": "Which debt securities are registered to trade on a national securities exchange under American Express' name as of 2022?",
+  "gold": "There are none",
+  "answer": "I cannot find information in the provided filings regarding which specific debt securities are registered to trade on a national securities exchange under American Express' name as of 2022.",
+  "grounding": 1.0,
+  "gold_page_retrieved": false,
+  "cause": "refusal_after_retrieval_miss"
+ },
+ {
+  "id": "financebench_id_00723",
+  "type": "domain-relevant",
+  "question": "Does AMEX have an improving operating margin profile as of 2022? If operating margin is not a useful metric for a company like this, then state that and explain why.",
+  "gold": "Performance is not measured through operating margin",
+  "answer": "I cannot find information about AMEX in the provided filings.",
+  "grounding": 1.0,
+  "gold_page_retrieved": false,
+  "cause": "refusal_after_retrieval_miss"
+ },
+ {
+  "id": "financebench_id_00720",
+  "type": "domain-relevant",
+  "question": "What drove gross margin change as of the FY2022 for American Express? If gross margin is not a useful metric for a company like this, then please state that and explain why.",
+  "gold": "Performance is not measured through gross margin",
+  "answer": "I cannot find information about gross margin for American Express in the provided passages.",
+  "grounding": 1.0,
+  "gold_page_retrieved": false,
+  "cause": "refusal_after_retrieval_miss"
+ },
+ {
+  "id": "financebench_id_01964",
+  "type": "novel-generated",
+  "question": "What was the largest liability in American Express's Balance Sheet in 2022?",
+  "gold": "Customer deposits",
+  "answer": "I cannot find the largest liability in American Express's Balance Sheet in 2022 from the provided passages.",
+  "grounding": 1.0,
+  "gold_page_retrieved": false,
+  "cause": "refusal_after_retrieval_miss"
+ },
+ {
+  "id": "financebench_id_01981",
+  "type": "novel-generated",
+  "question": "Was American Express able to retain card members during 2022?",
+  "gold": "Yes",
+  "answer": "I cannot find information in the provided passages regarding whether American Express was able to retain card members during 2022.",
+  "grounding": 1.0,
+  "gold_page_retrieved": false,
+  "cause": "refusal_after_retrieval_miss"
+ },
+ {
+  "id": "financebench_id_04417",
+  "type": "metrics-generated",
+  "question": "What is the year end FY2019 total amount of inventories for Best Buy? Answer in USD millions. Base your judgments on the information provided primarily in the balance sheet.",
+  "gold": "$5409.00",
+  "answer": "I cannot find the year end FY2019 total amount of inventories for Best Buy in the provided passages.",
+  "grounding": 1.0,
+  "gold_page_retrieved": false,
+  "cause": "refusal_after_retrieval_miss"
+ },
+ {
+  "id": "financebench_id_00288",
+  "type": "novel-generated",
+  "question": "Was there any drop in Cash & Cash equivalents between FY 2023 and Q2 of FY2024?",
+  "gold": "Yes, there was a decline of ~42% between FY2023 and Q2 of FY 2024.",
+  "answer": "I cannot find information about Cash & Cash equivalents for FY 2023 and Q2 of FY 2024 in the provided passages.",
+  "grounding": 0.0,
+  "gold_page_retrieved": false,
+  "cause": "refusal_after_retrieval_miss"
+ },
+ {
+  "id": "financebench_id_01902",
+  "type": "novel-generated",
+  "question": "Which Best Buy product category performed the best (by top line) in the domestic (USA) Market during Q2 of FY2024?",
+  "gold": "The entertainment segment experienced the highest growth of 9% during Q2 FY2024, primarily from gaming division.",
+  "answer": "In the Domestic segment during the second quarter of fiscal 2024 (three months ended July 29, 2023), the top-performing product category by revenue was Computing and Mobile Phones with USD 3,674 million.",
+  "grounding": 1.0,
+  "gold_page_retrieved": true,
+  "cause": "wrong_value_or_reasoning_with_evidence"
+ },
+ {
+  "id": "financebench_id_00517",
+  "type": "domain-relevant",
+  "question": "Are there any product categories / service categories that represent more than 20% of Boeing's revenue for FY2022?",
+  "gold": "Yes. Boeing has product and service categories that represent more than 20% of Boeing's revenue for FY2022. These categories are Commercial Airplanes which comprises 39% of total revenue, Defence which comprises 35% of total revenue and Services which comprises 26% of total revenue.",
+  "answer": "I cannot find the answer to whether any product categories or service categories represent more than 20% of Boeing's total consolidated revenue for FY2022 in the provided passages, as the segments (BCA, BDS, BGS) are presented by customer location and customer type rather than a breakdown of total consolidated revenue by product/service category.",
+  "grounding": 0.0,
+  "gold_page_retrieved": false,
+  "cause": "refusal_after_retrieval_miss"
+ },
+ {
+  "id": "financebench_id_01091",
+  "type": "domain-relevant",
+  "question": "Has Boeing reported any materially important ongoing legal battles from FY2022?",
+  "gold": "Yes. Multiple lawsuits have been filed against Boeing resulting from a 2018 Lion Air crash and a 2019 Ethiopian Airlines crash.",
+  "answer": "I cannot find any information in the provided filings regarding ongoing legal battles for FY2022.",
+  "grounding": 1.0,
+  "gold_page_retrieved": false,
+  "cause": "refusal_after_retrieval_miss"
+ },
+ {
+  "id": "financebench_id_00678",
+  "type": "domain-relevant",
+  "question": "Does Boeing have an improving gross margin profile as of FY2022? If gross margin is not a useful metric for a company like this, then state that and explain why.",
+  "gold": "Yes. Boeing has an improving gross margin profile as of FY2022. Gross profit improved from $3,017 million in FY2021 to $3,502 million in FY2022. Gross margin % improved from 4.8% in FY2021 to 5.3% in FY2022.",
+  "answer": "Based on the filings, Boeing does not state that it has an overall improving gross margin profile. Instead, the filings note that the 767, 777X, and 787 programs had near break-even or single-digit margins at December 31, 2022, and that adverse changes to revenue or cost estimates for these programs could result in future earnings charges. The 777X program had near break-even gross margins at December 31, 2022, and is subject to factors that could result in additional reach-forward losses. However, for the 787 program, an increase in the program accounting quantity by 100 units during the fourth quarter of 2022 improved that specific program's profit margin.",
+  "grounding": 1.0,
+  "gold_page_retrieved": false,
+  "cause": "retrieval_miss"
+ },
+ {
+  "id": "financebench_id_00464",
+  "type": "novel-generated",
+  "question": "Is Boeing's business subject to cyclicality?",
+  "gold": "Yes, Boeing's business is subject to cyclicality due to its exposure to the airline industry which is a cyclical industry.",
+  "answer": "I cannot find information regarding whether Boeing's business is subject to cyclicality in the provided passages.",
+  "grounding": 1.0,
+  "gold_page_retrieved": false,
+  "cause": "refusal_after_retrieval_miss"
+ },
+ {
+  "id": "financebench_id_00585",
+  "type": "novel-generated",
+  "question": "How does Boeing's effective tax rate in FY2022 compare to FY2021?",
+  "gold": "Effective tax rate in FY2022 was 0.62%, compared to  -14.76% in FY2021.",
+  "answer": "In FY2022, Boeing's effective tax rate (calculated as income tax expense/(benefit) as a percentage of loss before income taxes) was -0.6% (with an income tax expense of $31 million on a total loss before income taxes of $5,022 million). In FY2021, the effective tax rate was 14.7% (with an income tax benefit of $743 million on a total loss before income taxes of $5,033 million).",
+  "grounding": 1.0,
+  "gold_page_retrieved": false,
+  "cause": "retrieval_miss"
+ }
+]
