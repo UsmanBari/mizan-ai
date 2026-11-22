@@ -1,0 +1,588 @@
+[
+  {
+    "extractor": "rules",
+    "doc_id": "LUCK_FY2026",
+    "field": "net_profit",
+    "gold": 89042169.0,
+    "pred": 96456241.0,
+    "cause": "wrong_line_item_or_consolidation",
+    "gold_page": 289,
+    "pages_used": [
+      288,
+      289,
+      290
+    ]
+  },
+  {
+    "extractor": "rules",
+    "doc_id": "PIOC_FY2026",
+    "field": "revenue",
+    "gold": 38578528.0,
+    "pred": 38578.53,
+    "cause": "unit_scale",
+    "gold_page": 149,
+    "pages_used": [
+      118,
+      119,
+      120
+    ]
+  },
+  {
+    "extractor": "rules",
+    "doc_id": "PIOC_FY2026",
+    "field": "profit_before_tax",
+    "gold": 10087307.0,
+    "pred": 10191.54,
+    "cause": "page_not_located",
+    "gold_page": 149,
+    "pages_used": [
+      118,
+      119,
+      120
+    ]
+  },
+  {
+    "extractor": "rules",
+    "doc_id": "PIOC_FY2026",
+    "field": "net_profit",
+    "gold": 6594152.0,
+    "pred": 6594.15,
+    "cause": "unit_scale",
+    "gold_page": 149,
+    "pages_used": [
+      118,
+      119,
+      120
+    ]
+  },
+  {
+    "extractor": "rules",
+    "doc_id": "PIOC_FY2026",
+    "field": "eps_basic",
+    "gold": 29.03,
+    "pred": null,
+    "cause": "missing_field_page_not_located",
+    "gold_page": 149,
+    "pages_used": [
+      118,
+      119,
+      120
+    ]
+  },
+  {
+    "extractor": "rules",
+    "doc_id": "PIOC_FY2026",
+    "field": "total_assets",
+    "gold": 79437602.0,
+    "pred": 79437.6,
+    "cause": "unit_scale",
+    "gold_page": 147,
+    "pages_used": [
+      118,
+      119,
+      120
+    ]
+  },
+  {
+    "extractor": "rules",
+    "doc_id": "PIOC_FY2026",
+    "field": "total_equity",
+    "gold": 49522014.0,
+    "pred": 79437.6,
+    "cause": "page_not_located",
+    "gold_page": 148,
+    "pages_used": [
+      118,
+      119,
+      120
+    ]
+  },
+  {
+    "extractor": "rules",
+    "doc_id": "OGDC_FY2026",
+    "field": "total_assets",
+    "gold": 1852826589.0,
+    "pred": null,
+    "cause": "missing_field",
+    "gold_page": 156,
+    "pages_used": [
+      156,
+      157,
+      158
+    ]
+  },
+  {
+    "extractor": "rules",
+    "doc_id": "OGDC_FY2026",
+    "field": "total_equity",
+    "gold": 1519547299.0,
+    "pred": null,
+    "cause": "missing_field",
+    "gold_page": 156,
+    "pages_used": [
+      156,
+      157,
+      158
+    ]
+  },
+  {
+    "extractor": "rules",
+    "doc_id": "POL_FY2026",
+    "field": "revenue",
+    "gold": 64248245.0,
+    "pred": 89353222.0,
+    "cause": "wrong_line_item_or_consolidation",
+    "gold_page": 160,
+    "pages_used": [
+      158,
+      159,
+      160,
+      161
+    ]
+  },
+  {
+    "extractor": "rules",
+    "doc_id": "POL_FY2026",
+    "field": "profit_before_tax",
+    "gold": 43706018.0,
+    "pred": 44060928.0,
+    "cause": "wrong_line_item_or_consolidation",
+    "gold_page": 160,
+    "pages_used": [
+      158,
+      159,
+      160,
+      161
+    ]
+  },
+  {
+    "extractor": "rules",
+    "doc_id": "POL_FY2026",
+    "field": "total_assets",
+    "gold": 202224026.0,
+    "pred": null,
+    "cause": "missing_field",
+    "gold_page": 159,
+    "pages_used": [
+      158,
+      159,
+      160,
+      161
+    ]
+  },
+  {
+    "extractor": "rules",
+    "doc_id": "POL_FY2026",
+    "field": "total_equity",
+    "gold": 94392570.0,
+    "pred": null,
+    "cause": "missing_field",
+    "gold_page": 158,
+    "pages_used": [
+      158,
+      159,
+      160,
+      161
+    ]
+  },
+  {
+    "extractor": "rules",
+    "doc_id": "PRL_FY2026",
+    "field": "profit_before_tax",
+    "gold": 24146650.0,
+    "pred": null,
+    "cause": "missing_field",
+    "gold_page": 67,
+    "pages_used": [
+      67,
+      68
+    ]
+  },
+  {
+    "extractor": "rules",
+    "doc_id": "PRL_FY2026",
+    "field": "net_profit",
+    "gold": 15779957.0,
+    "pred": null,
+    "cause": "missing_field",
+    "gold_page": 67,
+    "pages_used": [
+      67,
+      68
+    ]
+  },
+  {
+    "extractor": "rules",
+    "doc_id": "PRL_FY2026",
+    "field": "eps_basic",
+    "gold": 25.05,
+    "pred": null,
+    "cause": "missing_field",
+    "gold_page": 67,
+    "pages_used": [
+      67,
+      68
+    ]
+  },
+  {
+    "extractor": "rules",
+    "doc_id": "PRL_FY2026",
+    "field": "total_assets",
+    "gold": 130748549.0,
+    "pred": null,
+    "cause": "missing_field",
+    "gold_page": 67,
+    "pages_used": [
+      67,
+      68
+    ]
+  },
+  {
+    "extractor": "rules",
+    "doc_id": "PRL_FY2026",
+    "field": "total_equity",
+    "gold": 42769992.0,
+    "pred": null,
+    "cause": "missing_field",
+    "gold_page": 67,
+    "pages_used": [
+      67,
+      68
+    ]
+  },
+  {
+    "extractor": "rules",
+    "doc_id": "HUBC_FY2026",
+    "field": "net_profit",
+    "gold": 49630724.0,
+    "pred": 56257178.0,
+    "cause": "wrong_line_item_or_consolidation",
+    "gold_page": 275,
+    "pages_used": [
+      275,
+      276,
+      277,
+      278
+    ]
+  },
+  {
+    "extractor": "rules",
+    "doc_id": "HUBC_FY2026",
+    "field": "total_equity",
+    "gold": 258007509.0,
+    "pred": 422563444.0,
+    "cause": "wrong_line_item_or_consolidation",
+    "gold_page": 277,
+    "pages_used": [
+      275,
+      276,
+      277,
+      278
+    ]
+  },
+  {
+    "extractor": "rules",
+    "doc_id": "AGIL_FY2026",
+    "field": "revenue",
+    "gold": 17383149.0,
+    "pred": 9221.0,
+    "cause": "wrong_line_item_or_consolidation",
+    "gold_page": 151,
+    "pages_used": [
+      103,
+      150,
+      151
+    ]
+  },
+  {
+    "extractor": "rules",
+    "doc_id": "AGIL_FY2026",
+    "field": "profit_before_tax",
+    "gold": 1685924.0,
+    "pred": null,
+    "cause": "missing_field",
+    "gold_page": 151,
+    "pages_used": [
+      103,
+      150,
+      151
+    ]
+  },
+  {
+    "extractor": "rules",
+    "doc_id": "AGIL_FY2026",
+    "field": "net_profit",
+    "gold": 1203408.0,
+    "pred": null,
+    "cause": "missing_field",
+    "gold_page": 151,
+    "pages_used": [
+      103,
+      150,
+      151
+    ]
+  },
+  {
+    "extractor": "rules",
+    "doc_id": "AGIL_FY2026",
+    "field": "total_equity",
+    "gold": 7192975.0,
+    "pred": 10416925.0,
+    "cause": "wrong_line_item_or_consolidation",
+    "gold_page": 150,
+    "pages_used": [
+      103,
+      150,
+      151
+    ]
+  },
+  {
+    "extractor": "rules",
+    "doc_id": "GHNI_FY2026",
+    "field": "revenue",
+    "gold": 60658134.0,
+    "pred": 202253.0,
+    "cause": "wrong_line_item_or_consolidation",
+    "gold_page": 112,
+    "pages_used": [
+      96,
+      97,
+      112,
+      113
+    ]
+  },
+  {
+    "extractor": "rules",
+    "doc_id": "GHNI_FY2026",
+    "field": "total_assets",
+    "gold": 46268569.0,
+    "pred": null,
+    "cause": "missing_field_page_not_located",
+    "gold_page": 110,
+    "pages_used": [
+      96,
+      97,
+      112,
+      113
+    ]
+  },
+  {
+    "extractor": "rules",
+    "doc_id": "GHNI_FY2026",
+    "field": "total_equity",
+    "gold": 22355334.0,
+    "pred": null,
+    "cause": "missing_field_page_not_located",
+    "gold_page": 111,
+    "pages_used": [
+      96,
+      97,
+      112,
+      113
+    ]
+  },
+  {
+    "extractor": "rules",
+    "doc_id": "POWER_FY2026",
+    "field": "eps_basic",
+    "gold": 2.86,
+    "pred": null,
+    "cause": "missing_field_page_not_located",
+    "gold_page": 168,
+    "pages_used": [
+      109,
+      110,
+      111
+    ]
+  },
+  {
+    "extractor": "rules",
+    "doc_id": "POWER_FY2026",
+    "field": "total_equity",
+    "gold": 24014746.0,
+    "pred": 47400245.0,
+    "cause": "page_not_located",
+    "gold_page": 167,
+    "pages_used": [
+      109,
+      110,
+      111
+    ]
+  },
+  {
+    "extractor": "api",
+    "doc_id": "PIOC_FY2026",
+    "field": "revenue",
+    "gold": 38578528.0,
+    "pred": 38578.53,
+    "cause": "unit_scale",
+    "gold_page": 149,
+    "pages_used": [
+      118,
+      119,
+      120
+    ]
+  },
+  {
+    "extractor": "api",
+    "doc_id": "PIOC_FY2026",
+    "field": "profit_before_tax",
+    "gold": 10087307.0,
+    "pred": 10191.54,
+    "cause": "page_not_located",
+    "gold_page": 149,
+    "pages_used": [
+      118,
+      119,
+      120
+    ]
+  },
+  {
+    "extractor": "api",
+    "doc_id": "PIOC_FY2026",
+    "field": "net_profit",
+    "gold": 6594152.0,
+    "pred": 6594.15,
+    "cause": "unit_scale",
+    "gold_page": 149,
+    "pages_used": [
+      118,
+      119,
+      120
+    ]
+  },
+  {
+    "extractor": "api",
+    "doc_id": "PIOC_FY2026",
+    "field": "eps_basic",
+    "gold": 29.03,
+    "pred": null,
+    "cause": "missing_field_page_not_located",
+    "gold_page": 149,
+    "pages_used": [
+      118,
+      119,
+      120
+    ]
+  },
+  {
+    "extractor": "api",
+    "doc_id": "PIOC_FY2026",
+    "field": "total_assets",
+    "gold": 79437602.0,
+    "pred": 79437.6,
+    "cause": "unit_scale",
+    "gold_page": 147,
+    "pages_used": [
+      118,
+      119,
+      120
+    ]
+  },
+  {
+    "extractor": "api",
+    "doc_id": "PIOC_FY2026",
+    "field": "total_equity",
+    "gold": 49522014.0,
+    "pred": 31909.21,
+    "cause": "page_not_located",
+    "gold_page": 148,
+    "pages_used": [
+      118,
+      119,
+      120
+    ]
+  },
+  {
+    "extractor": "api",
+    "doc_id": "PRL_FY2026",
+    "field": "revenue",
+    "gold": 350838916.0,
+    "pred": null,
+    "cause": "invalid_or_no_output",
+    "gold_page": 67,
+    "pages_used": [
+      67,
+      68
+    ]
+  },
+  {
+    "extractor": "api",
+    "doc_id": "PRL_FY2026",
+    "field": "profit_before_tax",
+    "gold": 24146650.0,
+    "pred": null,
+    "cause": "invalid_or_no_output",
+    "gold_page": 67,
+    "pages_used": [
+      67,
+      68
+    ]
+  },
+  {
+    "extractor": "api",
+    "doc_id": "PRL_FY2026",
+    "field": "net_profit",
+    "gold": 15779957.0,
+    "pred": null,
+    "cause": "invalid_or_no_output",
+    "gold_page": 67,
+    "pages_used": [
+      67,
+      68
+    ]
+  },
+  {
+    "extractor": "api",
+    "doc_id": "PRL_FY2026",
+    "field": "eps_basic",
+    "gold": 25.05,
+    "pred": null,
+    "cause": "invalid_or_no_output",
+    "gold_page": 67,
+    "pages_used": [
+      67,
+      68
+    ]
+  },
+  {
+    "extractor": "api",
+    "doc_id": "PRL_FY2026",
+    "field": "total_assets",
+    "gold": 130748549.0,
+    "pred": null,
+    "cause": "invalid_or_no_output",
+    "gold_page": 67,
+    "pages_used": [
+      67,
+      68
+    ]
+  },
+  {
+    "extractor": "api",
+    "doc_id": "PRL_FY2026",
+    "field": "total_equity",
+    "gold": 42769992.0,
+    "pred": null,
+    "cause": "invalid_or_no_output",
+    "gold_page": 67,
+    "pages_used": [
+      67,
+      68
+    ]
+  },
+  {
+    "extractor": "api",
+    "doc_id": "POWER_FY2026",
+    "field": "eps_basic",
+    "gold": 2.86,
+    "pred": null,
+    "cause": "missing_field_page_not_located",
+    "gold_page": 168,
+    "pages_used": [
+      109,
+      110,
+      111
+    ]
+  }
+]

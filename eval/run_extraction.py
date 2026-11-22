@@ -50,7 +50,8 @@ def main(names: list[str]) -> dict:
     pdf_dir = DATA / "psx_pdfs"
     pages_cache = {}
     for doc_id in gold:
-        pages_cache[doc_id] = {p.page: p.text for p in parse_pdf(pdf_dir / f"{doc_id}.pdf")}
+        print(f"reading {doc_id} ...", flush=True)
+        pages_cache[doc_id] = {p.page: p.text for p in parse_pdf(pdf_dir / f"{doc_id}.pdf", ocr=False)}
     summary, errors = {}, []
     for name in names:
         ex = make(name)
@@ -58,6 +59,7 @@ def main(names: list[str]) -> dict:
         lat, cost, causes = [], [], Counter()
         for doc_id, g in gold.items():
             t = time.perf_counter()
+            print(f"  {name}: {doc_id}", flush=True)
             res = ex.extract(pages_cache[doc_id], g["_meta"]["company"])
             lat.append(time.perf_counter() - t)
             cost.append(res.usage.cost(getattr(getattr(ex, "llm", None), "price_in", 0),
