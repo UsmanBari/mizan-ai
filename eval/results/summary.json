@@ -262,5 +262,44 @@
         "n": 36
       }
     }
+  },
+  "extraction": {
+    "rules": {
+      "field_accuracy": 0.463,
+      "n_examples": 54,
+      "n_reports": 9,
+      "coverage": 0.722,
+      "schema_valid_rate": 1.0,
+      "unit_accuracy": 0.556,
+      "statement_page_located": 0.778,
+      "latency_p50_s": 0.05,
+      "latency_p95_s": 0.11,
+      "cost_per_report_usd": 0.0,
+      "error_causes": {
+        "wrong_line_item_or_consolidation": 8,
+        "unit_scale": 3,
+        "page_not_located": 3,
+        "missing_field_page_not_located": 4,
+        "missing_field": 11
+      }
+    },
+    "api:gemini-3.5-flash-lite": {
+      "field_accuracy": 0.759,
+      "n_examples": 54,
+      "n_reports": 9,
+      "coverage": 0.852,
+      "schema_valid_rate": 0.889,
+      "unit_accuracy": 0.778,
+      "statement_page_located": 0.778,
+      "latency_p50_s": 3.07,
+      "latency_p95_s": 7.59,
+      "cost_per_report_usd": 0.00372,
+      "error_causes": {
+        "unit_scale": 3,
+        "page_not_located": 2,
+        "missing_field_page_not_located": 2,
+        "invalid_or_no_output": 6
+      }
+    }
   }
 }
