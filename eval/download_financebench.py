@@ -21,7 +21,11 @@ def main() -> None:
         src = REPO / p
         dst = out / Path(p).name
         if not dst.exists():
-            dst.symlink_to(src.resolve())
+            try:
+                dst.symlink_to(src.resolve())
+            except OSError:
+                import shutil
+                shutil.copy(src.resolve(), dst)
     print(f"{len(list(out.glob('*.pdf')))} PDFs ready in {out}")
 
 
