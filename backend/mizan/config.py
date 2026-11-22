@@ -6,8 +6,15 @@ from pathlib import Path
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
 
+_BACKEND_DIR = Path(__file__).resolve().parent.parent
+
+
 class Settings(BaseSettings):
-    model_config = SettingsConfigDict(env_prefix="MIZAN_", env_file=".env", extra="ignore")
+    model_config = SettingsConfigDict(
+        env_prefix="MIZAN_",
+        env_file=(_BACKEND_DIR / ".env", ".env"),
+        extra="ignore",
+    )
 
     # --- Storage -----------------------------------------------------------
     # "memory" keeps everything in RAM (tests, eval, quick demo).
