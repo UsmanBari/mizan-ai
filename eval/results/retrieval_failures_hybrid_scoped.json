@@ -1,0 +1,2736 @@
+[
+  {
+    "id": "financebench_id_00499",
+    "retriever": "hybrid",
+    "setting": "scoped",
+    "recall@1": 0.0,
+    "recall@3": 0.0,
+    "recall@5": 0.0,
+    "recall@10": 0.0,
+    "mrr@10": 0.0,
+    "ndcg@10": 0.0,
+    "gold": [
+      [
+        "3M_2022_10K",
+        48
+      ],
+      [
+        "3M_2022_10K",
+        50
+      ],
+      [
+        "3M_2022_10K",
+        52
+      ]
+    ],
+    "top5": [
+      [
+        "3M_2022_10K",
+        37
+      ],
+      [
+        "3M_2022_10K",
+        38
+      ],
+      [
+        "3M_2022_10K",
+        39
+      ],
+      [
+        "3M_2022_10K",
+        34
+      ],
+      [
+        "3M_2022_10K",
+        62
+      ]
+    ],
+    "cause": "short_or_vague_question",
+    "question": "Is 3M a capital-intensive business based on FY2022 data?",
+    "type": "domain-relevant"
+  },
+  {
+    "id": "financebench_id_01226",
+    "retriever": "hybrid",
+    "setting": "scoped",
+    "recall@1": 0.0,
+    "recall@3": 0.0,
+    "recall@5": 0.0,
+    "recall@10": 0.0,
+    "mrr@10": 0.0,
+    "ndcg@10": 0.0,
+    "gold": [
+      [
+        "3M_2022_10K",
+        27
+      ]
+    ],
+    "top5": [
+      [
+        "3M_2022_10K",
+        20
+      ],
+      [
+        "3M_2022_10K",
+        121
+      ],
+      [
+        "3M_2022_10K",
+        19
+      ],
+      [
+        "3M_2022_10K",
+        28
+      ],
+      [
+        "3M_2022_10K",
+        22
+      ]
+    ],
+    "cause": "adjacent_page",
+    "question": "What drove operating margin change as of FY2022 for 3M? If operating margin is not a useful metric for a company like this, then please state that and explain why.",
+    "type": "domain-relevant"
+  },
+  {
+    "id": "financebench_id_01865",
+    "retriever": "hybrid",
+    "setting": "scoped",
+    "recall@1": 0.0,
+    "recall@3": 0.0,
+    "recall@5": 0.0,
+    "recall@10": 0.0,
+    "mrr@10": 0.0,
+    "ndcg@10": 0.0,
+    "gold": [
+      [
+        "3M_2022_10K",
+        25
+      ]
+    ],
+    "top5": [
+      [
+        "3M_2022_10K",
+        19
+      ],
+      [
+        "3M_2022_10K",
+        53
+      ],
+      [
+        "3M_2022_10K",
+        121
+      ],
+      [
+        "3M_2022_10K",
+        63
+      ],
+      [
+        "3M_2022_10K",
+        32
+      ]
+    ],
+    "cause": "short_or_vague_question",
+    "question": "If we exclude the impact of M&A, which segment has dragged down 3M's overall growth in 2022?",
+    "type": "novel-generated"
+  },
+  {
+    "id": "financebench_id_00807",
+    "retriever": "hybrid",
+    "setting": "scoped",
+    "recall@1": 0.0,
+    "recall@3": 0.0,
+    "recall@5": 0.0,
+    "recall@10": 0.0,
+    "mrr@10": 0.0,
+    "ndcg@10": 0.0,
+    "gold": [
+      [
+        "3M_2023Q2_10Q",
+        5
+      ]
+    ],
+    "top5": [
+      [
+        "3M_2023Q2_10Q",
+        71
+      ],
+      [
+        "3M_2023Q2_10Q",
+        70
+      ],
+      [
+        "3M_2023Q2_10Q",
+        54
+      ],
+      [
+        "3M_2023Q2_10Q",
+        52
+      ],
+      [
+        "3M_2023Q2_10Q",
+        62
+      ]
+    ],
+    "cause": "vocabulary_mismatch",
+    "question": "Does 3M have a reasonably healthy liquidity profile based on its quick ratio for Q2 of FY2023? If the quick ratio is not relevant to measure liquidity, please state that and explain why.",
+    "type": "domain-relevant"
+  },
+  {
+    "id": "financebench_id_02987",
+    "retriever": "hybrid",
+    "setting": "scoped",
+    "recall@1": 0.0,
+    "recall@3": 0.0,
+    "recall@5": 0.0,
+    "recall@10": 0.5,
+    "mrr@10": 0.14285714285714285,
+    "ndcg@10": 0.20438239758848611,
+    "gold": [
+      [
+        "ACTIVISIONBLIZZARD_2019_10K",
+        69
+      ],
+      [
+        "ACTIVISIONBLIZZARD_2019_10K",
+        70
+      ]
+    ],
+    "top5": [
+      [
+        "ACTIVISIONBLIZZARD_2019_10K",
+        185
+      ],
+      [
+        "ACTIVISIONBLIZZARD_2019_10K",
+        61
+      ],
+      [
+        "ACTIVISIONBLIZZARD_2019_10K",
+        119
+      ],
+      [
+        "ACTIVISIONBLIZZARD_2019_10K",
+        174
+      ],
+      [
+        "ACTIVISIONBLIZZARD_2019_10K",
+        80
+      ]
+    ],
+    "cause": "vocabulary_mismatch",
+    "question": "What is the FY2019 fixed asset turnover ratio for Activision Blizzard? Fixed asset turnover ratio is defined as: FY2019 revenue / (average PP&E between FY2018 and FY2019). Round your answer to two decimal places. Base your judgments on the information provided primarily in the statement of income and the statement of financial position.",
+    "type": "metrics-generated"
+  },
+  {
+    "id": "financebench_id_07966",
+    "retriever": "hybrid",
+    "setting": "scoped",
+    "recall@1": 0.0,
+    "recall@3": 0.0,
+    "recall@5": 0.0,
+    "recall@10": 0.5,
+    "mrr@10": 0.1111111111111111,
+    "ndcg@10": 0.18457569677956817,
+    "gold": [
+      [
+        "ACTIVISIONBLIZZARD_2019_10K",
+        70
+      ],
+      [
+        "ACTIVISIONBLIZZARD_2019_10K",
+        73
+      ]
+    ],
+    "top5": [
+      [
+        "ACTIVISIONBLIZZARD_2019_10K",
+        94
+      ],
+      [
+        "ACTIVISIONBLIZZARD_2019_10K",
+        100
+      ],
+      [
+        "ACTIVISIONBLIZZARD_2019_10K",
+        49
+      ],
+      [
+        "ACTIVISIONBLIZZARD_2019_10K",
+        29
+      ],
+      [
+        "ACTIVISIONBLIZZARD_2019_10K",
+        120
+      ]
+    ],
+    "cause": "vocabulary_mismatch",
+    "question": "What is the FY2017 - FY2019 3 year average of capex as a % of revenue for Activision Blizzard? Answer in units of percents and round to one decimal place. Calculate (or extract) the answer from the statement of income and the cash flow statement.",
+    "type": "metrics-generated"
+  },
+  {
+    "id": "financebench_id_04735",
+    "retriever": "hybrid",
+    "setting": "scoped",
+    "recall@1": 0.0,
+    "recall@3": 0.0,
+    "recall@5": 0.0,
+    "recall@10": 1.0,
+    "mrr@10": 0.16666666666666666,
+    "ndcg@10": 0.40298313359773236,
+    "gold": [
+      [
+        "ADOBE_2015_10K",
+        59
+      ],
+      [
+        "ADOBE_2015_10K",
+        63
+      ]
+    ],
+    "top5": [
+      [
+        "ADOBE_2015_10K",
+        78
+      ],
+      [
+        "ADOBE_2015_10K",
+        53
+      ],
+      [
+        "ADOBE_2015_10K",
+        72
+      ],
+      [
+        "ADOBE_2015_10K",
+        73
+      ],
+      [
+        "ADOBE_2015_10K",
+        79
+      ]
+    ],
+    "cause": "vocabulary_mismatch",
+    "question": "You are an investment banker and your only resource(s) to answer the following question is (are): the statement of financial position and the cash flow statement. Here's the question: what is the FY2015 operating cash flow ratio for Adobe? Operating cash flow ratio is defined as: cash from operations / total current liabilities. Round your answer to two decimal places.",
+    "type": "metrics-generated"
+  },
+  {
+    "id": "financebench_id_07507",
+    "retriever": "hybrid",
+    "setting": "scoped",
+    "recall@1": 0.0,
+    "recall@3": 0.0,
+    "recall@5": 0.0,
+    "recall@10": 1.0,
+    "mrr@10": 0.1,
+    "ndcg@10": 0.2890648263178879,
+    "gold": [
+      [
+        "ADOBE_2016_10K",
+        62
+      ]
+    ],
+    "top5": [
+      [
+        "ADOBE_2016_10K",
+        101
+      ],
+      [
+        "ADOBE_2016_10K",
+        92
+      ],
+      [
+        "ADOBE_2016_10K",
+        66
+      ],
+      [
+        "ADOBE_2016_10K",
+        43
+      ],
+      [
+        "ADOBE_2016_10K",
+        87
+      ]
+    ],
+    "cause": "vocabulary_mismatch",
+    "question": "What is Adobe's year-over-year change in unadjusted operating income from FY2015 to FY2016 (in units of percents and round to one decimal place)? Give a solution to the question by using the income statement.",
+    "type": "metrics-generated"
+  },
+  {
+    "id": "financebench_id_00438",
+    "retriever": "hybrid",
+    "setting": "scoped",
+    "recall@1": 0.0,
+    "recall@3": 0.0,
+    "recall@5": 0.0,
+    "recall@10": 0.0,
+    "mrr@10": 0.0,
+    "ndcg@10": 0.0,
+    "gold": [
+      [
+        "ADOBE_2022_10K",
+        54
+      ]
+    ],
+    "top5": [
+      [
+        "ADOBE_2022_10K",
+        64
+      ],
+      [
+        "ADOBE_2022_10K",
+        24
+      ],
+      [
+        "ADOBE_2022_10K",
+        38
+      ],
+      [
+        "ADOBE_2022_10K",
+        88
+      ],
+      [
+        "ADOBE_2022_10K",
+        89
+      ]
+    ],
+    "cause": "vocabulary_mismatch",
+    "question": "Does Adobe have an improving operating margin profile as of FY2022? If operating margin is not a useful metric for a company like this, then state that and explain why.",
+    "type": "domain-relevant"
+  },
+  {
+    "id": "financebench_id_01319",
+    "retriever": "hybrid",
+    "setting": "scoped",
+    "recall@1": 0.0,
+    "recall@3": 0.0,
+    "recall@5": 0.0,
+    "recall@10": 1.0,
+    "mrr@10": 0.16666666666666666,
+    "ndcg@10": 0.3562071871080222,
+    "gold": [
+      [
+        "AES_2022_10K",
+        132
+      ]
+    ],
+    "top5": [
+      [
+        "AES_2022_10K",
+        95
+      ],
+      [
+        "AES_2022_10K",
+        86
+      ],
+      [
+        "AES_2022_10K",
+        99
+      ],
+      [
+        "AES_2022_10K",
+        202
+      ],
+      [
+        "AES_2022_10K",
+        216
+      ]
+    ],
+    "cause": "vocabulary_mismatch",
+    "question": "What is the quantity of restructuring costs directly outlined in AES Corporation's income statements for FY2022? If restructuring costs are not explicitly outlined then state 0.",
+    "type": "domain-relevant"
+  },
+  {
+    "id": "financebench_id_00540",
+    "retriever": "hybrid",
+    "setting": "scoped",
+    "recall@1": 0.0,
+    "recall@3": 0.0,
+    "recall@5": 0.0,
+    "recall@10": 0.0,
+    "mrr@10": 0.0,
+    "ndcg@10": 0.0,
+    "gold": [
+      [
+        "AES_2022_10K",
+        130
+      ],
+      [
+        "AES_2022_10K",
+        132
+      ]
+    ],
+    "top5": [
+      [
+        "AES_2022_10K",
+        149
+      ],
+      [
+        "AES_2022_10K",
+        2
+      ],
+      [
+        "AES_2022_10K",
+        209
+      ],
+      [
+        "AES_2022_10K",
+        140
+      ],
+      [
+        "AES_2022_10K",
+        84
+      ]
+    ],
+    "cause": "vocabulary_mismatch",
+    "question": "Roughly how many times has AES Corporation sold its inventory in FY2022? Calculate inventory turnover ratio for the FY2022; if conventional inventory management is not meaningful for the company then state that and explain why.",
+    "type": "domain-relevant"
+  },
+  {
+    "id": "financebench_id_08135",
+    "retriever": "hybrid",
+    "setting": "scoped",
+    "recall@1": 0.0,
+    "recall@3": 0.0,
+    "recall@5": 0.0,
+    "recall@10": 0.0,
+    "mrr@10": 0.0,
+    "ndcg@10": 0.0,
+    "gold": [
+      [
+        "AMAZON_2017_10K",
+        38
+      ]
+    ],
+    "top5": [
+      [
+        "AMAZON_2017_10K",
+        43
+      ],
+      [
+        "AMAZON_2017_10K",
+        25
+      ],
+      [
+        "AMAZON_2017_10K",
+        72
+      ],
+      [
+        "AMAZON_2017_10K",
+        39
+      ],
+      [
+        "AMAZON_2017_10K",
+        32
+      ]
+    ],
+    "cause": "adjacent_page",
+    "question": "What is Amazon's year-over-year change in revenue from FY2016 to FY2017 (in units of percents and round to one decimal place)? Calculate what was asked by utilizing the line items clearly shown in the statement of income.",
+    "type": "metrics-generated"
+  },
+  {
+    "id": "financebench_id_03882",
+    "retriever": "hybrid",
+    "setting": "scoped",
+    "recall@1": 0.0,
+    "recall@3": 0.0,
+    "recall@5": 0.0,
+    "recall@10": 1.0,
+    "mrr@10": 0.1111111111111111,
+    "ndcg@10": 0.3010299956639812,
+    "gold": [
+      [
+        "AMCOR_2020_10K",
+        50
+      ]
+    ],
+    "top5": [
+      [
+        "AMCOR_2020_10K",
+        35
+      ],
+      [
+        "AMCOR_2020_10K",
+        54
+      ],
+      [
+        "AMCOR_2020_10K",
+        76
+      ],
+      [
+        "AMCOR_2020_10K",
+        51
+      ],
+      [
+        "AMCOR_2020_10K",
+        88
+      ]
+    ],
+    "cause": "adjacent_page",
+    "question": "What is Amcor's year end FY2020 net AR (in USD millions)? Address the question by adopting the perspective of a financial analyst who can only use the details shown within the balance sheet.",
+    "type": "metrics-generated"
+  },
+  {
+    "id": "financebench_id_00799",
+    "retriever": "hybrid",
+    "setting": "scoped",
+    "recall@1": 0.0,
+    "recall@3": 0.0,
+    "recall@5": 0.0,
+    "recall@10": 0.0,
+    "mrr@10": 0.0,
+    "ndcg@10": 0.0,
+    "gold": [
+      [
+        "AMCOR_2023_10K",
+        52
+      ]
+    ],
+    "top5": [
+      [
+        "AMCOR_2023_10K",
+        86
+      ],
+      [
+        "AMCOR_2023_10K",
+        21
+      ],
+      [
+        "AMCOR_2023_10K",
+        4
+      ],
+      [
+        "AMCOR_2023_10K",
+        2
+      ],
+      [
+        "AMCOR_2023_10K",
+        122
+      ]
+    ],
+    "cause": "vocabulary_mismatch",
+    "question": "Has AMCOR's quick ratio improved or declined between FY2023 and FY2022? If the quick ratio is not something that a financial analyst would ask about a company like this, then state that and explain why.",
+    "type": "domain-relevant"
+  },
+  {
+    "id": "financebench_id_01928",
+    "retriever": "hybrid",
+    "setting": "scoped",
+    "recall@1": 0.0,
+    "recall@3": 0.0,
+    "recall@5": 0.0,
+    "recall@10": 1.0,
+    "mrr@10": 0.16666666666666666,
+    "ndcg@10": 0.3562071871080222,
+    "gold": [
+      [
+        "AMCOR_2023Q4_EARNINGS",
+        12
+      ]
+    ],
+    "top5": [
+      [
+        "AMCOR_2023Q4_EARNINGS",
+        1
+      ],
+      [
+        "AMCOR_2023Q4_EARNINGS",
+        11
+      ],
+      [
+        "AMCOR_2023Q4_EARNINGS",
+        7
+      ],
+      [
+        "AMCOR_2023Q4_EARNINGS",
+        2
+      ],
+      [
+        "AMCOR_2023Q4_EARNINGS",
+        5
+      ]
+    ],
+    "cause": "adjacent_page",
+    "question": "What Was AMCOR's Adjusted Non GAAP EBITDA for FY 2023",
+    "type": "novel-generated"
+  },
+  {
+    "id": "financebench_id_00222",
+    "retriever": "hybrid",
+    "setting": "scoped",
+    "recall@1": 0.0,
+    "recall@3": 0.0,
+    "recall@5": 0.0,
+    "recall@10": 0.0,
+    "mrr@10": 0.0,
+    "ndcg@10": 0.0,
+    "gold": [
+      [
+        "AMD_2022_10K",
+        56
+      ]
+    ],
+    "top5": [
+      [
+        "AMD_2022_10K",
+        53
+      ],
+      [
+        "AMD_2022_10K",
+        1
+      ],
+      [
+        "AMD_2022_10K",
+        51
+      ],
+      [
+        "AMD_2022_10K",
+        18
+      ],
+      [
+        "AMD_2022_10K",
+        36
+      ]
+    ],
+    "cause": "vocabulary_mismatch",
+    "question": "Does AMD have a reasonably healthy liquidity profile based on its quick ratio for FY22? If the quick ratio is not relevant to measure liquidity, please state that and explain why.",
+    "type": "domain-relevant"
+  },
+  {
+    "id": "financebench_id_00723",
+    "retriever": "hybrid",
+    "setting": "scoped",
+    "recall@1": 0.0,
+    "recall@3": 0.0,
+    "recall@5": 0.0,
+    "recall@10": 0.0,
+    "mrr@10": 0.0,
+    "ndcg@10": 0.0,
+    "gold": [
+      [
+        "AMERICANEXPRESS_2022_10K",
+        96
+      ]
+    ],
+    "top5": [
+      [
+        "AMERICANEXPRESS_2022_10K",
+        64
+      ],
+      [
+        "AMERICANEXPRESS_2022_10K",
+        153
+      ],
+      [
+        "AMERICANEXPRESS_2022_10K",
+        236
+      ],
+      [
+        "AMERICANEXPRESS_2022_10K",
+        72
+      ],
+      [
+        "AMERICANEXPRESS_2022_10K",
+        46
+      ]
+    ],
+    "cause": "vocabulary_mismatch",
+    "question": "Does AMEX have an improving operating margin profile as of 2022? If operating margin is not a useful metric for a company like this, then state that and explain why.",
+    "type": "domain-relevant"
+  },
+  {
+    "id": "financebench_id_00720",
+    "retriever": "hybrid",
+    "setting": "scoped",
+    "recall@1": 0.0,
+    "recall@3": 0.0,
+    "recall@5": 0.0,
+    "recall@10": 0.0,
+    "mrr@10": 0.0,
+    "ndcg@10": 0.0,
+    "gold": [
+      [
+        "AMERICANEXPRESS_2022_10K",
+        96
+      ]
+    ],
+    "top5": [
+      [
+        "AMERICANEXPRESS_2022_10K",
+        135
+      ],
+      [
+        "AMERICANEXPRESS_2022_10K",
+        150
+      ],
+      [
+        "AMERICANEXPRESS_2022_10K",
+        118
+      ],
+      [
+        "AMERICANEXPRESS_2022_10K",
+        46
+      ],
+      [
+        "AMERICANEXPRESS_2022_10K",
+        45
+      ]
+    ],
+    "cause": "vocabulary_mismatch",
+    "question": "What drove gross margin change as of the FY2022 for American Express? If gross margin is not a useful metric for a company like this, then please state that and explain why.",
+    "type": "domain-relevant"
+  },
+  {
+    "id": "financebench_id_01351",
+    "retriever": "hybrid",
+    "setting": "scoped",
+    "recall@1": 0.0,
+    "recall@3": 0.0,
+    "recall@5": 0.0,
+    "recall@10": 0.0,
+    "mrr@10": 0.0,
+    "ndcg@10": 0.0,
+    "gold": [
+      [
+        "AMERICANEXPRESS_2022_10K",
+        44
+      ]
+    ],
+    "top5": [
+      [
+        "AMERICANEXPRESS_2022_10K",
+        49
+      ],
+      [
+        "AMERICANEXPRESS_2022_10K",
+        164
+      ],
+      [
+        "AMERICANEXPRESS_2022_10K",
+        146
+      ],
+      [
+        "AMERICANEXPRESS_2022_10K",
+        37
+      ],
+      [
+        "AMERICANEXPRESS_2022_10K",
+        126
+      ]
+    ],
+    "cause": "vocabulary_mismatch",
+    "question": "How much has the effective tax rate of American Express changed between FY2021 and FY2022?",
+    "type": "domain-relevant"
+  },
+  {
+    "id": "financebench_id_01964",
+    "retriever": "hybrid",
+    "setting": "scoped",
+    "recall@1": 0.0,
+    "recall@3": 0.0,
+    "recall@5": 0.0,
+    "recall@10": 0.0,
+    "mrr@10": 0.0,
+    "ndcg@10": 0.0,
+    "gold": [
+      [
+        "AMERICANEXPRESS_2022_10K",
+        98
+      ]
+    ],
+    "top5": [
+      [
+        "AMERICANEXPRESS_2022_10K",
+        92
+      ],
+      [
+        "AMERICANEXPRESS_2022_10K",
+        152
+      ],
+      [
+        "AMERICANEXPRESS_2022_10K",
+        65
+      ],
+      [
+        "AMERICANEXPRESS_2022_10K",
+        162
+      ],
+      [
+        "AMERICANEXPRESS_2022_10K",
+        163
+      ]
+    ],
+    "cause": "short_or_vague_question",
+    "question": "What was the largest liability in American Express's Balance Sheet in 2022?",
+    "type": "novel-generated"
+  },
+  {
+    "id": "financebench_id_01981",
+    "retriever": "hybrid",
+    "setting": "scoped",
+    "recall@1": 0.0,
+    "recall@3": 0.0,
+    "recall@5": 0.0,
+    "recall@10": 0.0,
+    "mrr@10": 0.0,
+    "ndcg@10": 0.0,
+    "gold": [
+      [
+        "AMERICANEXPRESS_2022_10K",
+        45
+      ]
+    ],
+    "top5": [
+      [
+        "AMERICANEXPRESS_2022_10K",
+        4
+      ],
+      [
+        "AMERICANEXPRESS_2022_10K",
+        7
+      ],
+      [
+        "AMERICANEXPRESS_2022_10K",
+        29
+      ],
+      [
+        "AMERICANEXPRESS_2022_10K",
+        254
+      ],
+      [
+        "AMERICANEXPRESS_2022_10K",
+        89
+      ]
+    ],
+    "cause": "short_or_vague_question",
+    "question": "Was American Express able to retain card members during 2022?",
+    "type": "novel-generated"
+  },
+  {
+    "id": "financebench_id_00070",
+    "retriever": "hybrid",
+    "setting": "scoped",
+    "recall@1": 0.0,
+    "recall@3": 0.0,
+    "recall@5": 0.0,
+    "recall@10": 0.5,
+    "mrr@10": 0.1,
+    "ndcg@10": 0.17723928678404774,
+    "gold": [
+      [
+        "AMERICANWATERWORKS_2022_10K",
+        81
+      ],
+      [
+        "AMERICANWATERWORKS_2022_10K",
+        82
+      ]
+    ],
+    "top5": [
+      [
+        "AMERICANWATERWORKS_2022_10K",
+        139
+      ],
+      [
+        "AMERICANWATERWORKS_2022_10K",
+        140
+      ],
+      [
+        "AMERICANWATERWORKS_2022_10K",
+        145
+      ],
+      [
+        "AMERICANWATERWORKS_2022_10K",
+        19
+      ],
+      [
+        "AMERICANWATERWORKS_2022_10K",
+        102
+      ]
+    ],
+    "cause": "vocabulary_mismatch",
+    "question": "Does American Water Works have positive working capital based on FY2022 data? If working capital is not a useful or relevant metric for this company, then please state that and explain why.",
+    "type": "domain-relevant"
+  },
+  {
+    "id": "financebench_id_02608",
+    "retriever": "hybrid",
+    "setting": "scoped",
+    "recall@1": 0.0,
+    "recall@3": 0.0,
+    "recall@5": 0.0,
+    "recall@10": 1.0,
+    "mrr@10": 0.16666666666666666,
+    "ndcg@10": 0.3562071871080222,
+    "gold": [
+      [
+        "BESTBUY_2017_10K",
+        56
+      ]
+    ],
+    "top5": [
+      [
+        "BESTBUY_2017_10K",
+        81
+      ],
+      [
+        "BESTBUY_2017_10K",
+        91
+      ],
+      [
+        "BESTBUY_2017_10K",
+        36
+      ],
+      [
+        "BESTBUY_2017_10K",
+        31
+      ],
+      [
+        "BESTBUY_2017_10K",
+        34
+      ]
+    ],
+    "cause": "vocabulary_mismatch",
+    "question": "In agreement with the information outlined in the income statement, what is the FY2015 - FY2017 3 year average net profit margin (as a %) for Best Buy? Answer in units of percents and round to one decimal place.",
+    "type": "metrics-generated"
+  },
+  {
+    "id": "financebench_id_00685",
+    "retriever": "hybrid",
+    "setting": "scoped",
+    "recall@1": 0.0,
+    "recall@3": 0.0,
+    "recall@5": 0.0,
+    "recall@10": 0.0,
+    "mrr@10": 0.0,
+    "ndcg@10": 0.0,
+    "gold": [
+      [
+        "BESTBUY_2023_10K",
+        40
+      ]
+    ],
+    "top5": [
+      [
+        "BESTBUY_2023_10K",
+        10
+      ],
+      [
+        "BESTBUY_2023_10K",
+        23
+      ],
+      [
+        "BESTBUY_2023_10K",
+        18
+      ],
+      [
+        "BESTBUY_2023_10K",
+        33
+      ],
+      [
+        "BESTBUY_2023_10K",
+        25
+      ]
+    ],
+    "cause": "vocabulary_mismatch",
+    "question": "Are Best Buy's gross margins historically consistent (not fluctuating more than roughly 2% each year)? If gross margins are not a relevant metric for a company like this, then please state that and explain why.",
+    "type": "domain-relevant"
+  },
+  {
+    "id": "financebench_id_01902",
+    "retriever": "hybrid",
+    "setting": "scoped",
+    "recall@1": 0.0,
+    "recall@3": 0.0,
+    "recall@5": 0.0,
+    "recall@10": 1.0,
+    "mrr@10": 0.16666666666666666,
+    "ndcg@10": 0.3562071871080222,
+    "gold": [
+      [
+        "BESTBUY_2024Q2_10Q",
+        18
+      ]
+    ],
+    "top5": [
+      [
+        "BESTBUY_2024Q2_10Q",
+        17
+      ],
+      [
+        "BESTBUY_2024Q2_10Q",
+        19
+      ],
+      [
+        "BESTBUY_2024Q2_10Q",
+        2
+      ],
+      [
+        "BESTBUY_2024Q2_10Q",
+        14
+      ],
+      [
+        "BESTBUY_2024Q2_10Q",
+        1
+      ]
+    ],
+    "cause": "adjacent_page",
+    "question": "Which Best Buy product category performed the best (by top line) in the domestic (USA) Market during Q2 of FY2024?",
+    "type": "novel-generated"
+  },
+  {
+    "id": "financebench_id_00517",
+    "retriever": "hybrid",
+    "setting": "scoped",
+    "recall@1": 0.0,
+    "recall@3": 0.0,
+    "recall@5": 0.0,
+    "recall@10": 1.0,
+    "mrr@10": 0.16666666666666666,
+    "ndcg@10": 0.3562071871080222,
+    "gold": [
+      [
+        "BOEING_2022_10K",
+        62
+      ]
+    ],
+    "top5": [
+      [
+        "BOEING_2022_10K",
+        37
+      ],
+      [
+        "BOEING_2022_10K",
+        116
+      ],
+      [
+        "BOEING_2022_10K",
+        38
+      ],
+      [
+        "BOEING_2022_10K",
+        55
+      ],
+      [
+        "BOEING_2022_10K",
+        10
+      ]
+    ],
+    "cause": "vocabulary_mismatch",
+    "question": "Are there any product categories / service categories that represent more than 20% of Boeing's revenue for FY2022?",
+    "type": "domain-relevant"
+  },
+  {
+    "id": "financebench_id_00678",
+    "retriever": "hybrid",
+    "setting": "scoped",
+    "recall@1": 0.0,
+    "recall@3": 0.0,
+    "recall@5": 0.0,
+    "recall@10": 0.0,
+    "mrr@10": 0.0,
+    "ndcg@10": 0.0,
+    "gold": [
+      [
+        "BOEING_2022_10K",
+        55
+      ]
+    ],
+    "top5": [
+      [
+        "BOEING_2022_10K",
+        51
+      ],
+      [
+        "BOEING_2022_10K",
+        47
+      ],
+      [
+        "BOEING_2022_10K",
+        35
+      ],
+      [
+        "BOEING_2022_10K",
+        50
+      ],
+      [
+        "BOEING_2022_10K",
+        30
+      ]
+    ],
+    "cause": "vocabulary_mismatch",
+    "question": "Does Boeing have an improving gross margin profile as of FY2022? If gross margin is not a useful metric for a company like this, then state that and explain why.",
+    "type": "domain-relevant"
+  },
+  {
+    "id": "financebench_id_01290",
+    "retriever": "hybrid",
+    "setting": "scoped",
+    "recall@1": 0.0,
+    "recall@3": 0.0,
+    "recall@5": 0.0,
+    "recall@10": 0.3333333333333333,
+    "mrr@10": 0.125,
+    "ndcg@10": 0.1480409554829326,
+    "gold": [
+      [
+        "BOEING_2022_10K",
+        8
+      ],
+      [
+        "BOEING_2022_10K",
+        10
+      ],
+      [
+        "BOEING_2022_10K",
+        14
+      ]
+    ],
+    "top5": [
+      [
+        "BOEING_2022_10K",
+        115
+      ],
+      [
+        "BOEING_2022_10K",
+        29
+      ],
+      [
+        "BOEING_2022_10K",
+        116
+      ],
+      [
+        "BOEING_2022_10K",
+        118
+      ],
+      [
+        "BOEING_2022_10K",
+        3
+      ]
+    ],
+    "cause": "short_or_vague_question",
+    "question": "Who are the primary customers of Boeing as of FY2022?",
+    "type": "domain-relevant"
+  },
+  {
+    "id": "financebench_id_00585",
+    "retriever": "hybrid",
+    "setting": "scoped",
+    "recall@1": 0.0,
+    "recall@3": 0.0,
+    "recall@5": 0.0,
+    "recall@10": 0.0,
+    "mrr@10": 0.0,
+    "ndcg@10": 0.0,
+    "gold": [
+      [
+        "BOEING_2022_10K",
+        55
+      ]
+    ],
+    "top5": [
+      [
+        "BOEING_2022_10K",
+        79
+      ],
+      [
+        "BOEING_2022_10K",
+        77
+      ],
+      [
+        "BOEING_2022_10K",
+        78
+      ],
+      [
+        "BOEING_2022_10K",
+        76
+      ],
+      [
+        "BOEING_2022_10K",
+        37
+      ]
+    ],
+    "cause": "short_or_vague_question",
+    "question": "How does Boeing's effective tax rate in FY2022 compare to FY2021?",
+    "type": "novel-generated"
+  },
+  {
+    "id": "financebench_id_03473",
+    "retriever": "hybrid",
+    "setting": "scoped",
+    "recall@1": 0.0,
+    "recall@3": 0.0,
+    "recall@5": 0.0,
+    "recall@10": 0.5,
+    "mrr@10": 0.125,
+    "ndcg@10": 0.19342640361727081,
+    "gold": [
+      [
+        "COCACOLA_2017_10K",
+        74
+      ],
+      [
+        "COCACOLA_2017_10K",
+        76
+      ]
+    ],
+    "top5": [
+      [
+        "COCACOLA_2017_10K",
+        41
+      ],
+      [
+        "COCACOLA_2017_10K",
+        137
+      ],
+      [
+        "COCACOLA_2017_10K",
+        125
+      ],
+      [
+        "COCACOLA_2017_10K",
+        126
+      ],
+      [
+        "COCACOLA_2017_10K",
+        88
+      ]
+    ],
+    "cause": "vocabulary_mismatch",
+    "question": "What is the FY2017 return on assets (ROA) for Coca Cola? ROA is defined as: FY2017 net income / (average total assets between FY2016 and FY2017). Round your answer to two decimal places. Give a response to the question by relying on the details shown in the balance sheet and the P&L statement.",
+    "type": "metrics-generated"
+  },
+  {
+    "id": "financebench_id_09724",
+    "retriever": "hybrid",
+    "setting": "scoped",
+    "recall@1": 0.0,
+    "recall@3": 0.0,
+    "recall@5": 0.0,
+    "recall@10": 0.0,
+    "mrr@10": 0.0,
+    "ndcg@10": 0.0,
+    "gold": [
+      [
+        "COCACOLA_2021_10K",
+        62
+      ]
+    ],
+    "top5": [
+      [
+        "COCACOLA_2021_10K",
+        47
+      ],
+      [
+        "COCACOLA_2021_10K",
+        49
+      ],
+      [
+        "COCACOLA_2021_10K",
+        68
+      ],
+      [
+        "COCACOLA_2021_10K",
+        86
+      ],
+      [
+        "COCACOLA_2021_10K",
+        77
+      ]
+    ],
+    "cause": "vocabulary_mismatch",
+    "question": "What is Coca Cola's FY2021 COGS % margin? Calculate what was asked by utilizing the line items clearly shown in the income statement.",
+    "type": "metrics-generated"
+  },
+  {
+    "id": "financebench_id_06272",
+    "retriever": "hybrid",
+    "setting": "scoped",
+    "recall@1": 0.0,
+    "recall@3": 0.0,
+    "recall@5": 0.0,
+    "recall@10": 0.5,
+    "mrr@10": 0.16666666666666666,
+    "ndcg@10": 0.21840743681816419,
+    "gold": [
+      [
+        "COCACOLA_2022_10K",
+        63
+      ],
+      [
+        "COCACOLA_2022_10K",
+        66
+      ]
+    ],
+    "top5": [
+      [
+        "COCACOLA_2022_10K",
+        69
+      ],
+      [
+        "COCACOLA_2022_10K",
+        67
+      ],
+      [
+        "COCACOLA_2022_10K",
+        57
+      ],
+      [
+        "COCACOLA_2022_10K",
+        33
+      ],
+      [
+        "COCACOLA_2022_10K",
+        64
+      ]
+    ],
+    "cause": "adjacent_page",
+    "question": "What is Coca Cola's FY2022 dividend payout ratio (using total cash dividends paid and net income attributable to shareholders)? Round answer to two decimal places. Answer the question asked by assuming you only have access to information clearly displayed in the cash flow statement and the income statement.",
+    "type": "metrics-generated"
+  },
+  {
+    "id": "financebench_id_00005",
+    "retriever": "hybrid",
+    "setting": "scoped",
+    "recall@1": 0.0,
+    "recall@3": 0.0,
+    "recall@5": 0.0,
+    "recall@10": 0.0,
+    "mrr@10": 0.0,
+    "ndcg@10": 0.0,
+    "gold": [
+      [
+        "CORNING_2022_10K",
+        60
+      ]
+    ],
+    "top5": [
+      [
+        "CORNING_2022_10K",
+        34
+      ],
+      [
+        "CORNING_2022_10K",
+        67
+      ],
+      [
+        "CORNING_2022_10K",
+        37
+      ],
+      [
+        "CORNING_2022_10K",
+        133
+      ],
+      [
+        "CORNING_2022_10K",
+        23
+      ]
+    ],
+    "cause": "vocabulary_mismatch",
+    "question": "Does Corning have positive working capital based on FY2022 data? If working capital is not a useful or relevant metric for this company, then please state that and explain why.",
+    "type": "domain-relevant"
+  },
+  {
+    "id": "financebench_id_05915",
+    "retriever": "hybrid",
+    "setting": "scoped",
+    "recall@1": 0.0,
+    "recall@3": 0.0,
+    "recall@5": 0.0,
+    "recall@10": 0.5,
+    "mrr@10": 0.14285714285714285,
+    "ndcg@10": 0.20438239758848611,
+    "gold": [
+      [
+        "CVSHEALTH_2018_10K",
+        302
+      ],
+      [
+        "CVSHEALTH_2018_10K",
+        304
+      ]
+    ],
+    "top5": [
+      [
+        "CVSHEALTH_2018_10K",
+        145
+      ],
+      [
+        "CVSHEALTH_2018_10K",
+        326
+      ],
+      [
+        "CVSHEALTH_2018_10K",
+        327
+      ],
+      [
+        "CVSHEALTH_2018_10K",
+        144
+      ],
+      [
+        "CVSHEALTH_2018_10K",
+        39
+      ]
+    ],
+    "cause": "vocabulary_mismatch",
+    "question": "What is the FY2018 fixed asset turnover ratio for CVS Health? Fixed asset turnover ratio is defined as: FY2018 revenue / (average PP&E between FY2017 and FY2018). Round your answer to two decimal places. Calculate what was asked by utilizing the line items clearly shown in the P&L statement and the balance sheet.",
+    "type": "metrics-generated"
+  },
+  {
+    "id": "financebench_id_00790",
+    "retriever": "hybrid",
+    "setting": "scoped",
+    "recall@1": 0.0,
+    "recall@3": 0.0,
+    "recall@5": 0.0,
+    "recall@10": 0.0,
+    "mrr@10": 0.0,
+    "ndcg@10": 0.0,
+    "gold": [
+      [
+        "CVSHEALTH_2022_10K",
+        108
+      ],
+      [
+        "CVSHEALTH_2022_10K",
+        110
+      ]
+    ],
+    "top5": [
+      [
+        "CVSHEALTH_2022_10K",
+        92
+      ],
+      [
+        "CVSHEALTH_2022_10K",
+        68
+      ],
+      [
+        "CVSHEALTH_2022_10K",
+        142
+      ],
+      [
+        "CVSHEALTH_2022_10K",
+        168
+      ],
+      [
+        "CVSHEALTH_2022_10K",
+        163
+      ]
+    ],
+    "cause": "short_or_vague_question",
+    "question": "Is CVS Health a capital-intensive business based on FY2022 data?",
+    "type": "domain-relevant"
+  },
+  {
+    "id": "financebench_id_00839",
+    "retriever": "hybrid",
+    "setting": "scoped",
+    "recall@1": 0.0,
+    "recall@3": 0.0,
+    "recall@5": 0.0,
+    "recall@10": 1.0,
+    "mrr@10": 0.125,
+    "ndcg@10": 0.31546487678572877,
+    "gold": [
+      [
+        "FOOTLOCKER_2022_8K_dated_2022-08-19",
+        2
+      ]
+    ],
+    "top5": [
+      [
+        "FOOTLOCKER_2022_8K_dated_2022-08-19",
+        30
+      ],
+      [
+        "FOOTLOCKER_2022_8K_dated_2022-08-19",
+        29
+      ],
+      [
+        "FOOTLOCKER_2022_8K_dated_2022-08-19",
+        5
+      ],
+      [
+        "FOOTLOCKER_2022_8K_dated_2022-08-19",
+        31
+      ],
+      [
+        "FOOTLOCKER_2022_8K_dated_2022-08-19",
+        1
+      ]
+    ],
+    "cause": "adjacent_page",
+    "question": "Does Foot Locker's new CEO have previous CEO experience in a similar company to Footlocker?",
+    "type": "novel-generated"
+  },
+  {
+    "id": "financebench_id_04103",
+    "retriever": "hybrid",
+    "setting": "scoped",
+    "recall@1": 0.0,
+    "recall@3": 0.0,
+    "recall@5": 0.0,
+    "recall@10": 0.0,
+    "mrr@10": 0.0,
+    "ndcg@10": 0.0,
+    "gold": [
+      [
+        "GENERALMILLS_2019_10K",
+        53
+      ],
+      [
+        "GENERALMILLS_2019_10K",
+        55
+      ]
+    ],
+    "top5": [
+      [
+        "GENERALMILLS_2019_10K",
+        103
+      ],
+      [
+        "GENERALMILLS_2019_10K",
+        58
+      ],
+      [
+        "GENERALMILLS_2019_10K",
+        107
+      ],
+      [
+        "GENERALMILLS_2019_10K",
+        109
+      ],
+      [
+        "GENERALMILLS_2019_10K",
+        38
+      ]
+    ],
+    "cause": "vocabulary_mismatch",
+    "question": "What is the FY2019 cash conversion cycle (CCC) for General Mills? CCC is defined as: DIO + DSO - DPO. DIO is defined as: 365 * (average inventory between FY2018 and FY2019) / (FY2019 COGS). DSO is defined as: 365 * (average accounts receivable between FY2018 and FY2019) / (FY2019 Revenue). DPO is defined as: 365 * (average accounts payable between FY2018 and FY2019) / (FY2019 COGS + change in inventory between FY2018 and FY2019). Round your answer to two decimal places. Address the question by using the line items and information shown within the income statement and the balance sheet.",
+    "type": "metrics-generated"
+  },
+  {
+    "id": "financebench_id_10136",
+    "retriever": "hybrid",
+    "setting": "scoped",
+    "recall@1": 0.0,
+    "recall@3": 0.0,
+    "recall@5": 0.0,
+    "recall@10": 0.5,
+    "mrr@10": 0.125,
+    "ndcg@10": 0.19342640361727081,
+    "gold": [
+      [
+        "GENERALMILLS_2022_10K",
+        45
+      ],
+      [
+        "GENERALMILLS_2022_10K",
+        49
+      ]
+    ],
+    "top5": [
+      [
+        "GENERALMILLS_2022_10K",
+        18
+      ],
+      [
+        "GENERALMILLS_2022_10K",
+        25
+      ],
+      [
+        "GENERALMILLS_2022_10K",
+        35
+      ],
+      [
+        "GENERALMILLS_2022_10K",
+        28
+      ],
+      [
+        "GENERALMILLS_2022_10K",
+        48
+      ]
+    ],
+    "cause": "adjacent_page",
+    "question": "We want to calculate a financial metric. Please help us compute it by basing your answers off of the cash flow statement and the income statement. Here's the question: what is the FY2022 retention ratio (using total cash dividends paid and net income attributable to shareholders) for General Mills? Round answer to two decimal places.",
+    "type": "metrics-generated"
+  },
+  {
+    "id": "financebench_id_00669",
+    "retriever": "hybrid",
+    "setting": "scoped",
+    "recall@1": 0.0,
+    "recall@3": 0.0,
+    "recall@5": 0.0,
+    "recall@10": 0.0,
+    "mrr@10": 0.0,
+    "ndcg@10": 0.0,
+    "gold": [
+      [
+        "JOHNSON_JOHNSON_2022_10K",
+        34
+      ]
+    ],
+    "top5": [
+      [
+        "JOHNSON_JOHNSON_2022_10K",
+        64
+      ],
+      [
+        "JOHNSON_JOHNSON_2022_10K",
+        53
+      ],
+      [
+        "JOHNSON_JOHNSON_2022_10K",
+        47
+      ],
+      [
+        "JOHNSON_JOHNSON_2022_10K",
+        115
+      ],
+      [
+        "JOHNSON_JOHNSON_2022_10K",
+        59
+      ]
+    ],
+    "cause": "vocabulary_mismatch",
+    "question": "What drove gross margin change as of FY2022 for JnJ? If gross margin is not a useful metric for a company like this, then please state that and explain why.",
+    "type": "domain-relevant"
+  },
+  {
+    "id": "financebench_id_00711",
+    "retriever": "hybrid",
+    "setting": "scoped",
+    "recall@1": 0.0,
+    "recall@3": 0.0,
+    "recall@5": 0.0,
+    "recall@10": 0.0,
+    "mrr@10": 0.0,
+    "ndcg@10": 0.0,
+    "gold": [
+      [
+        "JOHNSON_JOHNSON_2022_10K",
+        46
+      ],
+      [
+        "JOHNSON_JOHNSON_2022_10K",
+        47
+      ]
+    ],
+    "top5": [
+      [
+        "JOHNSON_JOHNSON_2022_10K",
+        53
+      ],
+      [
+        "JOHNSON_JOHNSON_2022_10K",
+        40
+      ],
+      [
+        "JOHNSON_JOHNSON_2022_10K",
+        115
+      ],
+      [
+        "JOHNSON_JOHNSON_2022_10K",
+        36
+      ],
+      [
+        "JOHNSON_JOHNSON_2022_10K",
+        56
+      ]
+    ],
+    "cause": "vocabulary_mismatch",
+    "question": "Roughly how many times has JnJ sold its inventory in FY2022? Calculate inventory turnover ratio for FY2022; if conventional inventory management is not meaningful for the company then state that and explain why.",
+    "type": "domain-relevant"
+  },
+  {
+    "id": "financebench_id_01484",
+    "retriever": "hybrid",
+    "setting": "scoped",
+    "recall@1": 0.0,
+    "recall@3": 0.0,
+    "recall@5": 0.0,
+    "recall@10": 1.0,
+    "mrr@10": 0.1111111111111111,
+    "ndcg@10": 0.3010299956639812,
+    "gold": [
+      [
+        "JOHNSON_JOHNSON_2022Q4_EARNINGS",
+        2
+      ]
+    ],
+    "top5": [
+      [
+        "JOHNSON_JOHNSON_2022Q4_EARNINGS",
+        14
+      ],
+      [
+        "JOHNSON_JOHNSON_2022Q4_EARNINGS",
+        13
+      ],
+      [
+        "JOHNSON_JOHNSON_2022Q4_EARNINGS",
+        1
+      ],
+      [
+        "JOHNSON_JOHNSON_2022Q4_EARNINGS",
+        9
+      ],
+      [
+        "JOHNSON_JOHNSON_2022Q4_EARNINGS",
+        8
+      ]
+    ],
+    "cause": "adjacent_page",
+    "question": "How did JnJ's US sales growth compare to international sales growth in FY2022?",
+    "type": "novel-generated"
+  },
+  {
+    "id": "financebench_id_00299",
+    "retriever": "hybrid",
+    "setting": "scoped",
+    "recall@1": 0.0,
+    "recall@3": 0.0,
+    "recall@5": 0.0,
+    "recall@10": 1.0,
+    "mrr@10": 0.125,
+    "ndcg@10": 0.31546487678572877,
+    "gold": [
+      [
+        "JPMORGAN_2021Q1_10Q",
+        19
+      ]
+    ],
+    "top5": [
+      [
+        "JPMORGAN_2021Q1_10Q",
+        5
+      ],
+      [
+        "JPMORGAN_2021Q1_10Q",
+        28
+      ],
+      [
+        "JPMORGAN_2021Q1_10Q",
+        30
+      ],
+      [
+        "JPMORGAN_2021Q1_10Q",
+        20
+      ],
+      [
+        "JPMORGAN_2021Q1_10Q",
+        160
+      ]
+    ],
+    "cause": "adjacent_page",
+    "question": "Which of JPM's business segments had the lowest net revenue in 2021 Q1?",
+    "type": "novel-generated"
+  },
+  {
+    "id": "financebench_id_02119",
+    "retriever": "hybrid",
+    "setting": "scoped",
+    "recall@1": 0.0,
+    "recall@3": 0.0,
+    "recall@5": 0.0,
+    "recall@10": 0.0,
+    "mrr@10": 0.0,
+    "ndcg@10": 0.0,
+    "gold": [
+      [
+        "JPMORGAN_2021Q1_10Q",
+        6
+      ]
+    ],
+    "top5": [
+      [
+        "JPMORGAN_2021Q1_10Q",
+        31
+      ],
+      [
+        "JPMORGAN_2021Q1_10Q",
+        173
+      ],
+      [
+        "JPMORGAN_2021Q1_10Q",
+        1
+      ],
+      [
+        "JPMORGAN_2021Q1_10Q",
+        119
+      ],
+      [
+        "JPMORGAN_2021Q1_10Q",
+        147
+      ]
+    ],
+    "cause": "short_or_vague_question",
+    "question": "If JPM went bankrupted by the end by 2021 Q1 and liquidated all of its assets to pay its shareholders, how much could each shareholder get?",
+    "type": "novel-generated"
+  },
+  {
+    "id": "financebench_id_00206",
+    "retriever": "hybrid",
+    "setting": "scoped",
+    "recall@1": 0.0,
+    "recall@3": 0.0,
+    "recall@5": 0.0,
+    "recall@10": 0.0,
+    "mrr@10": 0.0,
+    "ndcg@10": 0.0,
+    "gold": [
+      [
+        "JPMORGAN_2022_10K",
+        3
+      ]
+    ],
+    "top5": [
+      [
+        "JPMORGAN_2022_10K",
+        79
+      ],
+      [
+        "JPMORGAN_2022_10K",
+        221
+      ],
+      [
+        "JPMORGAN_2022_10K",
+        152
+      ],
+      [
+        "JPMORGAN_2022_10K",
+        60
+      ],
+      [
+        "JPMORGAN_2022_10K",
+        20
+      ]
+    ],
+    "cause": "vocabulary_mismatch",
+    "question": "Are JPM's gross margins historically consistent (not fluctuating more than roughly 2% each year)? If gross margins are not a relevant metric for a company like this, then please state that and explain why.",
+    "type": "domain-relevant"
+  },
+  {
+    "id": "financebench_id_00394",
+    "retriever": "hybrid",
+    "setting": "scoped",
+    "recall@1": 0.0,
+    "recall@3": 0.0,
+    "recall@5": 0.0,
+    "recall@10": 1.0,
+    "mrr@10": 0.16666666666666666,
+    "ndcg@10": 0.3562071871080222,
+    "gold": [
+      [
+        "JPMORGAN_2022Q2_10Q",
+        21
+      ]
+    ],
+    "top5": [
+      [
+        "JPMORGAN_2022Q2_10Q",
+        38
+      ],
+      [
+        "JPMORGAN_2022Q2_10Q",
+        177
+      ],
+      [
+        "JPMORGAN_2022Q2_10Q",
+        33
+      ],
+      [
+        "JPMORGAN_2022Q2_10Q",
+        27
+      ],
+      [
+        "JPMORGAN_2022Q2_10Q",
+        4
+      ]
+    ],
+    "cause": "short_or_vague_question",
+    "question": "In 2022 Q2, which of JPM's business segments had the highest net income?",
+    "type": "novel-generated"
+  },
+  {
+    "id": "financebench_id_04412",
+    "retriever": "hybrid",
+    "setting": "scoped",
+    "recall@1": 0.0,
+    "recall@3": 0.0,
+    "recall@5": 0.0,
+    "recall@10": 0.5,
+    "mrr@10": 0.14285714285714285,
+    "ndcg@10": 0.20438239758848611,
+    "gold": [
+      [
+        "LOCKHEEDMARTIN_2020_10K",
+        67
+      ],
+      [
+        "LOCKHEEDMARTIN_2020_10K",
+        69
+      ]
+    ],
+    "top5": [
+      [
+        "LOCKHEEDMARTIN_2020_10K",
+        77
+      ],
+      [
+        "LOCKHEEDMARTIN_2020_10K",
+        76
+      ],
+      [
+        "LOCKHEEDMARTIN_2020_10K",
+        22
+      ],
+      [
+        "LOCKHEEDMARTIN_2020_10K",
+        58
+      ],
+      [
+        "LOCKHEEDMARTIN_2020_10K",
+        28
+      ]
+    ],
+    "cause": "vocabulary_mismatch",
+    "question": "We need to calculate a reasonable approximation (or exact number if possible) of a financial metric. Basing your judgment by information plainly provided in the balance sheet and the P&L statement, what is Lockheed Martin's FY2020 asset turnover ratio? Asset turnover ratio is defined as: FY2020 revenue / (average total assets between FY2019 and FY2020). Round your answer to two decimal places.",
+    "type": "metrics-generated"
+  },
+  {
+    "id": "financebench_id_03718",
+    "retriever": "hybrid",
+    "setting": "scoped",
+    "recall@1": 0.0,
+    "recall@3": 0.0,
+    "recall@5": 0.0,
+    "recall@10": 1.0,
+    "mrr@10": 0.16666666666666666,
+    "ndcg@10": 0.3562071871080222,
+    "gold": [
+      [
+        "LOCKHEEDMARTIN_2022_10K",
+        63
+      ]
+    ],
+    "top5": [
+      [
+        "LOCKHEEDMARTIN_2022_10K",
+        64
+      ],
+      [
+        "LOCKHEEDMARTIN_2022_10K",
+        68
+      ],
+      [
+        "LOCKHEEDMARTIN_2022_10K",
+        84
+      ],
+      [
+        "LOCKHEEDMARTIN_2022_10K",
+        108
+      ],
+      [
+        "LOCKHEEDMARTIN_2022_10K",
+        32
+      ]
+    ],
+    "cause": "adjacent_page",
+    "question": "What is Lockheed Martin's 2 year total revenue CAGR from FY2020 to FY2022 (in units of percents and round to one decimal place)? Provide a response to the question by primarily using the statement of income.",
+    "type": "metrics-generated"
+  },
+  {
+    "id": "financebench_id_00382",
+    "retriever": "hybrid",
+    "setting": "scoped",
+    "recall@1": 0.0,
+    "recall@3": 0.0,
+    "recall@5": 0.0,
+    "recall@10": 1.0,
+    "mrr@10": 0.16666666666666666,
+    "ndcg@10": 0.3562071871080222,
+    "gold": [
+      [
+        "MGMRESORTS_2022Q4_EARNINGS",
+        13
+      ]
+    ],
+    "top5": [
+      [
+        "MGMRESORTS_2022Q4_EARNINGS",
+        4
+      ],
+      [
+        "MGMRESORTS_2022Q4_EARNINGS",
+        2
+      ],
+      [
+        "MGMRESORTS_2022Q4_EARNINGS",
+        1
+      ],
+      [
+        "MGMRESORTS_2022Q4_EARNINGS",
+        15
+      ],
+      [
+        "MGMRESORTS_2022Q4_EARNINGS",
+        14
+      ]
+    ],
+    "cause": "adjacent_page",
+    "question": "Which region had the Highest EBITDAR Contribution for MGM during FY2022?",
+    "type": "novel-generated"
+  },
+  {
+    "id": "financebench_id_01912",
+    "retriever": "hybrid",
+    "setting": "scoped",
+    "recall@1": 0.0,
+    "recall@3": 0.0,
+    "recall@5": 0.0,
+    "recall@10": 0.5,
+    "mrr@10": 0.1,
+    "ndcg@10": 0.17723928678404774,
+    "gold": [
+      [
+        "MGMRESORTS_2022Q4_EARNINGS",
+        3
+      ],
+      [
+        "MGMRESORTS_2022Q4_EARNINGS",
+        4
+      ]
+    ],
+    "top5": [
+      [
+        "MGMRESORTS_2022Q4_EARNINGS",
+        13
+      ],
+      [
+        "MGMRESORTS_2022Q4_EARNINGS",
+        1
+      ],
+      [
+        "MGMRESORTS_2022Q4_EARNINGS",
+        6
+      ],
+      [
+        "MGMRESORTS_2022Q4_EARNINGS",
+        14
+      ],
+      [
+        "MGMRESORTS_2022Q4_EARNINGS",
+        10
+      ]
+    ],
+    "cause": "short_or_vague_question",
+    "question": "Which region had the worst topline performance for MGM during FY2022?",
+    "type": "novel-generated"
+  },
+  {
+    "id": "financebench_id_04700",
+    "retriever": "hybrid",
+    "setting": "scoped",
+    "recall@1": 0.0,
+    "recall@3": 0.0,
+    "recall@5": 0.0,
+    "recall@10": 1.0,
+    "mrr@10": 0.14285714285714285,
+    "ndcg@10": 0.3333333333333333,
+    "gold": [
+      [
+        "MICROSOFT_2016_10K",
+        52
+      ]
+    ],
+    "top5": [
+      [
+        "MICROSOFT_2016_10K",
+        81
+      ],
+      [
+        "MICROSOFT_2016_10K",
+        94
+      ],
+      [
+        "MICROSOFT_2016_10K",
+        89
+      ],
+      [
+        "MICROSOFT_2016_10K",
+        53
+      ],
+      [
+        "MICROSOFT_2016_10K",
+        85
+      ]
+    ],
+    "cause": "adjacent_page",
+    "question": "What is the FY2016 COGS for Microsoft? Please state answer in USD millions. Provide a response to the question by primarily using the statement of income.",
+    "type": "metrics-generated"
+  },
+  {
+    "id": "financebench_id_00552",
+    "retriever": "hybrid",
+    "setting": "scoped",
+    "recall@1": 0.0,
+    "recall@3": 0.0,
+    "recall@5": 0.0,
+    "recall@10": 1.0,
+    "mrr@10": 0.16666666666666666,
+    "ndcg@10": 0.3562071871080222,
+    "gold": [
+      [
+        "MICROSOFT_2023_10K",
+        60
+      ]
+    ],
+    "top5": [
+      [
+        "MICROSOFT_2023_10K",
+        66
+      ],
+      [
+        "MICROSOFT_2023_10K",
+        81
+      ],
+      [
+        "MICROSOFT_2023_10K",
+        65
+      ],
+      [
+        "MICROSOFT_2023_10K",
+        62
+      ],
+      [
+        "MICROSOFT_2023_10K",
+        84
+      ]
+    ],
+    "cause": "vocabulary_mismatch",
+    "question": "Has Microsoft increased its debt on balance sheet between FY2023 and the FY2022 period?",
+    "type": "domain-relevant"
+  },
+  {
+    "id": "financebench_id_04302",
+    "retriever": "hybrid",
+    "setting": "scoped",
+    "recall@1": 0.0,
+    "recall@3": 0.0,
+    "recall@5": 0.0,
+    "recall@10": 0.0,
+    "mrr@10": 0.0,
+    "ndcg@10": 0.0,
+    "gold": [
+      [
+        "NIKE_2018_10K",
+        46
+      ]
+    ],
+    "top5": [
+      [
+        "NIKE_2018_10K",
+        72
+      ],
+      [
+        "NIKE_2018_10K",
+        56
+      ],
+      [
+        "NIKE_2018_10K",
+        75
+      ],
+      [
+        "NIKE_2018_10K",
+        28
+      ],
+      [
+        "NIKE_2018_10K",
+        4
+      ]
+    ],
+    "cause": "vocabulary_mismatch",
+    "question": "We need to calculate a reasonable approximation (or exact number if possible) of a financial metric. Basing your judgment by information plainly provided in the statement of income, what is Nike's three year average of cost of goods sold as a % of revenue from FY2016 to FY2018? Answer in units of percents and round to one decimal place.",
+    "type": "metrics-generated"
+  },
+  {
+    "id": "financebench_id_00080",
+    "retriever": "hybrid",
+    "setting": "scoped",
+    "recall@1": 0.0,
+    "recall@3": 0.0,
+    "recall@5": 0.0,
+    "recall@10": 0.0,
+    "mrr@10": 0.0,
+    "ndcg@10": 0.0,
+    "gold": [
+      [
+        "PAYPAL_2022_10K",
+        61
+      ]
+    ],
+    "top5": [
+      [
+        "PAYPAL_2022_10K",
+        24
+      ],
+      [
+        "PAYPAL_2022_10K",
+        8
+      ],
+      [
+        "PAYPAL_2022_10K",
+        14
+      ],
+      [
+        "PAYPAL_2022_10K",
+        112
+      ],
+      [
+        "PAYPAL_2022_10K",
+        16
+      ]
+    ],
+    "cause": "vocabulary_mismatch",
+    "question": "Does Paypal have positive working capital based on FY2022 data? If working capital is not a useful or relevant metric for this company, then please state that and explain why.",
+    "type": "domain-relevant"
+  },
+  {
+    "id": "financebench_id_01009",
+    "retriever": "hybrid",
+    "setting": "scoped",
+    "recall@1": 0.0,
+    "recall@3": 0.0,
+    "recall@5": 0.0,
+    "recall@10": 0.0,
+    "mrr@10": 0.0,
+    "ndcg@10": 0.0,
+    "gold": [
+      [
+        "PEPSICO_2022_10K",
+        4
+      ],
+      [
+        "PEPSICO_2022_10K",
+        5
+      ]
+    ],
+    "top5": [
+      [
+        "PEPSICO_2022_10K",
+        100
+      ],
+      [
+        "PEPSICO_2022_10K",
+        10
+      ],
+      [
+        "PEPSICO_2022_10K",
+        15
+      ],
+      [
+        "PEPSICO_2022_10K",
+        26
+      ],
+      [
+        "PEPSICO_2022_10K",
+        6
+      ]
+    ],
+    "cause": "adjacent_page",
+    "question": "What are the geographies that Pepsico primarily operates in as of FY2022?",
+    "type": "domain-relevant"
+  },
+  {
+    "id": "financebench_id_00735",
+    "retriever": "hybrid",
+    "setting": "scoped",
+    "recall@1": 0.0,
+    "recall@3": 0.0,
+    "recall@5": 0.0,
+    "recall@10": 0.0,
+    "mrr@10": 0.0,
+    "ndcg@10": 0.0,
+    "gold": [
+      [
+        "PEPSICO_2022_10K",
+        26
+      ]
+    ],
+    "top5": [
+      [
+        "PEPSICO_2022_10K",
+        102
+      ],
+      [
+        "PEPSICO_2022_10K",
+        86
+      ],
+      [
+        "PEPSICO_2022_10K",
+        25
+      ],
+      [
+        "PEPSICO_2022_10K",
+        76
+      ],
+      [
+        "PEPSICO_2022_10K",
+        35
+      ]
+    ],
+    "cause": "adjacent_page",
+    "question": "Has Pepsico reported any materially important ongoing legal battles from FY2022 and FY2021?",
+    "type": "domain-relevant"
+  },
+  {
+    "id": "financebench_id_04481",
+    "retriever": "hybrid",
+    "setting": "scoped",
+    "recall@1": 0.0,
+    "recall@3": 0.0,
+    "recall@5": 0.0,
+    "recall@10": 0.0,
+    "mrr@10": 0.0,
+    "ndcg@10": 0.0,
+    "gold": [
+      [
+        "PEPSICO_2022_10K",
+        62
+      ],
+      [
+        "PEPSICO_2022_10K",
+        64
+      ]
+    ],
+    "top5": [
+      [
+        "PEPSICO_2022_10K",
+        54
+      ],
+      [
+        "PEPSICO_2022_10K",
+        100
+      ],
+      [
+        "PEPSICO_2022_10K",
+        114
+      ],
+      [
+        "PEPSICO_2022_10K",
+        77
+      ],
+      [
+        "PEPSICO_2022_10K",
+        119
+      ]
+    ],
+    "cause": "vocabulary_mismatch",
+    "question": "What is the FY2022 unadjusted EBITDA % margin for PepsiCo? Calculate unadjusted EBITDA using unadjusted operating income and D&A (from cash flow statement). Give a response to the question by relying on the details shown in the statement of cash flows and the P&L statement.",
+    "type": "metrics-generated"
+  },
+  {
+    "id": "financebench_id_00302",
+    "retriever": "hybrid",
+    "setting": "scoped",
+    "recall@1": 0.0,
+    "recall@3": 0.0,
+    "recall@5": 0.0,
+    "recall@10": 0.0,
+    "mrr@10": 0.0,
+    "ndcg@10": 0.0,
+    "gold": [
+      [
+        "PFIZER_2021_10K",
+        59
+      ]
+    ],
+    "top5": [
+      [
+        "PFIZER_2021_10K",
+        45
+      ],
+      [
+        "PFIZER_2021_10K",
+        21
+      ],
+      [
+        "PFIZER_2021_10K",
+        133
+      ],
+      [
+        "PFIZER_2021_10K",
+        39
+      ],
+      [
+        "PFIZER_2021_10K",
+        44
+      ]
+    ],
+    "cause": "short_or_vague_question",
+    "question": "Did Pfizer grow its PPNE between FY20 and FY21?",
+    "type": "novel-generated"
+  },
+  {
+    "id": "financebench_id_02416",
+    "retriever": "hybrid",
+    "setting": "scoped",
+    "recall@1": 0.0,
+    "recall@3": 0.0,
+    "recall@5": 0.0,
+    "recall@10": 0.0,
+    "mrr@10": 0.0,
+    "ndcg@10": 0.0,
+    "gold": [
+      [
+        "PFIZER_2021_10K",
+        70
+      ],
+      [
+        "PFIZER_2021_10K",
+        71
+      ]
+    ],
+    "top5": [
+      [
+        "PFIZER_2021_10K",
+        3
+      ],
+      [
+        "PFIZER_2021_10K",
+        6
+      ],
+      [
+        "PFIZER_2021_10K",
+        121
+      ],
+      [
+        "PFIZER_2021_10K",
+        113
+      ],
+      [
+        "PFIZER_2021_10K",
+        55
+      ]
+    ],
+    "cause": "short_or_vague_question",
+    "question": "What are three main companies acquired by Pfizer mentioned in this 10K report?",
+    "type": "novel-generated"
+  },
+  {
+    "id": "financebench_id_00724",
+    "retriever": "hybrid",
+    "setting": "scoped",
+    "recall@1": 0.0,
+    "recall@3": 0.0,
+    "recall@5": 0.0,
+    "recall@10": 1.0,
+    "mrr@10": 0.14285714285714285,
+    "ndcg@10": 0.3333333333333333,
+    "gold": [
+      [
+        "Pfizer_2023Q2_10Q",
+        38
+      ]
+    ],
+    "top5": [
+      [
+        "Pfizer_2023Q2_10Q",
+        46
+      ],
+      [
+        "Pfizer_2023Q2_10Q",
+        49
+      ],
+      [
+        "Pfizer_2023Q2_10Q",
+        45
+      ],
+      [
+        "Pfizer_2023Q2_10Q",
+        47
+      ],
+      [
+        "Pfizer_2023Q2_10Q",
+        51
+      ]
+    ],
+    "cause": "short_or_vague_question",
+    "question": "For Pfizer, which geographic region had the biggest drop in Q22023 year over year revenues (on a percentage basis)?",
+    "type": "novel-generated"
+  },
+  {
+    "id": "financebench_id_02024",
+    "retriever": "hybrid",
+    "setting": "scoped",
+    "recall@1": 0.0,
+    "recall@3": 0.0,
+    "recall@5": 0.0,
+    "recall@10": 0.5,
+    "mrr@10": 0.16666666666666666,
+    "ndcg@10": 0.21840743681816419,
+    "gold": [
+      [
+        "VERIZON_2021_10K",
+        63
+      ],
+      [
+        "VERIZON_2021_10K",
+        94
+      ]
+    ],
+    "top5": [
+      [
+        "VERIZON_2021_10K",
+        17
+      ],
+      [
+        "VERIZON_2021_10K",
+        76
+      ],
+      [
+        "VERIZON_2021_10K",
+        67
+      ],
+      [
+        "VERIZON_2021_10K",
+        33
+      ],
+      [
+        "VERIZON_2021_10K",
+        44
+      ]
+    ],
+    "cause": "short_or_vague_question",
+    "question": "As of FY 2021, how much did Verizon expect to pay for its retirees in 2024?",
+    "type": "novel-generated"
+  },
+  {
+    "id": "financebench_id_00216",
+    "retriever": "hybrid",
+    "setting": "scoped",
+    "recall@1": 0.0,
+    "recall@3": 0.0,
+    "recall@5": 0.0,
+    "recall@10": 0.0,
+    "mrr@10": 0.0,
+    "ndcg@10": 0.0,
+    "gold": [
+      [
+        "VERIZON_2022_10K",
+        56
+      ]
+    ],
+    "top5": [
+      [
+        "VERIZON_2022_10K",
+        46
+      ],
+      [
+        "VERIZON_2022_10K",
+        37
+      ],
+      [
+        "VERIZON_2022_10K",
+        42
+      ],
+      [
+        "VERIZON_2022_10K",
+        23
+      ],
+      [
+        "VERIZON_2022_10K",
+        28
+      ]
+    ],
+    "cause": "vocabulary_mismatch",
+    "question": "Does Verizon have a reasonably healthy liquidity profile based on its quick ratio for FY 2022? If the quick ratio is not relevant to measure liquidity, please state that and explain why.",
+    "type": "domain-relevant"
+  },
+  {
+    "id": "financebench_id_00566",
+    "retriever": "hybrid",
+    "setting": "scoped",
+    "recall@1": 0.0,
+    "recall@3": 0.0,
+    "recall@5": 0.0,
+    "recall@10": 1.0,
+    "mrr@10": 0.125,
+    "ndcg@10": 0.31546487678572877,
+    "gold": [
+      [
+        "VERIZON_2022_10K",
+        77
+      ]
+    ],
+    "top5": [
+      [
+        "VERIZON_2022_10K",
+        68
+      ],
+      [
+        "VERIZON_2022_10K",
+        81
+      ],
+      [
+        "VERIZON_2022_10K",
+        113
+      ],
+      [
+        "VERIZON_2022_10K",
+        41
+      ],
+      [
+        "VERIZON_2022_10K",
+        40
+      ]
+    ],
+    "cause": "vocabulary_mismatch",
+    "question": "Has Verizon increased its debt on balance sheet between 2022 and the 2021 fiscal period?",
+    "type": "domain-relevant"
+  },
+  {
+    "id": "financebench_id_04784",
+    "retriever": "hybrid",
+    "setting": "scoped",
+    "recall@1": 0.0,
+    "recall@3": 0.0,
+    "recall@5": 0.0,
+    "recall@10": 0.0,
+    "mrr@10": 0.0,
+    "ndcg@10": 0.0,
+    "gold": [
+      [
+        "WALMART_2019_10K",
+        48
+      ]
+    ],
+    "top5": [
+      [
+        "WALMART_2019_10K",
+        77
+      ],
+      [
+        "WALMART_2019_10K",
+        35
+      ],
+      [
+        "WALMART_2019_10K",
+        36
+      ],
+      [
+        "WALMART_2019_10K",
+        30
+      ],
+      [
+        "WALMART_2019_10K",
+        37
+      ]
+    ],
+    "cause": "vocabulary_mismatch",
+    "question": "Based on the information provided primarily in the statement of income, what is the FY2018 - FY2019 change in unadjusted operating income % margin for Walmart? Answer in units of percents and round to one decimal place.",
+    "type": "metrics-generated"
+  }
+]

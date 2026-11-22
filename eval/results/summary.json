@@ -143,6 +143,150 @@
         "wrong_period_same_company": 3,
         "wrong_company": 16
       }
+    },
+    "dense|scoped": {
+      "recall@1": 0.3036,
+      "recall@3": 0.4964,
+      "recall@5": 0.5381,
+      "recall@10": 0.6976,
+      "mrr@10": 0.4581,
+      "ndcg@10": 0.5004,
+      "n": 140,
+      "latency_p50_ms": 13.1,
+      "latency_p95_ms": 14.4,
+      "failures_at5": 58,
+      "failure_causes": {
+        "adjacent_page": 15,
+        "short_or_vague_question": 15,
+        "vocabulary_mismatch": 28
+      }
+    },
+    "dense|open": {
+      "recall@1": 0.1571,
+      "recall@3": 0.3464,
+      "recall@5": 0.4143,
+      "recall@10": 0.5071,
+      "mrr@10": 0.2945,
+      "ndcg@10": 0.3334,
+      "n": 140,
+      "latency_p50_ms": 48.5,
+      "latency_p95_ms": 53.1,
+      "failures_at5": 76,
+      "failure_causes": {
+        "short_or_vague_question": 20,
+        "vocabulary_mismatch": 32,
+        "wrong_period_same_company": 13,
+        "adjacent_page": 6,
+        "wrong_company": 5
+      }
+    },
+    "hybrid|scoped": {
+      "recall@1": 0.2393,
+      "recall@3": 0.4107,
+      "recall@5": 0.5107,
+      "recall@10": 0.6881,
+      "mrr@10": 0.3874,
+      "ndcg@10": 0.4498,
+      "n": 140,
+      "latency_p50_ms": 23.9,
+      "latency_p95_ms": 80.2,
+      "failures_at5": 63,
+      "failure_causes": {
+        "short_or_vague_question": 14,
+        "adjacent_page": 15,
+        "vocabulary_mismatch": 34
+      }
+    },
+    "hybrid|open": {
+      "recall@1": 0.1214,
+      "recall@3": 0.2357,
+      "recall@5": 0.3321,
+      "recall@10": 0.4536,
+      "mrr@10": 0.2218,
+      "ndcg@10": 0.272,
+      "n": 140,
+      "latency_p50_ms": 190.6,
+      "latency_p95_ms": 392.4,
+      "failures_at5": 89,
+      "failure_causes": {
+        "vocabulary_mismatch": 36,
+        "short_or_vague_question": 24,
+        "wrong_period_same_company": 13,
+        "adjacent_page": 5,
+        "wrong_company": 11
+      }
+    },
+    "hybridx|scoped": {
+      "recall@1": 0.2821,
+      "recall@3": 0.4964,
+      "recall@5": 0.6464,
+      "recall@10": 0.7988,
+      "mrr@10": 0.4732,
+      "ndcg@10": 0.5346,
+      "n": 140,
+      "latency_p50_ms": 26.7,
+      "latency_p95_ms": 81.5,
+      "failures_at5": 42,
+      "failure_causes": {
+        "short_or_vague_question": 14,
+        "adjacent_page": 9,
+        "vocabulary_mismatch": 19
+      }
+    },
+    "hybridx|open": {
+      "recall@1": 0.2357,
+      "recall@3": 0.4036,
+      "recall@5": 0.5321,
+      "recall@10": 0.6952,
+      "mrr@10": 0.4024,
+      "ndcg@10": 0.4565,
+      "n": 140,
+      "latency_p50_ms": 17.1,
+      "latency_p95_ms": 251.7,
+      "failures_at5": 58,
+      "failure_causes": {
+        "short_or_vague_question": 19,
+        "adjacent_page": 10,
+        "vocabulary_mismatch": 16,
+        "wrong_company": 8,
+        "wrong_period_same_company": 5
+      }
+    },
+    "hybridx+rerank|scoped": {
+      "recall@1": 0.1679,
+      "recall@3": 0.4024,
+      "recall@5": 0.5631,
+      "recall@10": 0.7738,
+      "mrr@10": 0.3541,
+      "ndcg@10": 0.4474,
+      "n": 140,
+      "latency_p50_ms": 817.8,
+      "latency_p95_ms": 883.3,
+      "failures_at5": 55,
+      "failure_causes": {
+        "vocabulary_mismatch": 32,
+        "short_or_vague_question": 14,
+        "adjacent_page": 9
+      }
+    },
+    "hybridx+rerank|open": {
+      "recall@1": 0.1107,
+      "recall@3": 0.3631,
+      "recall@5": 0.5238,
+      "recall@10": 0.6917,
+      "mrr@10": 0.3009,
+      "ndcg@10": 0.3878,
+      "n": 140,
+      "latency_p50_ms": 807.8,
+      "latency_p95_ms": 1040.9,
+      "failures_at5": 60,
+      "failure_causes": {
+        "vocabulary_mismatch": 29,
+        "short_or_vague_question": 18,
+        "wrong_period_same_company": 5,
+        "adjacent_page": 6,
+        "wrong_company": 2
+      }
     }
   },
   "qa": {
