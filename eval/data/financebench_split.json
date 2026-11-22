@@ -1,0 +1,16 @@
+{
+ "seed": 42,
+ "note": "Dev split: ONLY these questions may be looked at while writing prompts / few-shot examples. All other questions are the held-out test set.",
+ "dev_ids": [
+  "financebench_id_00606",
+  "financebench_id_00917",
+  "financebench_id_01028",
+  "financebench_id_01079",
+  "financebench_id_01279",
+  "financebench_id_01930",
+  "financebench_id_03282",
+  "financebench_id_04672",
+  "financebench_id_06247",
+  "financebench_id_10420"
+ ]
+}
