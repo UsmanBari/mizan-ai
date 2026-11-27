@@ -91,7 +91,7 @@ def poll_watchlist(store: Store, extractor, llm: LLM | None) -> list[Alert]:
     alerts = []
     for w in store.watchlist():
         try:
-            for doc in ingest_psx_symbol(store, w["symbol"], limit=2):
+            for doc in ingest_psx_symbol(store, w["symbol"], limit=2, only_unseen=True):
                 a = process_new_document(store, doc.doc_id, extractor, llm)
                 if a:
                     alerts.append(a)
