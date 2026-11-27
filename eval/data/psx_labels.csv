@@ -65,12 +65,12 @@ APL_FY2026,APL,Attock Petroleum Limited,2026-06-30,thousands,false,net_profit,16
 APL_FY2026,APL,Attock Petroleum Limited,2026-06-30,thousands,false,eps_basic,136.31,83.53,184,claude-draft,Earnings per share - Basic and diluted (Rupees) | type: annual | verify: usman
 APL_FY2026,APL,Attock Petroleum Limited,2026-06-30,thousands,false,total_assets,139456377,122302709,183,claude-draft,Total assets | type: annual | verify: usman
 APL_FY2026,APL,Attock Petroleum Limited,2026-06-30,thousands,false,total_equity,75486139,62628870,182,claude-draft,SHARE CAPITAL AND RESERVES | type: annual | verify: usman
-KOHC_FY2026,KOHC,Kohat Cement Company Limited,2026-06-30,units,true,revenue,38530653234,37535700372,148,claude-draft,Revenue from contract with customers - net | type: annual | verify: burhan
-KOHC_FY2026,KOHC,Kohat Cement Company Limited,2026-06-30,units,true,profit_before_tax,15927964099,17688192049,148,claude-draft,Profit before taxation | type: annual | verify: burhan
-KOHC_FY2026,KOHC,Kohat Cement Company Limited,2026-06-30,units,true,net_profit,10697459177,11575154071,148,claude-draft,Profit after taxation | type: annual | verify: burhan
-KOHC_FY2026,KOHC,Kohat Cement Company Limited,2026-06-30,units,true,eps_basic,11.64,11.97,148,claude-draft,Earnings per share - basic and diluted | type: annual | verify: burhan
-KOHC_FY2026,KOHC,Kohat Cement Company Limited,2026-06-30,units,true,total_assets,,,,claude-draft,Total assets | LLM found nothing - fill by hand | type: annual | verify: burhan
-KOHC_FY2026,KOHC,Kohat Cement Company Limited,2026-06-30,units,true,total_equity,,,,claude-draft,Total equity | LLM found nothing - fill by hand | type: annual | verify: burhan
+KOHC_FY2026,KOHC,Kohat Cement Company Limited,2026-06-30,units,true,revenue,38530653234,37535700372,148,burhan,Revenue from contract with customers - net | type: annual | verify: burhan
+KOHC_FY2026,KOHC,Kohat Cement Company Limited,2026-06-30,units,true,profit_before_tax,15927964099,17688192049,148,burhan,Profit before taxation | type: annual | verify: burhan
+KOHC_FY2026,KOHC,Kohat Cement Company Limited,2026-06-30,units,true,net_profit,10697459177,11575154071,148,burhan,Profit after taxation | type: annual | verify: burhan
+KOHC_FY2026,KOHC,Kohat Cement Company Limited,2026-06-30,units,true,eps_basic,11.64,11.97,148,burhan,Earnings per share - basic and diluted | type: annual | verify: burhan
+KOHC_FY2026,KOHC,Kohat Cement Company Limited,2026-06-30,units,true,total_assets,80009239225,66794311768,147,burhan,unlabelled total of assets | filled by hand | verify: burhan
+KOHC_FY2026,KOHC,Kohat Cement Company Limited,2026-06-30,units,true,total_equity,58646462536,47955194787,146,burhan,unlabelled subtotal of share capital and reserves | filled by hand | verify: burhan
 BERG_FY2026,BERG,Berger Paints Pakistan Limited,2026-06-30,thousands,true,revenue,9176156,8944694,129,claude-draft,Revenue from contract with customers - net | type: annual | verify: usman
 BERG_FY2026,BERG,Berger Paints Pakistan Limited,2026-06-30,thousands,true,profit_before_tax,506230,461486,129,claude-draft,Profit before income tax | type: annual | verify: usman
 BERG_FY2026,BERG,Berger Paints Pakistan Limited,2026-06-30,thousands,true,net_profit,310317,297289,129,claude-draft,Owners of the Company | type: annual | verify: usman
