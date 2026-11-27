@@ -234,3 +234,18 @@ def test_llm_value_from_prior_column_is_corrected_by_code(stmt_pdf):
     assert out.highlights.net_profit.value == 210000          # LLM took 2025; code reads 2026
     assert out.highlights.revenue.value == 1250000            # already right: unchanged
     assert checker.corrections == [{"field": "net_profit", "page": 2, "llm": 175000, "code": 210000.0}]
+
+
+def test_three_months_first_layout_takes_nine_month_columns(tmp_path):
+    """ATRL's 9M report: "Three months ended | Nine months ended" - the cumulative
+    period is on the RIGHT, so 'left-most' would read the quarter."""
+    items = [(50, 60, "Condensed Interim Consolidated Statement of Profit or Loss"),
+             (50, 72, "For The Nine Months Period Ended March 31, 2026"),
+             (290, 100, "Three months ended"), (420, 100, "Nine months ended")]
+    years = {290: "2026", 350: "2025", 420: "2026", 480: "2025"}
+    items += [(x, 126, t) for x, t in years.items()]
+    items += [(50, 145, "Net sales"), (280, 145, "87,772"), (340, 145, "74,602"),
+              (410, 145, "224,942"), (470, 145, "235,459")]
+    pr = read_page_rows(table_pdf(tmp_path / "atrl9m.pdf", [items]), 1)
+    row = next(r for r in pr.rows if r.text.startswith("Net sales"))
+    assert current_prior(pr, row) == (224942.0, 235459.0)
