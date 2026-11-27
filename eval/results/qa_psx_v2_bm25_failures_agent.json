@@ -1,1 +1,57 @@
-[]
+[
+ {
+  "id": "psx2_AGIL_FY2026_total_assets_lookup",
+  "type": "lookup",
+  "question": "According to its consolidated annual financial statements, what was Agriauto Industries Limited (AGIL)'s total assets for FY2026 (year ended 2026-06-30)? Answer in Rs '000.",
+  "gold": "10,416,925.00",
+  "answer": "I could not complete the analysis within the step limit.",
+  "grounding": 1.0,
+  "gold_page_retrieved": false,
+  "answerable": true,
+  "cause": "agent_step_limit"
+ },
+ {
+  "id": "psx2_OGDC_FY2026_total_assets_lookup",
+  "type": "lookup",
+  "question": "According to its consolidated annual financial statements, what was Oil & Gas Development Company Limited (OGDC)'s total assets for FY2026 (year ended 2026-06-30)? Answer in Rs '000.",
+  "gold": "1,852,826,589.00",
+  "answer": "I could not complete the analysis within the step limit.",
+  "grounding": 1.0,
+  "gold_page_retrieved": true,
+  "answerable": true,
+  "cause": "agent_step_limit"
+ },
+ {
+  "id": "psx2_POWER_FY2026_revenue_lookup",
+  "type": "lookup",
+  "question": "According to its unconsolidated annual financial statements, what was Power Cement Limited (POWER)'s revenue for FY2026 (year ended 2026-06-30)? Answer in Rs '000.",
+  "gold": "33,978,969.00",
+  "answer": "I could not complete the analysis within the step limit.",
+  "grounding": 1.0,
+  "gold_page_retrieved": true,
+  "answerable": true,
+  "cause": "agent_step_limit"
+ },
+ {
+  "id": "psx2_POWER_FY2026_net_profit_lookup",
+  "type": "lookup",
+  "question": "According to its unconsolidated annual financial statements, what was Power Cement Limited (POWER)'s net profit (profit after tax) for FY2026 (year ended 2026-06-30)? Answer in Rs '000.",
+  "gold": "3,784,470.00",
+  "answer": "I could not complete the analysis within the step limit.",
+  "grounding": 1.0,
+  "gold_page_retrieved": true,
+  "answerable": true,
+  "cause": "agent_step_limit"
+ },
+ {
+  "id": "psx2_PRL_FY2026_total_assets_lookup",
+  "type": "lookup",
+  "question": "According to its unconsolidated annual financial statements, what was Pakistan Refinery Limited (PRL)'s total assets for FY2026 (year ended 2026-06-30)? Answer in Rs '000.",
+  "gold": "130,748,549.00",
+  "answer": "Based on the provided documents, there are no annual reports or financial statements for Pakistan Refinery Limited (PRL) for FY2026. The available documents only cover Agriauto Industries Limited (AGIL), Ghandhara Industries Limited (GHNI), The Hub Power Company Limited (HUBC), Lucky Cement Limited (LUCK), Oil & Gas Development Company Limited (OGDC), Pioneer Cement Limited (PIOC), Pakistan Oilfields Limited (POL), Power Cement Limited (POWER), and Pakistan Refinery Limited (PRL) is not among the provided documents. Therefore, I cannot provide the total assets for Pakistan Refinery Limited for FY2026.",
+  "grounding": 1.0,
+  "gold_page_retrieved": false,
+  "answerable": true,
+  "cause": "retrieval_miss"
+ }
+]

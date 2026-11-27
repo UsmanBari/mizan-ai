@@ -53,7 +53,7 @@ Under the scoped evaluation setting (searching within the 10-K/10-Q filing ident
 
 In PSX v2 stage-wise attribution:
 - `rag_calc | hybridx` ($n=243$): extraction **0.503**, operand selection **0.471**, formula selection **0.385**, arithmetic **0.385**, answerable accuracy **0.466** (overall **0.531**).
-- `agent | hybridx` ($n=188$ answerable completed): extraction **0.957**, operand selection **0.872**, formula selection **1.000**, arithmetic **1.000**, answerable accuracy **0.952** (**0.0% hallucination**; only 9 failures across 188 questions: 8 `agent_step_limit` on `OGDC`, `PRL`, `HUBC`, and cross-company pairs + 1 `LUCK` total-PAT vs owners-PAT error).
+- `agent | hybridx` ($n=243$ COMPLETE): extraction **0.958**, operand selection **0.873**, formula selection **1.000**, arithmetic **1.000**, answerable accuracy **0.952** (`180/189`), overall accuracy **0.881** (**2.4% hallucination**; 9 failures on answerables: 8 `agent_step_limit` on `OGDC`, `PRL`, `HUBC`, and cross-company pairs + 1 `LUCK` total-PAT vs owners-PAT error).
 
 ### 3.1 Failure Breakdown & 12 Real Examples (`qa_psx_v2_failures_rag_calc.json` / `.jsonl`)
 
@@ -77,8 +77,9 @@ In PSX v2 stage-wise attribution:
 ## 4. RQ3 Abstention Error Analysis on PSX v2
 
 Across all `243` questions (189 answerable, 54 unanswerable) on `hybridx`:
-- `rag_direct`: Abstention **Precision = 0.423**, **Recall = 0.759**, Selective Accuracy = **0.719**, Coverage = **0.601** (13 false answers on unanswerables, 56 false refusals on answerables).
-- `rag_calc`: Abstention **Precision = 0.342**, **Recall = 0.759**, Selective Accuracy = **0.715**, Coverage = **0.506** (13 false answers on unanswerables, 79 false refusals on answerables).
+- `rag_direct`: Abstention **Precision = 0.423**, **Recall = 0.759**, **F1 = 0.543**, Selective Accuracy = **0.719**, Coverage = **0.601** (13 false answers on unanswerables, 56 false refusals on answerables).
+- `rag_calc`: Abstention **Precision = 0.342**, **Recall = 0.759**, **F1 = 0.471**, Selective Accuracy = **0.715**, Coverage = **0.506** (13 false answers on unanswerables, 79 false refusals on answerables).
+- **`agent`**: Abstention **Precision = 1.000** (`FP = 0` — zero false refusals!), **Recall = 0.630** (`34/54`), **F1 = 0.773**, Selective Accuracy = **0.861**, Coverage = **0.860** (100% answerable coverage). Of the 20 unanswerable misses, 7 were **scoring regex gaps** where the agent truthfully replied *"do not report / do not disclose / do not mention"* (`psx2_AGIL_unans_field_cloud_arr`, `psx2_AGIL_unans_field_ai_capex`, `psx2_GHNI_unans_field_*`, `psx2_HUBC_unans_field_*`, `psx2_LUCK_unans_field_*`, `psx2_OGDC_unans_field_*`) without triggering `REFUSAL_PAT`, 7 were FY2022 Six-Years-at-a-Glance summary table leaks (`OGDC`, `PIOC`, `POL`, `POWER`, `PRL`, `AGIL`, `GHNI`), 3 were unconsolidated basis substitutions (`GHNI`, `PIOC`, `POWER`), and 3 were `step_limit` timeouts (`HUBC FY2022`, `LUCK FY2022`, `PRL consolidated`).
 
 ### 4.1 False Answers on Unanswerable Questions (`false_answer_on_unanswerable`) — Key Finding
 

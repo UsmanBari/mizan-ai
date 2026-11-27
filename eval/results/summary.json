@@ -499,27 +499,31 @@
   "qa_psx_v2_bm25": {
     "agent": {
       "runs": 1,
-      "accuracy_mean": 1.0,
+      "accuracy_mean": 0.917,
       "accuracy_std": 0.0,
       "accuracy_by_type": {
-        "lookup": 1.0
+        "growth": 1.0,
+        "lookup": 0.907
       },
-      "numeric_accuracy": 1,
+      "numeric_accuracy": 0.917,
       "refusal_rate": 0,
       "hallucination_rate": 0.0,
-      "grounding_mean": 0.958,
-      "gold_page_retrieved": 1,
-      "citation_correct": 1,
-      "inline_page_mismatch_rate": 0,
-      "latency_p50_s": 2.96,
-      "latency_p95_s": 11.08,
-      "cost_per_request_usd": 0.00424,
-      "api_failure_rate": 0.0,
-      "steps_mean": 3,
-      "tool_calls_per_task": 0.0,
-      "calc_tool_success_rate": null,
-      "error_causes": {},
-      "n_graded": 3,
+      "grounding_mean": 0.886,
+      "gold_page_retrieved": 0.917,
+      "citation_correct": 0.783,
+      "inline_page_mismatch_rate": 0.017,
+      "latency_p50_s": 5.06,
+      "latency_p95_s": 10.64,
+      "cost_per_request_usd": 0.00872,
+      "api_failure_rate": 0.048,
+      "steps_mean": 4.47,
+      "tool_calls_per_task": 0.37,
+      "calc_tool_success_rate": 1.0,
+      "error_causes": {
+        "agent_step_limit": 4,
+        "retrieval_miss": 1
+      },
+      "n_graded": 60,
       "judge_share": 0.0
     },
     "paired_tests": {}
@@ -600,34 +604,36 @@
     },
     "agent": {
       "runs": 1,
-      "accuracy_mean": 0.952,
+      "accuracy_mean": 0.881,
       "accuracy_std": 0.0,
       "accuracy_by_type": {
-        "cross_company": 0.925,
+        "cross_company": 0.926,
         "growth": 1.0,
         "lookup": 0.944,
-        "ratio": 0.963
+        "ratio": 0.963,
+        "unanswerable": 0.63
       },
       "numeric_accuracy": 0.973,
-      "refusal_rate": 0,
-      "hallucination_rate": 0.0,
-      "grounding_mean": 0.904,
+      "refusal_rate": 0.14,
+      "hallucination_rate": 0.024,
+      "grounding_mean": 0.91,
       "gold_page_retrieved": 0.995,
-      "citation_correct": 0.957,
-      "inline_page_mismatch_rate": 0.011,
-      "latency_p50_s": 4.79,
-      "latency_p95_s": 8.16,
-      "cost_per_request_usd": 0.00765,
-      "api_failure_rate": 0.016,
-      "steps_mean": 4.2,
-      "tool_calls_per_task": 1.89,
+      "citation_correct": 0.958,
+      "inline_page_mismatch_rate": 0.012,
+      "latency_p50_s": 4.65,
+      "latency_p95_s": 8.46,
+      "cost_per_request_usd": 0.00759,
+      "api_failure_rate": 0.0,
+      "steps_mean": 3.97,
+      "tool_calls_per_task": 1.49,
       "calc_tool_success_rate": 1.0,
       "error_causes": {
         "wrong_value_or_reasoning_with_evidence": 1,
-        "agent_step_limit": 8
+        "agent_step_limit": 8,
+        "false_answer_on_unanswerable": 20
       },
-      "n_graded": 188,
-      "judge_share": 0.021
+      "n_graded": 243,
+      "judge_share": 0.016
     },
     "paired_tests": {
       "rag_direct_vs_rag_calc": {
@@ -637,16 +643,16 @@
         "n": 243
       },
       "rag_direct_vs_agent": {
-        "a_only_correct": 2,
-        "b_only_correct": 76,
+        "a_only_correct": 12,
+        "b_only_correct": 80,
         "p_value": 0.0,
-        "n": 188
+        "n": 243
       },
       "rag_calc_vs_agent": {
-        "a_only_correct": 1,
-        "b_only_correct": 92,
+        "a_only_correct": 11,
+        "b_only_correct": 96,
         "p_value": 0.0,
-        "n": 188
+        "n": 243
       }
     }
   },
@@ -716,14 +722,14 @@
       }
     },
     "agent|hybridx": {
-      "n_total": 188,
-      "n_answerable": 188,
-      "extraction_accuracy": 0.957,
-      "operand_selection_accuracy": 0.872,
+      "n_total": 243,
+      "n_answerable": 189,
+      "extraction_accuracy": 0.958,
+      "operand_selection_accuracy": 0.873,
       "formula_selection_accuracy": 1,
       "arithmetic_accuracy": 1,
       "answerable_accuracy": 0.952,
-      "overall_accuracy": 0.952,
+      "overall_accuracy": 0.881,
       "by_type": {
         "lookup": {
           "n": 54,
@@ -738,23 +744,31 @@
           "accuracy": 0.963
         },
         "cross_company": {
-          "n": 53,
-          "accuracy": 0.925
+          "n": 54,
+          "accuracy": 0.926
+        },
+        "unanswerable": {
+          "n": 54,
+          "accuracy": 0.63
         }
       }
     },
     "agent|bm25": {
-      "n_total": 3,
-      "n_answerable": 3,
-      "extraction_accuracy": 1,
-      "operand_selection_accuracy": 0.667,
-      "formula_selection_accuracy": null,
-      "arithmetic_accuracy": null,
-      "answerable_accuracy": 1.0,
-      "overall_accuracy": 1.0,
+      "n_total": 60,
+      "n_answerable": 60,
+      "extraction_accuracy": 0.783,
+      "operand_selection_accuracy": 0.55,
+      "formula_selection_accuracy": 1,
+      "arithmetic_accuracy": 1,
+      "answerable_accuracy": 0.917,
+      "overall_accuracy": 0.917,
       "by_type": {
         "lookup": {
-          "n": 3,
+          "n": 54,
+          "accuracy": 0.907
+        },
+        "growth": {
+          "n": 6,
           "accuracy": 1.0
         }
       }
@@ -788,28 +802,28 @@
       "answerable_coverage": 0.582
     },
     "agent|hybridx": {
-      "n_total": 188,
-      "tp": 0,
+      "n_total": 243,
+      "tp": 34,
       "fp": 0,
-      "fn": 0,
-      "tn": 188,
-      "precision": 0.0,
-      "recall": 0.0,
-      "f1": 0.0,
-      "selective_accuracy": 0.952,
-      "coverage": 1.0,
+      "fn": 20,
+      "tn": 189,
+      "precision": 1.0,
+      "recall": 0.63,
+      "f1": 0.773,
+      "selective_accuracy": 0.861,
+      "coverage": 0.86,
       "answerable_coverage": 1.0
     },
     "agent|bm25": {
-      "n_total": 3,
+      "n_total": 60,
       "tp": 0,
       "fp": 0,
       "fn": 0,
-      "tn": 3,
+      "tn": 60,
       "precision": 0.0,
       "recall": 0.0,
       "f1": 0.0,
-      "selective_accuracy": 1.0,
+      "selective_accuracy": 0.917,
       "coverage": 1.0,
       "answerable_coverage": 1.0
     }
@@ -817,8 +831,8 @@
   "psx_v2_retrieval_qa": {
     "bm25": {
       "retrieval_r5": 0.053,
-      "answerable_accuracy": 1.0,
-      "overall_accuracy": 1.0
+      "answerable_accuracy": 0.917,
+      "overall_accuracy": 0.917
     },
     "dense": {
       "retrieval_r5": 0.507,
@@ -828,7 +842,7 @@
     "hybridx": {
       "retrieval_r5": 0.629,
       "answerable_accuracy": 0.952,
-      "overall_accuracy": 0.952
+      "overall_accuracy": 0.881
     }
   },
   "rq2_transfer": {
@@ -859,7 +873,9 @@
       }
     },
     "psx_failure_diff_types": {
-      "basis": 9
+      "basis": 13,
+      "period_not_in_corpus": 9,
+      "terminology": 7
     },
     "psx_failure_examples": [
       {
@@ -941,6 +957,150 @@
         "diff_type": "basis",
         "gold": "18.17% \u2014 Agriauto Industries Limited (AGIL) had the higher return on equity (ROE) (18.17% vs 15.92%).",
         "answer": "I could not complete the analysis within the step limit.",
+        "refused": false
+      },
+      {
+        "id": "psx2_AGIL_unans_period_FY2022",
+        "type": "unanswerable",
+        "template": "unanswerable",
+        "diff_type": "period_not_in_corpus",
+        "gold": "UNANSWERABLE",
+        "answer": "For the financial year ended June 30, 2022 (FY2022), Agriauto Industries Limited's consolidated net sales (revenue) was Rs. 15,397,684 thousand (Rs. 15,397.68 million).",
+        "refused": false
+      },
+      {
+        "id": "psx2_GHNI_unans_period_FY2022",
+        "type": "unanswerable",
+        "template": "unanswerable",
+        "diff_type": "period_not_in_corpus",
+        "gold": "UNANSWERABLE",
+        "answer": "According to Ghandhara Industries Limited (GHNI)'s Annual Report (Key Operating & Financial Data / Summary of Financial Position), the net sales (revenue) for the year ended June 30, 2022 (FY2022) was",
+        "refused": false
+      },
+      {
+        "id": "psx2_HUBC_unans_period_FY2022",
+        "type": "unanswerable",
+        "template": "unanswerable",
+        "diff_type": "period_not_in_corpus",
+        "gold": "UNANSWERABLE",
+        "answer": "I could not complete the analysis within the step limit.",
+        "refused": false
+      },
+      {
+        "id": "psx2_LUCK_unans_period_FY2022",
+        "type": "unanswerable",
+        "template": "unanswerable",
+        "diff_type": "period_not_in_corpus",
+        "gold": "UNANSWERABLE",
+        "answer": "I could not complete the analysis within the step limit.",
+        "refused": false
+      },
+      {
+        "id": "psx2_OGDC_unans_period_FY2022",
+        "type": "unanswerable",
+        "template": "unanswerable",
+        "diff_type": "period_not_in_corpus",
+        "gold": "UNANSWERABLE",
+        "answer": "According to Oil & Gas Development Company Limited's (OGDC) FY2026 Annual Report (Six Years Performance, page 40), the Net Sales (revenue) for the year ended June 30, 2022 (FY2022) was Rs 335.46 billi",
+        "refused": false
+      },
+      {
+        "id": "psx2_PIOC_unans_period_FY2022",
+        "type": "unanswerable",
+        "template": "unanswerable",
+        "diff_type": "period_not_in_corpus",
+        "gold": "UNANSWERABLE",
+        "answer": "According to Pioneer Cement Limited's (PIOC) FY 2026 Annual Report (Analysis of Statement of Profit or Loss), the net turnover (revenue) for the year ended June 30, 2022 (FY 2022) was Rs. 31,879.21 mi",
+        "refused": false
+      },
+      {
+        "id": "psx2_POL_unans_period_FY2022",
+        "type": "unanswerable",
+        "template": "unanswerable",
+        "diff_type": "period_not_in_corpus",
+        "gold": "UNANSWERABLE",
+        "answer": "According to Pakistan Oilfields Limited's (POL) FY2026 Annual Report (Performance Indicators summary), the Total Net Sales (revenue) for the year ended June 30, 2022 (FY2022) was Rs 51,945 million.\n\nB",
+        "refused": false
+      },
+      {
+        "id": "psx2_POWER_unans_period_FY2022",
+        "type": "unanswerable",
+        "template": "unanswerable",
+        "diff_type": "period_not_in_corpus",
+        "gold": "UNANSWERABLE",
+        "answer": "According to Power Cement Limited's Annual Report (Six Years at a Glance - Vertical and Horizontal Analysis), the company's revenue from contracts with customers for FY2022 (year ended June 30, 2022) ",
+        "refused": false
+      },
+      {
+        "id": "psx2_PRL_unans_period_FY2022",
+        "type": "unanswerable",
+        "template": "unanswerable",
+        "diff_type": "period_not_in_corpus",
+        "gold": "UNANSWERABLE",
+        "answer": "According to Pakistan Refinery Limited's (PRL) FY2026 Annual Report (Six Years Summary), the company's revenue from contracts with customers for the financial year ended June 30, 2022 (FY2022) was Rs.",
+        "refused": false
+      },
+      {
+        "id": "psx2_GHNI_unans_basis_consolidated_net_profit_margin",
+        "type": "unanswerable",
+        "template": "unanswerable",
+        "diff_type": "basis",
+        "gold": "UNANSWERABLE",
+        "answer": "Ghandhara Industries Limited (GHNI) publishes single-entity (company-only/unconsolidated) financial statements rather than consolidated financial statements for FY2026 (as it has no subsidiaries requi",
+        "refused": false
+      },
+      {
+        "id": "psx2_PIOC_unans_basis_consolidated_net_profit_margin",
+        "type": "unanswerable",
+        "template": "unanswerable",
+        "diff_type": "basis",
+        "gold": "UNANSWERABLE",
+        "answer": "For the financial year ended June 30, 2026 (FY2026), Pioneer Cement Limited's net profit margin (on a single-entity/standalone basis as reported in its financial statements) was approximately 17.09% (",
+        "refused": false
+      },
+      {
+        "id": "psx2_POWER_unans_basis_consolidated_net_profit_margin",
+        "type": "unanswerable",
+        "template": "unanswerable",
+        "diff_type": "basis",
+        "gold": "UNANSWERABLE",
+        "answer": "For the financial year ended June 30, 2026 (FY2026), Power Cement Limited reported revenue from contracts with customers of Rs 33,978,969 thousand and profit after taxation of Rs 3,784,470 thousand. T",
+        "refused": false
+      },
+      {
+        "id": "psx2_PRL_unans_basis_consolidated_net_profit_margin",
+        "type": "unanswerable",
+        "template": "unanswerable",
+        "diff_type": "basis",
+        "gold": "UNANSWERABLE",
+        "answer": "I could not complete the analysis within the step limit.",
+        "refused": false
+      },
+      {
+        "id": "psx2_AGIL_unans_field_cloud_arr",
+        "type": "unanswerable",
+        "template": "unanswerable",
+        "diff_type": "terminology",
+        "gold": "UNANSWERABLE",
+        "answer": "Agriauto Industries Limited (AGIL) is an automotive components manufacturer and does not have cloud software subscriptions or generate annual recurring revenue (ARR) from cloud software subscriptions ",
+        "refused": false
+      },
+      {
+        "id": "psx2_AGIL_unans_field_ai_capex",
+        "type": "unanswerable",
+        "template": "unanswerable",
+        "diff_type": "terminology",
+        "gold": "UNANSWERABLE",
+        "answer": "The Agriauto Industries Limited (AGIL) FY2026 consolidated financial statements do not report any capital expenditure spent on AI GPU clusters.",
+        "refused": false
+      },
+      {
+        "id": "psx2_GHNI_unans_field_cloud_arr",
+        "type": "unanswerable",
+        "template": "unanswerable",
+        "diff_type": "terminology",
+        "gold": "UNANSWERABLE",
+        "answer": "Based on Ghandhara Industries Limited (GHNI)'s FY2026 annual report (consolidated financial statements for the year ended June 30, 2026), the company is primarily engaged in the assembly, progressive ",
         "refused": false
       }
     ]
