@@ -53,12 +53,12 @@ POWER_FY2026,POWER,Power Cement Limited,2026-06-30,thousands,false,net_profit,37
 POWER_FY2026,POWER,Power Cement Limited,2026-06-30,thousands,false,eps_basic,2.86,0.44,168,usman,basic (diluted 2.72) | verify: usman
 POWER_FY2026,POWER,Power Cement Limited,2026-06-30,thousands,false,total_assets,47400245,47680009,166,usman, | verify: usman
 POWER_FY2026,POWER,Power Cement Limited,2026-06-30,thousands,false,total_equity,24014746,23529257,167,usman, | verify: usman
-ATRL_FY2026,ATRL,Attock Refinery Limited,2026-06-30,thousands,true,revenue,341794386,301519955,236,claude-draft,Net sales | type: annual | verify: burhan
-ATRL_FY2026,ATRL,Attock Refinery Limited,2026-06-30,thousands,true,profit_before_tax,35945788,18253969,236,claude-draft,Profit before income tax from refinery operations and subsidiary | type: annual | verify: burhan
-ATRL_FY2026,ATRL,Attock Refinery Limited,2026-06-30,thousands,true,net_profit,26062169,8948467,236,claude-draft,Profit for the year | type: annual | verify: burhan
-ATRL_FY2026,ATRL,Attock Refinery Limited,2026-06-30,thousands,true,eps_basic,244.45,83.93,236,claude-draft,Earnings per share - basic and diluted (Rupees) | type: annual | verify: burhan
-ATRL_FY2026,ATRL,Attock Refinery Limited,2026-06-30,thousands,true,total_assets,,,148,claude-draft,Total Assets | LLM found nothing - fill by hand | type: annual | verify: burhan
-ATRL_FY2026,ATRL,Attock Refinery Limited,2026-06-30,thousands,true,total_equity,,,148,claude-draft,Equity and reserves | LLM found nothing - fill by hand | type: annual | verify: burhan
+ATRL_FY2026,ATRL,Attock Refinery Limited,2026-06-30,thousands,true,revenue,341794386,301519955,236,burhan,Net sales | type: annual | verify: burhan
+ATRL_FY2026,ATRL,Attock Refinery Limited,2026-06-30,thousands,true,profit_before_tax,35945788,18253969,236,burhan,Profit before income tax from refinery operations and subsidiary | type: annual | verify: burhan | only PBT line; associates' share is added after tax
+ATRL_FY2026,ATRL,Attock Refinery Limited,2026-06-30,thousands,true,net_profit,26062169,8948467,236,burhan,Profit for the year | type: annual | verify: burhan
+ATRL_FY2026,ATRL,Attock Refinery Limited,2026-06-30,thousands,true,eps_basic,244.45,83.93,236,burhan,Earnings per share - basic and diluted (Rupees) | type: annual | verify: burhan
+ATRL_FY2026,ATRL,Attock Refinery Limited,2026-06-30,thousands,true,total_assets,293173169,220143508,235,burhan,TOTAL ASSETS | filled by hand | verify: burhan
+ATRL_FY2026,ATRL,Attock Refinery Limited,2026-06-30,thousands,true,total_equity,186398731,153302673,234,burhan,unlabelled subtotal of share capital and reserves | filled by hand | verify: burhan
 APL_FY2026,APL,Attock Petroleum Limited,2026-06-30,thousands,false,revenue,533096747,474097307,184,claude-draft,NET SALES | type: annual | verify: usman
 APL_FY2026,APL,Attock Petroleum Limited,2026-06-30,thousands,false,profit_before_tax,27712542,16978879,184,claude-draft,PROFIT BEFORE TAXATION | type: annual | verify: usman
 APL_FY2026,APL,Attock Petroleum Limited,2026-06-30,thousands,false,net_profit,16958895,10392588,184,claude-draft,PROFIT FOR THE YEAR | type: annual | verify: usman
