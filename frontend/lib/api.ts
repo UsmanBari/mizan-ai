@@ -12,7 +12,17 @@ export type Answer = {
   context_pages: Citation[]; mode: string; steps: number; latency_s: number;
   tokens_in: number; tokens_out: number; cost_usd: number; refused: boolean; grounding: number;
   evidence?: Evidence[];
+  // v2 three-part answer (backend): figures printed in the report, values computed by code,
+  // and an explanation that may only quote the report
+  reported_figures?: ReportedFigure[];
+  calculated_values?: CalculatedValue[];
+  explanation?: string;
+  refusal_reason?: string | null;
+  basis?: string | null;
 };
+export type ReportedFigure = { field: string; value: number; unit?: string; statement?: string; period?: string; page?: number | null; doc_id?: string };
+export type CalculatedValue = { name: string; formula: string; result: number | null;
+  operands?: { field: string; period: string; value: number; doc_id?: string; page?: number | null; basis?: string }[] };
 export type Doc = { doc_id: string; company: string; symbol: string; doc_type: string; period: string; n_pages: number; source_url: string };
 
 export async function api<T>(path: string, init?: RequestInit): Promise<T> {

@@ -6,6 +6,7 @@ import { MODE_NAME } from "@/lib/labels";
 import { Markdown } from "@/lib/markdown";
 import { EvidenceToken, ProvenanceLegend } from "@/components/EvidenceToken";
 import { EvidencePanel, type View } from "@/components/EvidencePanel";
+import { AnswerParts } from "@/components/AnswerParts";
 
 const MODES = [
   { id: "agent", help: "Searches the report, reads the pages it needs and lets code do every calculation. Recommended." },
@@ -206,8 +207,9 @@ export default function AskPage() {
                 </p>
               </div>
             )}
-            {ans.refused && <p className="notice">Mizan could not find enough in the report to answer. Try naming the company and the year.</p>}
+            {ans.refused && !ans.refusal_reason && <p className="notice">Mizan could not find enough in the report to answer. Try naming the company and the year.</p>}
             <div className="answer"><Markdown text={ans.answer} renderText={decorate} /></div>
+            <AnswerParts ans={ans} docs={docs} openPage={(doc_id, page, highlight) => setView({ kind: "page", doc_id, page, highlight })} />
 
             {ans.citations.length > 0 && (
               <div className="sources">
