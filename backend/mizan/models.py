@@ -21,6 +21,17 @@ class Document(BaseModel):
     path: str = ""                    # local PDF path
     n_pages: int = 0
     added_at: datetime = Field(default_factory=_utcnow)
+    # reporting period, read from the title and checked against the statement headers
+    period_type: str = ""             # annual | half-yearly | quarterly | other
+    period_end: str = ""              # YYYY-MM-DD
+    months_covered: Optional[int] = None
+    period_warnings: list[str] = Field(default_factory=list)
+    # page -> {"statement": income|balance|comprehensive|cash_flow|equity,
+    #          "basis": consolidated|unconsolidated}
+    statement_pages: dict[int, dict] = Field(default_factory=dict)
+    # de-duplication: the same filing is never ingested twice
+    sha256: str = ""
+    remote_id: str = ""               # PSX document id, e.g. "282262"
 
 
 class Chunk(BaseModel):
