@@ -27,10 +27,20 @@ LABELS = {"revenue": "revenue", "profit_before_tax": "profit before tax",
 UNIT_TXT = {"thousands": "Rs '000", "millions": "Rs million", "units": "Rupees", "billions": "Rs billion"}
 
 
-def main() -> None:
+def main(include_drafts: bool = False) -> None:
     rows = [r for r in csv.DictReader(open(DATA / "psx_labels.csv")) if not r["doc_id"].startswith("EXAMPLE")]
+    # a row with no value (the drafting step found nothing) cannot be gold
+    empty = [r for r in rows if not r["value_current"].strip() or not r["page"].strip()]
+    rows = [r for r in rows if r not in empty]
+    drafts = [r for r in rows if r["labeller"].strip().lower() == "claude-draft"]
+    if not include_drafts:
+        rows = [r for r in rows if r not in drafts]
+    print(f"{len(rows)} label rows used ({len(drafts)} unverified drafts "
+          f"{'included' if include_drafts else 'skipped - verify them and set labeller to your name'}, "
+          f"{len(empty)} empty rows skipped)")
     if not rows:
         raise SystemExit("data/psx_labels.csv has no labels yet - see the instructions at the top of this file")
+    doc_types = {f"{r['symbol']}_{r['period']}": r["doc_type"] for r in csv.DictReader(open(DATA / "psx_reports.csv"))}
     gold = defaultdict(dict)
     qa = []
     for r in rows:
@@ -38,7 +48,8 @@ def main() -> None:
         prior = float(r["value_prior"].replace(",", "")) if r.get("value_prior") else None
         page = int(r["page"])
         gold[r["doc_id"]]["_meta"] = {"symbol": r["symbol"], "company": r["company"], "unit": r["unit"],
-                                      "period_end": r["period_end"], "consolidated": r["consolidated"]}
+                                      "period_end": r["period_end"], "consolidated": r["consolidated"],
+                                      "doc_type": doc_types.get(r["doc_id"], "annual")}
         gold[r["doc_id"]][r["field"]] = {"value": cur, "prior": prior, "page": page}
         unit = "Rupees per share" if r["field"] == "eps_basic" else UNIT_TXT.get(r["unit"], r["unit"])
         # say which statements the gold comes from, so a correct consolidated /
@@ -77,4 +88,8 @@ def main() -> None:
 
 
 if __name__ == "__main__":
-    main()
+    import argparse
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--include-drafts", action="store_true",
+                    help="also use rows still marked claude-draft (only for a quick look, never for results)")
+    main(ap.parse_args().include_drafts)
