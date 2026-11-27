@@ -53,7 +53,7 @@ Under the scoped evaluation setting (searching within the 10-K/10-Q filing ident
 
 In PSX v2 stage-wise attribution:
 - `rag_calc | hybridx` ($n=243$): extraction **0.503**, operand selection **0.471**, formula selection **0.385**, arithmetic **0.385**, answerable accuracy **0.466** (overall **0.531**).
-- `agent | hybridx` ($n=101$ completed): extraction **0.921**, operand selection **0.762**, formula selection **1.000**, arithmetic **1.000**, answerable accuracy **0.950** (0.0% hallucination; only 5 failures across 101 questions: 4 `agent_step_limit` on `OGDC`, `PRL`, `HUBC` + 1 `LUCK` total-PAT vs owners-PAT error).
+- `agent | hybridx` ($n=188$ answerable completed): extraction **0.957**, operand selection **0.872**, formula selection **1.000**, arithmetic **1.000**, answerable accuracy **0.952** (**0.0% hallucination**; only 9 failures across 188 questions: 8 `agent_step_limit` on `OGDC`, `PRL`, `HUBC`, and cross-company pairs + 1 `LUCK` total-PAT vs owners-PAT error).
 
 ### 3.1 Failure Breakdown & 12 Real Examples (`qa_psx_v2_failures_rag_calc.json` / `.jsonl`)
 

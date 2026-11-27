@@ -99,7 +99,7 @@ Dev/test hygiene: 10 FinanceBench questions (`eval/data/financebench_split.json`
 
 - **FinanceBench QA (`bm25x`, n=60)**: `rag_direct` **0.483** (halluc 0.028) · `rag_calc` **0.433** (halluc **0.000**, grounding **0.988**) · `agent` **0.750** ($n=36$, $p=0.0042$ vs `rag_direct`, $p=0.0013$ vs `rag_calc`).
 - **PSX v2 Open Retrieval R@5 (`9 filings`)**: `bm25` **0.053** · `dense` **0.507** · `hybridx` **0.629**.
-- **PSX v2 QA (`hybridx`)**: `rag_direct` **0.601** ($n=243$, halluc 0.151, RQ3 sel_acc 0.719) · `rag_calc` **0.531** ($n=243$, halluc 0.057, RQ3 sel_acc 0.715) · **`agent`** **0.950** ($n=101$ graded so far, halluc **0.000**, $p=0.0000$ vs both RAG baselines; remaining runs pending daily quota reset).
+- **PSX v2 QA (`hybridx`)**: `rag_direct` **0.601** ($n=243$, halluc 0.151, RQ3 sel_acc 0.719) · `rag_calc` **0.531** ($n=243$, halluc 0.057, RQ3 sel_acc 0.715) · **`agent`** **0.952** ($n=188$ answerable graded, halluc **0.000**, formula/arithmetic **1.000**, $p=0.0000$ vs both RAG baselines; remaining `55` + `bm25`/`dense` pending quota reset).
 - **PSX Structured Extraction (`n=54`)**: `rules` **0.463** ($0.00) · `gemini-3.5-flash-lite` **0.759** (\$0.00372/report).
 
 ⚠ The FinanceBench glossary was written after reading 8 BM25 failures from the test split, so its FinanceBench gain is re-checked independently on the unseen PSX corpus.

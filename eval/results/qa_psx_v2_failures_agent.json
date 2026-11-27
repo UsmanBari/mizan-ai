@@ -53,5 +53,49 @@
   "gold_page_retrieved": true,
   "answerable": true,
   "cause": "agent_step_limit"
+ },
+ {
+  "id": "psx2_cross_LUCK_PIOC_net_margin",
+  "type": "cross_company",
+  "question": "Between Lucky Cement Limited (LUCK) and Pioneer Cement Limited (PIOC), which company achieved the higher net profit margin in FY2026 (ended 2026-06-30)? State both companies' figures.",
+  "gold": "17.24% \u2014 Lucky Cement Limited (LUCK) had the higher net profit margin (17.24% vs 17.09%).",
+  "answer": "I could not complete the analysis within the step limit.",
+  "grounding": 1.0,
+  "gold_page_retrieved": true,
+  "answerable": true,
+  "cause": "agent_step_limit"
+ },
+ {
+  "id": "psx2_cross_AGIL_GHNI_roe",
+  "type": "cross_company",
+  "question": "Between Agriauto Industries Limited (AGIL) and Ghandhara Industries Limited (GHNI), which company achieved the higher return on equity (ROE) in FY2026 (ended 2026-06-30)? State both companies' figures.",
+  "gold": "38.58% \u2014 Ghandhara Industries Limited (GHNI) had the higher return on equity (ROE) (38.58% vs 18.17%).",
+  "answer": "I could not complete the analysis within the step limit.",
+  "grounding": 1.0,
+  "gold_page_retrieved": true,
+  "answerable": true,
+  "cause": "agent_step_limit"
+ },
+ {
+  "id": "psx2_cross_AGIL_LUCK_roe",
+  "type": "cross_company",
+  "question": "Between Agriauto Industries Limited (AGIL) and Lucky Cement Limited (LUCK), which company achieved the higher return on equity (ROE) in FY2026 (ended 2026-06-30)? State both companies' figures.",
+  "gold": "20.66% \u2014 Lucky Cement Limited (LUCK) had the higher return on equity (ROE) (20.66% vs 18.17%).",
+  "answer": "I could not complete the analysis within the step limit.",
+  "grounding": 1.0,
+  "gold_page_retrieved": true,
+  "answerable": true,
+  "cause": "agent_step_limit"
+ },
+ {
+  "id": "psx2_cross_AGIL_POWER_roe",
+  "type": "cross_company",
+  "question": "Between Agriauto Industries Limited (AGIL) and Power Cement Limited (POWER), which company achieved the higher return on equity (ROE) in FY2026 (ended 2026-06-30)? State both companies' figures.",
+  "gold": "18.17% \u2014 Agriauto Industries Limited (AGIL) had the higher return on equity (ROE) (18.17% vs 15.92%).",
+  "answer": "I could not complete the analysis within the step limit.",
+  "grounding": 1.0,
+  "gold_page_retrieved": true,
+  "answerable": true,
+  "cause": "agent_step_limit"
  }
 ]
