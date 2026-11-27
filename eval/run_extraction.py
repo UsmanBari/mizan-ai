@@ -76,7 +76,8 @@ def main(names: list[str]) -> dict:
         print(f"reading {doc_id} ...", flush=True)
         pages_cache[doc_id] = {p.page: p.text for p in parse_pdf(pdf_dir / f"{doc_id}.pdf", ocr=False)}
     summary, errors = {}, []
-    api_results: dict[str, tuple] = {}          # doc_id -> (result, seconds, cost), reused by api+columns
+    api_results: dict[str, tuple] = {}
+    api_errors: dict[str, str] = {}          # doc_id -> (result, seconds, cost), reused by api+columns
     if "api+columns" in names and "api" not in names:
         names = ["api"] + list(names)
     names = sorted(names, key=lambda n: n == "api+columns")   # api must run first
@@ -98,6 +99,17 @@ def main(names: list[str]) -> dict:
                 cost.append(c)
             else:
                 res = ex.extract(pages_cache[doc_id], g["_meta"]["company"])
+                # free tier: ~15 requests/minute. An API failure (429 / 503) is not a model
+                # error, so wait and retry up to 3 times before counting it as "no output"
+                tries = 0
+                while name in ("api", "local") and res.highlights is None and tries < 3:
+                    tries += 1
+                    print(f"    API failed ({(res.error or '')[:90]}); retry {tries}/3 in {20 * tries}s", flush=True)
+                    time.sleep(20 * tries)
+                    t = time.perf_counter()
+                    res = ex.extract(pages_cache[doc_id], g["_meta"]["company"])
+                if name in ("api", "local") and res.error:
+                    api_errors[doc_id] = res.error
             if name != "api+columns":
                 lat.append(time.perf_counter() - t)
             if name != "api+columns":
@@ -105,6 +117,7 @@ def main(names: list[str]) -> dict:
                                            getattr(getattr(ex, "llm", None), "price_out", 0)))
             if name == "api":
                 api_results[doc_id] = (res, lat[-1], cost[-1])
+                time.sleep(4.5)          # stay under ~15 requests per minute
             fh = res.highlights
             valid += fh is not None
             unit_ok += fh is not None and fh.unit == g["_meta"]["unit"]
@@ -152,6 +165,8 @@ def main(names: list[str]) -> dict:
         if name == "api+columns":
             summary[getattr(ex, "name", name)]["values_corrected_by_code"] = len(ex.corrections)
         print(name, summary[getattr(ex, "name", name)])
+    if api_errors:
+        print("API errors that remained after retries:", api_errors)
     save_json(errors, "extraction_errors.json")
     update_summary("extraction", summary)
     return summary
