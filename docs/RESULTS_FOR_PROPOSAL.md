@@ -1,96 +1,124 @@
-# Evaluation Results for Proposal
+# Evaluation Results for Proposal & Report (v2)
 
 **Course**: AI-4009 Generative AI · Assignment 3 (Part 1) · R&D Product Track  
-**Authors**: Usman Bari (23i-0680) & Syed Burhan Ahmad (23i-0757)  
-**Supervisor**: Dr. Akhtar Jamil  
-**Source of Truth**: All numbers are generated from scripts and match `eval/results/summary.json` exactly.
+**Authors**: Usman Bari (23i-0680) & Syed Burhan Ahmad (23i-0757) · FAST-NUCES Islamabad  
+**Source of Truth**: All numbers match [eval/results/summary.json](file:///c:/Users/usmanbari/Downloads/mizan-ai%20(1)/mizan-ai/eval/results/summary.json) verbatim. Zero numbers are invented or extrapolated.  
 
-> **Evaluation Setup Note**:  
-> The model used for all QA experiments is **`gemini-3.5-flash-lite`** (pricing: \$0.30 / \$2.50 per 1M tokens), because the Google AI Studio free tier limits `gemini-3.5-flash` to 20 requests/day (`RESOURCE_EXHAUSTED`). Experiments were run across **60 held-out FinanceBench test questions** (1 run). 3 repeated runs on all 140 test questions will be completed in Assignment 4.
-
----
-
-## 1. Section 6: Retrieval Evaluation Table (Paste into Proposal Section 6)
-
-### Table: Retrieval Page-Level Accuracy on FinanceBench (n=140 test questions, 84 filings)
-
-| Retriever Strategy | Scoped Recall@5 | Scoped MRR@10 | Open Recall@5 | Open MRR@10 | Latency p50 |
-|---|---|---|---|---|---|
-| **BM25 (keyword baseline)** | 0.363 | 0.249 | 0.124 | 0.096 | 82.0 ms |
-| **+ Finance Glossary Expansion (`bm25:expand`)** | **0.509** | **0.358** | 0.135 | 0.084 | 34.2 ms |
-| **+ Company / Year Routing (`bm25:route`)** | 0.363 | 0.249 | 0.284 | 0.192 | 7.8 ms |
-| **Both Combined (`bm25x`)** | **0.509** | **0.358** | **0.409** | **0.281** | **6.9 ms** |
-
-*(Note: Dense BGE-small, Hybrid RRF, and Cross-Encoder reranking rows are evaluated separately on GPU by partner Burhan in notebook 03).*
-
-### Ready-to-Paste Prose for Section 6:
-> *"In our retrieval ablation on 140 FinanceBench test questions across 84 filings, standard BM25 achieved a scoped Recall@5 of 36.3% and an open-corpus Recall@5 of 12.4% (MRR 0.096). Adding our domain-specific financial glossary expansion increased scoped Recall@5 to 50.9% (+40.2% relative gain) and scoped MRR to 0.358 by resolving synonymous accounting terms (e.g., mapping capex to payments for property, plant and equipment). Adding company and fiscal year metadata routing improved open-corpus Recall@5 from 12.4% to 28.4% (+129% relative gain). Combining both techniques in `bm25x` yielded our strongest lexical pipeline, reaching 50.9% scoped Recall@5, 40.9% open Recall@5, and 0.281 open MRR at a median query latency of only 6.9 ms."*
+> **Evaluation Setup**:  
+> - **Model**: `gemini-3.5-flash-lite` (list prices **\$0.30 / 1M in**, **\$2.50 / 1M out**, checked 22 Nov 2026; temperature `0.0`), chosen because the free tier limits `gemini-3.5-flash` to 20 requests/day.  
+> - **Prompt Version**: `v1.1` on initial FinanceBench 60-question baseline; `v2.0` (with `compute_ratio`, basis rule, three-part answer, deterministic abstention) on PSX v2.  
+> - **Quota Status (27 Nov 2026)**: PSX v2 completed **243/243** (`rag_direct | hybridx`) and **225/243** (`rag_calc | hybridx`) before hitting the ~500 RPD free-tier cap; `agent` (`hybridx`, `bm25`, `dense`) runs are queued to resume once quota resets / second key is provided.
 
 ---
 
-## 2. Section 10: Cost Analysis and Pilot Budget (Paste into Proposal Section 10)
+## 1. Retrieval Evaluation (FinanceBench Test Split, n=140, 84 Filings)
 
-### Measured Cost per Request
-Model: **`gemini-3.5-flash-lite`**  
-List Prices: \$0.30 per 1M input tokens, \$2.50 per 1M output tokens (checked 22 Nov 2026).
+| Retriever Strategy | Scoped R@1 | Scoped R@5 | Scoped R@10 | Scoped MRR@10 | Open R@1 | Open R@5 | Open R@10 | Open MRR@10 | Latency p50 (Scoped / Open) |
+|---|---:|---:|---:|---:|---:|---:|---:|---:|---|
+| `bm25` | 0.1536 | 0.3631 | 0.4488 | 0.2487 | 0.0714 | 0.1238 | 0.1631 | 0.0956 | 33.7 ms / 272.2 ms |
+| `bm25:expand` (+ glossary) | 0.1929 | 0.5095 | 0.6702 | 0.3576 | 0.0500 | 0.1345 | 0.1810 | 0.0836 | 43.0 ms / 405.6 ms |
+| `bm25:route` (+ metadata route) | 0.1536 | 0.3631 | 0.4488 | 0.2487 | 0.1107 | 0.2845 | 0.3631 | 0.1916 | 38.6 ms / 6.9 ms |
+| `bm25x` (glossary + routing) | 0.1929 | 0.5095 | 0.6702 | 0.3576 | 0.1464 | 0.4095 | 0.5417 | 0.2805 | 47.1 ms / 10.2 ms |
+| `dense` (`bge-small-en-v1.5`) | **0.3036** | 0.5381 | 0.6976 | 0.4581 | 0.1571 | 0.4143 | 0.5071 | 0.2945 | 13.1 ms / 48.5 ms |
+| `hybrid` (BM25 + Dense RRF) | 0.2393 | 0.5107 | 0.6881 | 0.3874 | 0.1214 | 0.3321 | 0.4536 | 0.2218 | 23.9 ms / 190.6 ms |
+| **`hybridx` (Hybrid + glossary + route)** | 0.2821 | **0.6464** | **0.7988** | **0.4732** | **0.2357** | **0.5321** | **0.6952** | **0.4024** | **26.7 ms / 17.1 ms** |
+| `hybridx+rerank` (`bge-reranker-base`) | 0.1679 | 0.5631 | 0.7738 | 0.3541 | 0.1107 | 0.5238 | 0.6917 | 0.3009 | 817.8 ms / 807.8 ms |
 
-| Answering Mode | Measured Tokens In (mean) | Measured Tokens Out (mean) | Measured Cost per Request |
-|---|---|---|---|
-| **`rag_direct`** | 2,752 | 89 | **\$0.00105** |
-| **`rag_calc`** | 2,763 | 149 | **\$0.00120** |
-| **`agent`** | 24,860 | 1,638 | **\$0.01155** |
-
-### Projected Monthly Pilot Operating Cost (30,000 Questions / Month)
-
-The monthly pilot volume is projected at 30,000 questions per month (1,000 questions/day across retail investors and equity research analysts). The monthly operational cost is calculated as:
-$$\text{Monthly Cost} = 30,000 \times \text{Measured Cost per Request}$$
-
-- **`rag_direct` mode**:
-  $$30,000 \times \$0.00105 = \mathbf{\$31.50\text{ / month}}$$
-- **`rag_calc` mode (Production Default)**:
-  $$30,000 \times \$0.00120 = \mathbf{\$36.00\text{ / month}}$$
-- **`agent` mode (Deep Multi-Step Research)**:
-  $$30,000 \times \$0.01155 = \mathbf{\$346.50\text{ / month}}$$
-
-### Ready-to-Paste Prose for Section 10:
-> *"Based on empirical token accounting using `gemini-3.5-flash-lite` (list prices \$0.30 / \$2.50 per 1M tokens), our deterministic `rag_calc` mode costs \$0.00120 per query, while the tool-calling `agent` mode costs \$0.01155 per query due to multi-turn retrieval and calculator tool loops. For a pilot workload of 30,000 queries per month, the total API operating cost is \$36.00/month under `rag_calc` or \$346.50/month under full `agent` mode. This demonstrates that production-grade financial question answering with code-verified arithmetic is economically viable even at scale."*
+*Design takeaway*: `hybridx` is set as our production default (`use_reranker = False` in `config.py`), because adding the cross-encoder lowered Scoped R@5 (`0.6464` → `0.5631`) and added ~800 ms latency overhead.
 
 ---
 
-## 3. Section 13: "First Experiment" Results (Paste into Proposal Section 13)
+## 2. QA Evaluation Per Mode (FinanceBench n=60 + PSX v2 n=243)
 
-### Table: QA Performance Across Modes (RQ1, FinanceBench n=60, `bm25x` retriever)
+### 2A. FinanceBench (`bm25x`, n=60 test questions)
 
-| Metric | `rag_direct` (LLM Maths) | `rag_calc` (Code Maths) | `agent` (Tool-Calling) |
-|---|---|---|---|
-| **Overall Accuracy** | 48.3% (0.483) | 43.3% (0.433) | **75.0% (0.750)** |
-| **Numeric Accuracy** | 48.3% | 48.3% | **68.8%** |
-| **Hallucination Rate** | 2.8% (0.028) | **0.0% (0.000)** | 2.8% (0.028) |
-| **Refusal Rate** | 40.0% | 50.0% | **0.0%** |
-| **Citation Correctness** | 33.3% | 26.7% | **50.0%** |
-| **Inline Page Mismatch Rate** | **0.0%** | **0.0%** | **0.0%** |
-| **Grounding Score (mean)** | 0.887 | **0.988** | 0.809 |
-| **Latency p50** | 3.03 s | **2.12 s** | 12.31 s |
-| **Latency p95** | 10.20 s | **6.75 s** | 23.98 s |
-| **Cost per Request** | **\$0.00105** | \$0.00120 | \$0.01155 |
+| Mode | n | Accuracy | Numeric Acc | Hallucination Rate | Refusal Rate | Grounding | Citation Correct | Latency p50 / p95 | Cost / Req |
+|---|---:|---:|---:|---:|---:|---:|---:|---|---|
+| `rag_direct` | 60 | 0.483 | 0.483 | 0.028 | 0.400 | 0.887 | 0.333 | 3.03s / 10.20s | \$0.00105 |
+| `rag_calc` | 60 | 0.433 | 0.483 | **0.000** | 0.500 | **0.988** | 0.267 | **2.12s / 6.75s** | \$0.00120 |
+| **`agent`** | 36 | **0.750** | **0.688** | 0.028 | **0.000** | 0.809 | **0.500** | 12.31s / 23.98s | \$0.01155 |
+
+- Paired McNemar tests: `rag_direct` vs `agent` **$p = 0.0042$** ($n=36$); `rag_calc` vs `agent` **$p = 0.0013$** ($n=36$); `rag_direct` vs `rag_calc` $p = 0.250$ ($n=60$).
+
+### 2B. PSX v2 Benchmark (`hybridx`, 243 total: 189 answerable + 54 unanswerable)
+
+| Mode | n Graded | Overall Acc | Numeric Acc | Hallucination Rate | Refusal Rate | Grounding | Citation Correct | Latency p50 / p95 | Cost / Req |
+|---|---:|---:|---:|---:|---:|---:|---:|---|---|
+| `rag_direct` | 243 | 0.601 | 0.696 | 0.151 | 0.399 | 0.828 | 0.587 | 1.38s / 2.83s | \$0.00164 |
+| `rag_calc` | 225 | 0.520 | 0.642 | **0.051** | 0.480 | **0.948** | 0.460 | 1.24s / 5.26s | \$0.00160 |
+| `agent` (`hybridx`) | *Pending quota* | — | — | — | — | — | — | — | — |
+
+- Paired McNemar (`n=225`): `rag_direct` vs `rag_calc` $p = 0.0015$ (`rag_calc` reduced hallucinations from **15.1%** → **5.1%** while increasing conservative refusals from 39.9% → 48.0%).
 
 ---
 
-### Statistical Hypothesis Testing (Paired McNemar Tests)
+## 3. RQ1 Stage-Wise Error Attribution (`psx_v2_stages`)
 
-1. **`rag_direct` vs `rag_calc` (RQ1 Core Comparison)**:
-   - Discordant pairs: `rag_direct` correct & `rag_calc` incorrect = 3; `rag_calc` correct & `rag_direct` incorrect = 0 ($n=60$).
-   - Exact McNemar test: **$p = 0.250$** (not statistically significant on 60 samples).
-   - **Critical Qualitative Finding**: While overall accuracy between single-turn `rag_direct` and `rag_calc` was comparable, `rag_calc` completely eliminated hallucinations, achieving a **0.0% hallucination rate** (vs 2.8% for `rag_direct`) and a **0.988 grounding score** (vs 0.887). Every single number produced by `rag_calc` came from a cited page or deterministic Python AST execution.
+| Condition | n Total | Extraction Acc | Operand Selection | Formula Selection | Arithmetic Acc | Answerable Acc | Overall Acc |
+|---|---:|---:|---:|---:|---:|---:|---:|
+| `rag_direct \| hybridx` | 243 | 0.894* | N/A | N/A | N/A | 0.556 | 0.601 |
+| `rag_calc \| hybridx` | 225 | 0.503 | 0.471 | 0.385 | 0.385 | 0.466 | 0.520 |
+| `agent \| bm25` *(smoke)* | 3 | 1.000 | 0.667 | N/A | N/A | 1.000 | 1.000 |
+| `agent \| hybridx` | *Pending quota* | — | — | — | — | — | — |
 
-2. **`rag_direct` vs `agent`**:
-   - Discordant pairs: `agent` correct & `rag_direct` incorrect = 14; `rag_direct` correct & `agent` incorrect = 2 ($n=36$).
-   - Exact McNemar test: **$p = 0.0042$** (**statistically significant**, $p < 0.01$).
-   - **Finding**: Giving the LLM autonomous tool-calling access to iterate over document pages dramatically outperforms single-turn RAG, lifting accuracy from 48.3% to **75.0%** with a **0.0% refusal rate**.
+*\*`rag_direct` has no tool trace; extraction reflects single lookup numeric match coverage only.*
 
-3. **`rag_calc` vs `agent`**:
-   - Discordant pairs: `agent` correct & `rag_calc` incorrect = 16; `rag_calc` correct & `agent` incorrect = 2 ($n=36$).
-   - Exact McNemar test: **$p = 0.0013$** (**statistically significant**, $p < 0.01$).
+**PSX v2 Accuracy by Question Type**:
+- `rag_direct \| hybridx` (`n=243`): `lookup` 0.778 · `growth` 0.815 · `ratio` 0.481 · `cross_company` 0.278 · `unanswerable` 0.759
+- `rag_calc \| hybridx` (`n=225`): `lookup` 0.741 · `growth` 0.778 · `ratio` 0.463 · `cross_company` 0.037 · `unanswerable` 0.806 *(36 unanswerables graded before 429 limit)*
 
-### Ready-to-Paste Prose for Section 13:
-> *"In our initial experiment addressing RQ1 (FinanceBench test split, n=60 questions evaluated with `gemini-3.5-flash-lite` over `bm25x`), we observed two major findings. First, shifting arithmetic from LLM generation to deterministic code (`rag_calc`) achieved a zero hallucination rate (0.0% vs 2.8% in `rag_direct`) and raised grounding from 0.887 to 0.988, ensuring that no ungrounded numbers reached the user. Second, giving the model iterative tool-calling capabilities (`agent` mode with `search_filings`, `read_page`, and `calculate`) increased accuracy from 48.3% to 75.0% and eliminated refusals entirely (0.0% vs 40.0%). Paired McNemar tests confirm that the agent's accuracy improvement over single-turn RAG is highly statistically significant (p = 0.0042 vs `rag_direct`, p = 0.0013 vs `rag_calc`). Due to Google AI Studio's 20 request/day limit on `gemini-3.5-flash`, this benchmark was conducted on `gemini-3.5-flash-lite` on 60 test questions; 3 repeated runs across all 140 questions will be completed for Assignment 4."*
+---
+
+## 4. RQ3 Evidence-Aware Abstention (`psx_v2_abstention`)
+
+| Condition | n | TP | FP | FN | TN | Precision | Recall | F1 | Selective Acc | Coverage | Answerable Coverage |
+|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|
+| `rag_direct \| hybridx` | 243 | 41 | 56 | 13 | 133 | **0.423** | 0.759 | **0.543** | 0.719 | 0.601 | 0.704 |
+| `rag_calc \| hybridx` | 225 | 29 | 79 | 7 | 110 | 0.269 | **0.806** | 0.403 | **0.752** | 0.520 | 0.582 |
+| `agent \| hybridx` | *Pending quota* | — | — | — | — | — | — | — | — | — | — |
+
+---
+
+## 5. Retrieval → Answer Accuracy (`psx_v2_retrieval_qa`)
+
+| Retriever (`open`, PSX 9 filings) | PSX Retrieval R@5 | Agent Answerable Acc | Agent Overall Acc |
+|---|---:|---:|---:|
+| `bm25` | 0.053 | 1.000 *(n=3 smoke; full pending quota)* | 1.000 *(n=3)* |
+| `dense` (`bge-small-en-v1.5`) | 0.507 | *Pending quota* | *Pending quota* |
+| `hybridx` | **0.629** | *Pending quota* | *Pending quota* |
+
+---
+
+## 6. RQ2 Controlled Cross-Market Transfer (`rq2_transfer`, Open `hybridx`)
+
+| Template | FinanceBench R@5 | PSX R@5 | FinanceBench Agent Acc (n) | PSX Agent Acc (n) |
+|---|---:|---:|---:|---|
+| `lookup` | 0.559 | **0.741** | 0.857 (14) | *Pending quota* (`rag_direct`: 0.778) |
+| `growth` | 0.556 | 0.556 | 0.667 (3) | *Pending quota* (`rag_direct`: 0.815) |
+| `margin` | 0.200 | **0.722** | 0.800 (5) | *Pending quota* |
+
+*(PSX failure difference-type counts will populate automatically when `agent | hybridx` completes and `eval/score_stages.py` runs.)*
+
+---
+
+## 7. Structured Extraction Evaluation (`extraction`, Burhan's Results)
+
+Setup: 9 verified PSX FY2026 annual reports × 6 fields = **54 examples**.
+
+| Extractor | Field Accuracy | Coverage | Schema-Valid | Unit Accuracy | Statement Page Located | Latency p50 / p95 | Cost / Report |
+|---|---:|---:|---:|---:|---:|---|---|
+| `rules` (regex baseline) | 0.463 | 0.722 | **1.000** | 0.556 | 0.778 | **0.05s / 0.11s** | \$0.00 |
+| **`api:gemini-3.5-flash-lite`** | **0.759** | **0.852** | 0.889 | **0.778** | 0.778 | 3.07s / 7.59s | **\$0.00372** |
+
+---
+
+## 8. Latency & Cost Summary Across All Components
+
+| Component / Condition | Latency p50 | Latency p95 | Cost / Request (or Report) | Monthly Pilot Cost (30,000 req/mo) |
+|---|---:|---:|---:|---:|
+| Retrieval: `bm25x` (Scoped / Open) | 47.1 ms / 10.2 ms | 288.9 ms / 913.4 ms | \$0.00 | \$0.00 |
+| Retrieval: `hybridx` (Scoped / Open) | 26.7 ms / 17.1 ms | 81.5 ms / 251.7 ms | \$0.00 | \$0.00 |
+| QA (`rag_direct`, FinanceBench / PSX v2) | 3.03s / 1.38s | 10.20s / 2.83s | \$0.00105 / \$0.00164 | \$31.50 / \$49.20 |
+| QA (`rag_calc`, FinanceBench / PSX v2) | 2.12s / 1.24s | 6.75s / 5.26s | \$0.00120 / \$0.00160 | \$36.00 / \$48.00 |
+| QA (`agent`, FinanceBench `bm25x`) | 12.31s | 23.98s | \$0.01155 | \$346.50 |
+| Extraction (`rules` vs `gemini-3.5-flash-lite`) | 0.05s vs 3.07s | 0.11s vs 7.59s | \$0.00 vs \$0.00372 / report | — |
