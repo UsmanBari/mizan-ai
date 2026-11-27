@@ -287,3 +287,39 @@ svg .bar-value { fill: var(--ink); font-size: 13px; font-weight: 650; font-famil
 table.results th[scope="row"] { font-weight: 600; min-width: 260px; }
 tr.dup th, tr.dup td { color: var(--muted); }
 .dup-note { display: block; font-weight: 400; font-size: var(--t13); color: var(--muted); margin-top: 2px; }
+
+/* ---------- compare / trends / three-part answer ---------- */
+.controls { display: grid; gap: var(--s2); margin-bottom: var(--s3); }
+.controls .primary { justify-self: start; }
+.controls-row { gap: var(--s2); align-items: end; }
+.controls-row .field { min-width: 200px; }
+fieldset.pick { border: 0; padding: 0; margin: 0; }
+fieldset.pick legend { font-size: var(--t13); font-weight: 600; color: var(--ink-2); margin-bottom: 6px; padding: 0; }
+.chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.chip { display: inline-flex; align-items: center; gap: 6px; padding: 5px 12px 5px 8px; border: 1px solid var(--line);
+        border-radius: 999px; background: var(--surface); font-size: var(--t13); cursor: pointer; }
+.chip:has(input:checked) { border-color: var(--ink); background: var(--paper); font-weight: 600; }
+.chip:has(input:disabled) { opacity: .55; cursor: not-allowed; }
+.chip input { margin: 0; accent-color: var(--ink); }
+.answer-col.wide { max-width: none; }
+table.cmp th, table.cmp td { padding: 10px 12px; border-bottom: 1px solid var(--line-2); }
+table.cmp thead th { font-size: var(--t13); color: var(--ink-2); font-weight: 650; }
+table.cmp th[scope="row"] { font-weight: 600; text-align: left; }
+table.cmp .unit { font-weight: 400; font-size: var(--t13); display: block; }
+table.cmp td.num .ev { font-variant-numeric: tabular-nums; }
+.refused-cell { color: var(--muted); }
+.legend-swatch { cursor: default; font-weight: 500; }
+ul.reasons { margin: var(--s1) 0 0; padding-left: var(--s3); font-size: var(--t13); color: var(--ink-2); }
+.chart-pick { max-width: 260px; margin-bottom: var(--s2); }
+svg .bar.calc { fill: var(--computed); }
+.parts { margin-top: var(--s3); display: grid; gap: var(--s3); }
+.part h2 { display: flex; align-items: center; gap: var(--s1); font-size: var(--t15); margin-bottom: var(--s1); }
+.part-mark { width: 10px; height: 10px; border-radius: 2px; display: inline-block; }
+.part-mark.found { background: var(--found); }
+.part-mark.computed { background: var(--computed); }
+.part-mark.quote { background: var(--ink-2); }
+.calc-list { margin: 0; padding-left: var(--s3); display: grid; gap: 6px; }
+.calc-list code { font-family: var(--sans); background: var(--computed-bg); padding: 1px 6px; border-radius: var(--r-sm); }
+.refusal { border-left: 3px solid var(--unverified); background: var(--unverified-bg); padding: 12px var(--s2); border-radius: 0 var(--r-md) var(--r-md) 0; }
+.refusal h2 { font-size: var(--t15); margin-bottom: 4px; }
+.refusal p:last-child { margin-bottom: 0; }
