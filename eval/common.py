@@ -6,10 +6,11 @@ Data
   so the 1-based PDF page is evidence_page_num + 1).
   Split: 10 dev questions (prompt writing only) / 140 test questions.
 
-  PSX set (ours): built from hand-labelled values, see build_psx_testset.py.
+  PSX set (ours): built from hand-labelled values, see build_psx_testset.py / build_psx_qa_v2.py.
 """
 from __future__ import annotations
 
+import csv
 import json
 import pickle
 import re
@@ -21,7 +22,7 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "backend"))
 
 from mizan.ingest.pipeline import ingest_pdf  # noqa: E402
-from mizan.store import MemoryStore  # noqa: E402
+from mizan.store import MemoryStore, load_psx_labels  # noqa: E402
 
 EVAL = ROOT / "eval"
 DATA = EVAL / "data"
@@ -32,8 +33,8 @@ CACHE.mkdir(exist_ok=True)
 
 
 def load_financebench(split: str = "test") -> list[dict]:
-    qs = [json.loads(l) for l in open(DATA / "financebench_open_source.jsonl")]
-    dev = set(json.load(open(DATA / "financebench_split.json"))["dev_ids"])
+    qs = [json.loads(l) for l in open(DATA / "financebench_open_source.jsonl", encoding="utf-8")]
+    dev = set(json.load(open(DATA / "financebench_split.json", encoding="utf-8"))["dev_ids"])
     for q in qs:
         q["id"] = q["financebench_id"]
         q["gold_pages"] = sorted({(e["doc_name"], int(e["evidence_page_num"]) + 1) for e in q["evidence"]})
@@ -139,18 +140,52 @@ def load_psx() -> list[dict]:
     path = DATA / "psx_qa.jsonl"
     if not path.exists():
         raise FileNotFoundError("run eval/build_psx_testset.py after labelling")
-    qs = [json.loads(l) for l in open(path)]
+    qs = [json.loads(l) for l in open(path, encoding="utf-8")]
     for q in qs:
         q["split"] = "test"
         q["gold_pages"] = [tuple(p) for p in q["gold_pages"]]
     return qs
 
 
-def build_psx_store() -> MemoryStore:
-    gold = json.load(open(DATA / "psx_extraction_gold.json"))
+def load_psx_v2() -> list[dict]:
+    """PSX QA v2 benchmark built by build_psx_qa_v2.py (with stage gold + unanswerables)."""
+    path = DATA / "psx_qa_v2.jsonl"
+    if not path.exists():
+        raise FileNotFoundError("run eval/build_psx_qa_v2.py first")
+    qs = [json.loads(l) for l in open(path, encoding="utf-8")]
+    for q in qs:
+        q["split"] = "test"
+        q["gold_pages"] = [tuple(p) for p in q.get("gold_pages", [])]
+    return qs
+
+
+def build_psx_store(cache_name: str = "psx_store.pkl") -> MemoryStore:
+    """Ingest verified PSX filings and load verified facts from psx_labels.csv (cached)."""
+    cache = CACHE / cache_name
+    if cache.exists():
+        store = pickle.load(open(cache, "rb"))
+        if not store.get_facts():
+            load_psx_labels(store)
+        return store
+
+    docs_meta: dict[str, dict] = {}
+    with open(DATA / "psx_labels.csv", newline="", encoding="utf-8") as f:
+        for r in csv.DictReader(f):
+            if r["doc_id"].startswith("EXAMPLE"):
+                continue
+            if (r.get("labeller") or "").strip().lower() in ("", "claude-draft"):
+                continue
+            docs_meta[r["doc_id"]] = {"company": r["company"], "symbol": r["symbol"]}
+
     store = MemoryStore()
-    for doc_id, g in gold.items():
-        m = g["_meta"]
-        ingest_pdf(store, DATA / "psx_pdfs" / f"{doc_id}.pdf", doc_id, m["company"], m["symbol"],
-                   "annual", doc_id.split("_")[-1])
+    for doc_id, m in sorted(docs_meta.items()):
+        pdf = DATA / "psx_pdfs" / f"{doc_id}.pdf"
+        if pdf.exists():
+            ingest_pdf(store, pdf, doc_id, m["company"], m["symbol"], "annual", doc_id.split("_")[-1])
+    load_psx_labels(store)
+
+    tmp = cache.with_suffix(".tmp")
+    with open(tmp, "wb") as f:
+        pickle.dump(store, f)
+    tmp.replace(cache)
     return store
