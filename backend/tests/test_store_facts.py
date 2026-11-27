@@ -9,8 +9,20 @@ from mizan.store import MemoryStore, load_psx_labels
 def test_loads_verified_psx_labels_and_creates_current_and_prior():
     s = MemoryStore()
     n = load_psx_labels(s)
-    # 9 verified companies x 6 fields x 2 periods (current + prior) = 108 facts
-    assert n == 108
+    # expected count from the label file itself, so the test does not break every
+    # time a new report is verified: one fact per verified row (current) plus one per
+    # prior value, except interim balance-sheet priors (their comparative is the last
+    # year-end, not a same-length period, so the loader skips them)
+    import csv
+    from mizan.store import default_psx_labels_path
+    path = default_psx_labels_path()
+    types = {f"{r['symbol']}_{r['period']}": r["doc_type"] for r in csv.DictReader(open(path.parent / "psx_reports.csv"))}
+    rows = [r for r in csv.DictReader(open(path))
+            if r["labeller"].strip().lower() not in ("", "claude-draft") and r["value_current"].strip()]
+    balance = ("total_assets", "total_liabilities", "total_equity")
+    priors = [r for r in rows if r["value_prior"].strip()
+              and not (types.get(r["doc_id"], "annual") != "annual" and r["field"] in balance)]
+    assert n == len(rows) + len(priors) and n >= 108
     hubc_rev = s.get_facts(symbol="HUBC", field="revenue")
     periods = {f.period_end: f for f in hubc_rev}
     assert set(periods) == {"2026-06-30", "2025-06-30"}
