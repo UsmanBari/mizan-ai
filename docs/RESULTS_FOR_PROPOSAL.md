@@ -7,7 +7,7 @@
 > **Evaluation Setup**:  
 > - **Model**: `gemini-3.5-flash-lite` (list prices **\$0.30 / 1M in**, **\$2.50 / 1M out**, checked 22 Nov 2026; temperature `0.0`), chosen because the free tier limits `gemini-3.5-flash` to 20 requests/day.  
 > - **Prompt Version**: `v1.1` on initial FinanceBench 60-question baseline; `v2.0` (with `compute_ratio`, basis rule, three-part answer, deterministic abstention) on PSX v2.  
-> - **PSX v2 Completion (27 Nov 2026)**: **243/243 COMPLETE** across all three core conditions (`rag_direct | hybridx`, `rag_calc | hybridx`, `agent | hybridx`). For the Retrieval→QA comparison, `agent | bm25` completed **60/243** before hitting free-tier RPD limit (`agent | dense` pending quota reset).
+> - **PSX v2 Completion (27 Nov 2026)**: **243/243 COMPLETE** across all three core conditions (`rag_direct | hybridx`, `rag_calc | hybridx`, `agent | hybridx`). For the Retrieval→QA comparison, `agent | bm25` completed **145/243** before hitting free-tier RPD limit (`98` remaining + `agent | dense` pending quota reset).
 
 ---
 
@@ -62,7 +62,7 @@
 | `rag_direct \| hybridx` | 243 | 0.894* | N/A | N/A | N/A | 0.556 | 0.601 |
 | `rag_calc \| hybridx` | 243 | 0.503 | 0.471 | 0.385 | 0.385 | 0.466 | 0.531 |
 | **`agent \| hybridx`** | **243** | **0.958** | **0.873** | **1.000** | **1.000** | **0.952** | **0.881** |
-| `agent \| bm25` *(60 graded)* | 60 | 0.783 | 0.550 | 1.000 | 1.000 | 0.917 | 0.917 |
+| `agent \| bm25` *(145 graded)* | 145 | 0.903 | 0.793 | 1.000 | 1.000 | 0.924 | 0.924 |
 
 *\*`rag_direct` has no tool trace; extraction reflects single lookup numeric match coverage only.*
 
@@ -89,7 +89,7 @@
 
 | Retriever (`open`, PSX 9 filings) | PSX Retrieval R@5 | Agent Answerable Acc | Agent Overall Acc |
 |---|---:|---:|---:|
-| `bm25` | 0.053 | 0.917 *(n=60 so far)* | 0.917 *(n=60)* |
+| `bm25` | 0.053 | 0.924 *(n=145 so far)* | 0.924 *(n=145)* |
 | `dense` (`bge-small-en-v1.5`) | 0.507 | *Pending quota* | *Pending quota* |
 | **`hybridx`** | **0.629** | **0.952** (`n=189`) | **0.881** (`n=243`) |
 

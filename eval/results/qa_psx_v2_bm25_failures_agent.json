@@ -53,5 +53,71 @@
   "gold_page_retrieved": false,
   "answerable": true,
   "cause": "retrieval_miss"
+ },
+ {
+  "id": "psx2_LUCK_FY2026_roe",
+  "type": "ratio",
+  "question": "Based on Lucky Cement Limited (LUCK)'s consolidated annual statements, what was its return on equity (ROE %, net profit / average equity) in FY2026 (year ended 2026-06-30)?",
+  "gold": "20.66%",
+  "answer": "Based on Lucky Cement Limited (LUCK)'s consolidated annual statements for FY2026 (year ended June 30, 2026), the return on equity (ROE) can be measured using different definitions:\n\n1. **Net Profit Attributable to Owners / Average Total Equity (Owners' Equity):**\n   - Net profit attributable to the owners of the Holding Company: **PKR 89,042,169 thousand**\n   - Total equity attributable to the owners of the Holding Company as at June 30, 2026: **PKR 428,517,675 thousand**\n   - Total equity attributable to the owners of the Holding Company as at June 30, 2025: **PKR 347,301,028 thousand**\n   - Average equity attributable to owners: **PKR 387,909,351.5 thousand**\n   - **ROE:** **22.95%**\n\n2. **Total Consolidated Net Profit / Average Total Consolidated Equity (including Non-Controlling Interests):**\n   - Total consolidated profit after taxation: **PKR 96,456,241 thousand**\n   - Total consolidated equity as at June 30, 2026: **PKR 473,904,846 thousand**\n   - Total consolidated equity as at June 30, 2025: **PKR 388,041,438 thousand**\n   - Average total consolidated equity: **PKR 430,973,142 thousand**\n   - **ROE:** **22.38%**\n\n3. **Company's Reported Financial Ratios (DuPont / Return on Equity):**\n   - In the financial highlights and DuPont analysis section of the report, the company reports consolidated **Return on Equity (ROE)** of **21.5%** (or **21.51%** / **21.52%** based on shareholders' funds/reserves).",
+  "grounding": 0.95,
+  "gold_page_retrieved": true,
+  "answerable": true,
+  "cause": "ungrounded_number (hallucination)"
+ },
+ {
+  "id": "psx2_OGDC_FY2026_roa",
+  "type": "ratio",
+  "question": "Based on Oil & Gas Development Company Limited (OGDC)'s consolidated annual statements, what was its return on assets (ROA %, net profit / average total assets) in FY2026 (year ended 2026-06-30)?",
+  "gold": "13.82%",
+  "answer": "I could not complete the analysis within the step limit.",
+  "grounding": 1.0,
+  "gold_page_retrieved": true,
+  "answerable": true,
+  "cause": "agent_step_limit"
+ },
+ {
+  "id": "psx2_POL_FY2026_roe",
+  "type": "ratio",
+  "question": "Based on Pakistan Oilfields Limited (POL)'s consolidated annual statements, what was its return on equity (ROE %, net profit / average equity) in FY2026 (year ended 2026-06-30)?",
+  "gold": "38.15%",
+  "answer": "I could not complete the analysis within the step limit.",
+  "grounding": 1.0,
+  "gold_page_retrieved": true,
+  "answerable": true,
+  "cause": "agent_step_limit"
+ },
+ {
+  "id": "psx2_POL_FY2025_debt_to_equity",
+  "type": "ratio",
+  "question": "Based on Pakistan Oilfields Limited (POL)'s consolidated annual statements, what was its debt-to-equity ratio (using liabilities = assets - equity) in FY2025 (year ended 2025-06-30)?",
+  "gold": "1.18x",
+  "answer": "I could not complete the analysis within the step limit.",
+  "grounding": 1.0,
+  "gold_page_retrieved": true,
+  "answerable": true,
+  "cause": "agent_step_limit"
+ },
+ {
+  "id": "psx2_cross_AGIL_GHNI_net_margin",
+  "type": "cross_company",
+  "question": "Between Agriauto Industries Limited (AGIL) and Ghandhara Industries Limited (GHNI), which company achieved the higher net profit margin in FY2026 (ended 2026-06-30)? State both companies' figures.",
+  "gold": "11.42% \u2014 Ghandhara Industries Limited (GHNI) had the higher net profit margin (11.42% vs 6.92%).",
+  "answer": "I could not complete the analysis within the step limit.",
+  "grounding": 1.0,
+  "gold_page_retrieved": true,
+  "answerable": true,
+  "cause": "agent_step_limit"
+ },
+ {
+  "id": "psx2_cross_GHNI_HUBC_net_margin",
+  "type": "cross_company",
+  "question": "Between Ghandhara Industries Limited (GHNI) and The Hub Power Company Limited (HUBC), which company achieved the higher net profit margin in FY2026 (ended 2026-06-30)? State both companies' figures.",
+  "gold": "69.78% \u2014 The Hub Power Company Limited (HUBC) had the higher net profit margin (69.78% vs 11.42%).",
+  "answer": "I could not complete the analysis within the step limit.",
+  "grounding": 1.0,
+  "gold_page_retrieved": true,
+  "answerable": true,
+  "cause": "agent_step_limit"
  }
 ]
