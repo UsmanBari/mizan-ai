@@ -107,12 +107,6 @@ MLCF_Q1FY2027,MLCF,Maple Leaf Cement Factory Limited,2026-09-30,thousands,true,n
 MLCF_Q1FY2027,MLCF,Maple Leaf Cement Factory Limited,2026-09-30,thousands,true,eps_basic,3.54,2.60,29,burhan,Earnings per share for profit attributable to the equity holders of the Holding Company - basic and diluted | type: quarterly | verify: burhan
 MLCF_Q1FY2027,MLCF,Maple Leaf Cement Factory Limited,2026-09-30,thousands,true,total_assets,245332202,242369341,28,burhan,TOTAL ASSETS | type: quarterly | verify: burhan
 MLCF_Q1FY2027,MLCF,Maple Leaf Cement Factory Limited,2026-09-30,thousands,true,total_equity,98119318,94204867,27,burhan,Total equity | type: quarterly | verify: burhan
-PPL_Q1FY2027,PPL,Pakistan Petroleum Limited,2026-09-30,millions,false,revenue,73998,56812,3,claude-draft,Sales revenue (net) | type: quarterly | verify: burhan
-PPL_Q1FY2027,PPL,Pakistan Petroleum Limited,2026-09-30,millions,false,profit_before_tax,37606,30849,3,claude-draft,Profit before taxation | type: quarterly | verify: burhan
-PPL_Q1FY2027,PPL,Pakistan Petroleum Limited,2026-09-30,millions,false,net_profit,25203,20088,3,claude-draft,Profit after taxation | type: quarterly | verify: burhan
-PPL_Q1FY2027,PPL,Pakistan Petroleum Limited,2026-09-30,millions,false,eps_basic,9.26,7.38,3,claude-draft,Basic and Diluted Earnings Per Share | type: quarterly | verify: burhan
-PPL_Q1FY2027,PPL,Pakistan Petroleum Limited,2026-09-30,millions,false,total_assets,,,3,claude-draft,LLM found nothing - fill by hand | type: quarterly | verify: burhan
-PPL_Q1FY2027,PPL,Pakistan Petroleum Limited,2026-09-30,millions,false,total_equity,,,3,claude-draft,LLM found nothing - fill by hand | type: quarterly | verify: burhan
 DGKC_Q1FY2027,DGKC,D.G. Khan Cement Company Limited,2026-09-30,thousands,true,revenue,25046467,21424658,36,claude-draft,Revenue | type: quarterly | verify: usman
 DGKC_Q1FY2027,DGKC,D.G. Khan Cement Company Limited,2026-09-30,thousands,true,profit_before_tax,4040906,3422906,36,claude-draft,Profit before income tax | type: quarterly | verify: usman
 DGKC_Q1FY2027,DGKC,D.G. Khan Cement Company Limited,2026-09-30,thousands,true,net_profit,2636133,2178537,36,claude-draft,Profit for the period attributable to Equity holders of the parent | type: quarterly | verify: usman
