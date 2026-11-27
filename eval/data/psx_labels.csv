@@ -77,12 +77,12 @@ BERG_FY2026,BERG,Berger Paints Pakistan Limited,2026-06-30,thousands,true,net_pr
 BERG_FY2026,BERG,Berger Paints Pakistan Limited,2026-06-30,thousands,true,eps_basic,12.64,12.11,129,claude-draft,Earnings per share - basic and diluted (Rupees) | type: annual | verify: usman
 BERG_FY2026,BERG,Berger Paints Pakistan Limited,2026-06-30,thousands,true,total_assets,9363083,7957496,128,claude-draft,TOTAL ASSETS | type: annual | verify: usman
 BERG_FY2026,BERG,Berger Paints Pakistan Limited,2026-06-30,thousands,true,total_equity,4389210,3705195,128,claude-draft,TOTAL EQUITY | type: annual | verify: usman
-BCL_FY2026,BCL,Bolan Castings Limited,2026-06-30,thousands,true,revenue,64238354,53347603,194,claude-draft,Revenue from contracts with customers | type: annual | verify: burhan
-BCL_FY2026,BCL,Bolan Castings Limited,2026-06-30,thousands,true,profit_before_tax,14638779,8080792,194,claude-draft,Profit before income tax | type: annual | verify: burhan
-BCL_FY2026,BCL,Bolan Castings Limited,2026-06-30,thousands,true,net_profit,7945058,6357985,194,claude-draft,Profit after tax | type: annual | verify: burhan
-BCL_FY2026,BCL,Bolan Castings Limited,2026-06-30,thousands,true,eps_basic,20.23,15.85,194,claude-draft,Earnings per share - basic and diluted (Rupees) | type: annual | verify: burhan
-BCL_FY2026,BCL,Bolan Castings Limited,2026-06-30,thousands,true,total_assets,,,90,claude-draft,Total Assets | LLM found nothing - fill by hand | type: annual | verify: burhan
-BCL_FY2026,BCL,Bolan Castings Limited,2026-06-30,thousands,true,total_equity,10881050,,195,claude-draft,Total equity | prior not found in code - fill by hand | type: annual | verify: burhan
+MTL_FY2026,MTL,Millat Tractors Limited,2026-06-30,thousands,true,revenue,64238354,53347603,194,burhan,Revenue from contracts with customers | type: annual | verify: burhan
+MTL_FY2026,MTL,Millat Tractors Limited,2026-06-30,thousands,true,profit_before_tax,14638779,8080792,194,burhan,Profit before income tax | type: annual | verify: burhan
+MTL_FY2026,MTL,Millat Tractors Limited,2026-06-30,thousands,true,net_profit,7945058,6357985,194,burhan,Profit after tax | type: annual | verify: burhan
+MTL_FY2026,MTL,Millat Tractors Limited,2026-06-30,thousands,true,eps_basic,20.23,15.85,194,burhan,Earnings per share - basic and diluted (Rupees) | type: annual | verify: burhan
+MTL_FY2026,MTL,Millat Tractors Limited,2026-06-30,thousands,true,total_assets,34135647,34881280,193,burhan,unlabelled total of assets | filled by hand | verify: burhan
+MTL_FY2026,MTL,Millat Tractors Limited,2026-06-30,thousands,true,total_equity,10881050,9278488,192,burhan,Total equity (incl. non-controlling interest) | filled by hand | verify: burhan
 DADX_FY2026,DADX,Dadex Eternit Limited,2026-06-30,thousands,false,revenue,959910,,38,claude-draft,Sales - net | prior not found in code - fill by hand | type: annual | verify: usman
 DADX_FY2026,DADX,Dadex Eternit Limited,2026-06-30,thousands,false,profit_before_tax,516723,,38,claude-draft,Profit/(loss) before taxation | prior not found in code - fill by hand | type: annual | verify: usman
 DADX_FY2026,DADX,Dadex Eternit Limited,2026-06-30,thousands,false,net_profit,479682,,38,claude-draft,Net profit/ (loss) for the year | prior not found in code - fill by hand | type: annual | verify: usman
