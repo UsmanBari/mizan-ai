@@ -16,15 +16,24 @@ from fastapi import BackgroundTasks, FastAPI, File, Form, HTTPException, Respons
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 
-from ..agent.engine import MODES, grounding_check, number_evidence
+from ..agent.engine import (
+    MODES,
+    _facts_to_values_by_period,
+    _fields_for_ratio,
+    format_conflict_message,
+    grounding_check,
+    number_evidence,
+    resolve_basis_for_symbol,
+)
 from ..config import get_settings
 from ..ingest.pipeline import ingest_pdf, ingest_psx_symbol
 from ..models import Answer
+from ..ratios import canonical_ratio_name, compute as compute_ratio
 from ..services import get_engine, get_extractor, get_llm, get_retriever, reset_retriever
 from ..store import get_store
 
 logging.basicConfig(level=logging.INFO)
-app = FastAPI(title="Mizan AI", version="0.3.0",
+app = FastAPI(title="Mizan AI", version="0.4.0",
               description="Agentic analyst for Pakistan Stock Exchange filings")
 app.add_middleware(CORSMiddleware, allow_origins=["*"], allow_methods=["*"], allow_headers=["*"],
                    expose_headers=["X-Highlight-Hits", "X-Highlight-Y"])
@@ -45,6 +54,148 @@ class WatchRequest(BaseModel):
     symbol: str
     telegram_chat_id: str = ""
     email: str = ""
+
+
+def _compute_metric_cell(store, symbol: str, metric: str, period_end: Optional[str], basis: Optional[str]) -> dict:
+    """Evaluate one cell (raw field or ratio) from facts store + ratios.py only (zero LLM)."""
+    sym = symbol.upper().strip()
+    sym_basis = resolve_basis_for_symbol(store, sym, requested=basis, period=period_end)
+    all_facts = store.get_facts(symbol=sym, basis=sym_basis) if sym_basis else store.get_facts(symbol=sym)
+    if not all_facts:
+        return {
+            "symbol": sym,
+            "metric": metric,
+            "period_end": period_end,
+            "basis": sym_basis,
+            "value": None,
+            "doc_id": None,
+            "page": None,
+            "refused": True,
+            "reason": f"No verified facts found for {sym}" + (f" ({sym_basis})" if sym_basis else ""),
+        }
+
+    if period_end is None:
+        annual_ends = sorted({f.period_end for f in all_facts if f.period_type == "annual"})
+        target_end = annual_ends[-1] if annual_ends else sorted({f.period_end for f in all_facts})[-1]
+    else:
+        target_end = period_end
+
+    canon = canonical_ratio_name(metric)
+    if canon is None:
+        # Raw field lookup
+        matches = [f for f in all_facts if f.field == metric and f.period_end == target_end]
+        if not matches:
+            return {
+                "symbol": sym,
+                "metric": metric,
+                "period_end": target_end,
+                "basis": sym_basis,
+                "value": None,
+                "doc_id": None,
+                "page": None,
+                "refused": True,
+                "reason": f"Missing field '{metric}' for {sym} at {target_end}",
+            }
+        conflicts = store.fact_conflicts(symbol=sym, field=metric, period_end=target_end, basis=sym_basis)
+        if conflicts:
+            return {
+                "symbol": sym,
+                "metric": metric,
+                "period_end": target_end,
+                "basis": sym_basis,
+                "value": None,
+                "doc_id": matches[0].doc_id,
+                "page": matches[0].page,
+                "conflict": True,
+                "values": conflicts[0]["values"],
+                "refused": True,
+                "reason": format_conflict_message(conflicts),
+            }
+        chosen = next((f for f in matches if f.source == "label"), matches[0])
+        return {
+            "symbol": sym,
+            "metric": metric,
+            "period_end": chosen.period_end,
+            "period_type": chosen.period_type,
+            "months": chosen.months,
+            "basis": chosen.basis,
+            "value": chosen.value,
+            "unit": chosen.unit,
+            "doc_id": chosen.doc_id,
+            "page": chosen.page,
+            "source": chosen.source,
+            "refused": False,
+        }
+
+    # Ratio / growth computation restricted to target_end and prior periods of matching type
+    target_facts = [f for f in all_facts if f.period_end == target_end]
+    if not target_facts:
+        return {
+            "symbol": sym,
+            "metric": canon,
+            "period_end": target_end,
+            "basis": sym_basis,
+            "value": None,
+            "doc_id": None,
+            "page": None,
+            "refused": True,
+            "reason": f"No facts found for {sym} at period {target_end}",
+        }
+    ptypes = {f.period_type for f in target_facts}
+    scoped = [f for f in all_facts if f.period_end <= target_end and (len(ptypes) > 1 or f.period_type in ptypes)]
+
+    rel_fields = set(_fields_for_ratio(canon))
+    conflicts = [
+        c for c in store.fact_conflicts(symbol=sym, basis=sym_basis)
+        if c["field"] in rel_fields and c["period_end"] in {f.period_end for f in scoped}
+    ]
+    if conflicts:
+        return {
+            "symbol": sym,
+            "metric": canon,
+            "period_end": target_end,
+            "basis": sym_basis,
+            "value": None,
+            "doc_id": conflicts[0]["values"][0].get("doc_id"),
+            "page": conflicts[0]["values"][0].get("page"),
+            "conflict": True,
+            "conflicts": conflicts,
+            "refused": True,
+            "reason": format_conflict_message(conflicts),
+        }
+
+    res = compute_ratio(canon, _facts_to_values_by_period(scoped))
+    if res.get("refused"):
+        ops = res.get("operands", [])
+        return {
+            "symbol": sym,
+            "metric": canon,
+            "period_end": target_end,
+            "basis": sym_basis,
+            "value": None,
+            "change_amount": res.get("change_amount"),
+            "change_unit": res.get("change_unit"),
+            "formula": res.get("formula"),
+            "operands": ops,
+            "doc_id": ops[0]["doc_id"] if ops else None,
+            "page": ops[0]["page"] if ops else None,
+            "refused": True,
+            "reason": res["reason"],
+        }
+    ops = res["operands"]
+    return {
+        "symbol": sym,
+        "metric": canon,
+        "period_end": target_end,
+        "basis": res.get("basis") or sym_basis,
+        "value": res["value"],
+        "unit": res["unit"],
+        "formula": res["formula"],
+        "operands": ops,
+        "doc_id": ops[0]["doc_id"] if ops else None,
+        "page": ops[0]["page"] if ops else None,
+        "refused": False,
+    }
 
 
 @app.get("/health")
@@ -70,6 +221,86 @@ def ask(req: AskRequest):
                        evidence=number_evidence(ans, store))
 
 
+@app.get("/facts/{symbol}")
+def facts(
+    symbol: str,
+    period_end: Optional[str] = None,
+    basis: Optional[str] = None,
+    field: Optional[str] = None,
+):
+    store = get_store()
+    rows = store.get_facts(symbol=symbol, field=field, period_end=period_end, basis=basis)
+    if not rows:
+        raise HTTPException(404, f"no verified facts found for {symbol.upper()}")
+    return {
+        "symbol": symbol.upper(),
+        "company": rows[0].company,
+        "facts": [f.model_dump() for f in rows],
+        "conflicts": store.fact_conflicts(symbol=symbol, field=field, period_end=period_end, basis=basis),
+    }
+
+
+@app.get("/compare")
+def compare(
+    symbols: str,
+    period_end: Optional[str] = None,
+    metrics: str = "revenue,net_profit,net_margin,roe",
+    basis: Optional[str] = None,
+):
+    store = get_store()
+    sym_list = [s.strip().upper() for s in symbols.split(",") if s.strip()]
+    metric_list = [m.strip() for m in metrics.split(",") if m.strip()]
+    if not sym_list:
+        raise HTTPException(400, "at least one symbol is required")
+    if not metric_list:
+        raise HTTPException(400, "at least one metric is required")
+
+    rows, table = [], {}
+    for sym in sym_list:
+        table[sym] = {}
+        for m in metric_list:
+            cell = _compute_metric_cell(store, sym, m, period_end, basis)
+            rows.append(cell)
+            table[sym][m] = cell
+    return {
+        "period_end": period_end,
+        "symbols": sym_list,
+        "metrics": metric_list,
+        "rows": rows,
+        "table": table,
+    }
+
+
+@app.get("/trends/{symbol}")
+def trends(
+    symbol: str,
+    metrics: str = "revenue,net_profit,net_margin,revenue_growth",
+    basis: Optional[str] = None,
+):
+    store = get_store()
+    sym = symbol.upper().strip()
+    sym_basis = resolve_basis_for_symbol(store, sym, requested=basis)
+    sym_facts = store.get_facts(symbol=sym, basis=sym_basis) if sym_basis else store.get_facts(symbol=sym)
+    if not sym_facts:
+        raise HTTPException(404, f"no verified facts found for {sym}")
+    metric_list = [m.strip() for m in metrics.split(",") if m.strip()]
+    if not metric_list:
+        raise HTTPException(400, "at least one metric is required")
+
+    periods = sorted({f.period_end for f in sym_facts})
+    series = {}
+    for p in periods:
+        series[p] = {m: _compute_metric_cell(store, sym, m, p, sym_basis) for m in metric_list}
+    return {
+        "symbol": sym,
+        "company": sym_facts[0].company,
+        "basis": sym_basis,
+        "metrics": metric_list,
+        "periods": periods,
+        "series": series,
+    }
+
+
 @app.get("/documents")
 def documents(symbol: Optional[str] = None):
     return [d.model_dump() for d in get_store().list_documents(symbol)]
@@ -85,10 +316,7 @@ def page(doc_id: str, page: int):
 
 @app.get("/documents/{doc_id}/pages/{page}/image")
 def page_image(doc_id: str, page: int, highlight: str = "", dpi: int = 110):
-    """The real PDF page as a PNG, with every occurrence of `highlight` boxed.
-    Headers tell the UI how many boxes were drawn and where the first one is (0-1 down
-    the page), so it can scroll to it. Scanned pages have no text layer, so 0 hits:
-    the UI then falls back to the OCR text view."""
+    """The real PDF page as a PNG, with every occurrence of `highlight` boxed."""
     import pymupdf
     doc = get_store().get_document(doc_id)
     if doc is None or not doc.path or not Path(doc.path).exists():
@@ -111,7 +339,7 @@ def page_image(doc_id: str, page: int, highlight: str = "", dpi: int = 110):
 
 def _post_ingest(doc_id: str, extract: bool):
     reset_retriever()
-    get_retriever()   # re-index embeddings for new chunks
+    get_retriever()
     if extract:
         store = get_store()
         doc = store.get_document(doc_id)
@@ -186,14 +414,12 @@ def watchlist():
 
 @app.post("/alerts/run")
 def run_alerts():
-    """Manual trigger of the scheduled job (the Celery beat task calls the same code)."""
     from ..alerts.watcher import poll_watchlist
     return [a.model_dump() for a in poll_watchlist(get_store(), get_extractor(), get_llm())]
 
 
 @app.post("/alerts/test/{doc_id}")
 def alert_for_doc(doc_id: str):
-    """Send an alert for an already-ingested document (useful in the demo)."""
     from ..alerts.watcher import process_new_document
     a = process_new_document(get_store(), doc_id, get_extractor(), get_llm())
     if a is None:
@@ -228,7 +454,7 @@ def metrics():
 def eval_summary():
     """Serves eval/results/summary.json so the frontend can show the results dashboard."""
     import json
-    repo = Path(__file__).resolve().parents[3]          # .../mizan-ai
+    repo = Path(__file__).resolve().parents[3]
     for cand in (repo / "eval/results/summary.json", Path("eval/results/summary.json"),
                  Path("/app/eval/results/summary.json")):
         if cand.exists():
