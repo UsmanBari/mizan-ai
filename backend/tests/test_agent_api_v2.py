@@ -174,3 +174,28 @@ def test_api_facts_compare_trends_and_ask_v2(monkeypatch):
     assert len(body["reported_figures"]) == 2
     assert len(body["calculated_values"]) == 1
     assert body["explanation"] == "The report does not state a reason."
+
+
+def test_api_facts_index_ratios_and_labelled_pdf_pages(tmp_path, monkeypatch):
+    """Burhan's frontend pickers: /facts lists companies + periods, /ratios lists formulas,
+    and a fact's page can be opened even when its report was never ingested."""
+    from mizan.api import main
+    from mizan.store import set_store
+
+    from .conftest import make_pdf
+
+    s = _psx_fact_store()
+    set_store(s)
+    client = TestClient(main.app)
+    idx = client.get("/facts").json()
+    hubc = next(c for c in idx if c["symbol"] == "HUBC")
+    assert {"period_end": "2026-06-30", "period_type": "annual", "months": 12} in hubc["periods"]
+    assert "consolidated" in hubc["bases"]
+    names = {r["name"]: r for r in client.get("/ratios").json()}
+    assert names["net_margin"]["formula"] == "net_profit / revenue * 100"
+    # labelled PDF fallback: eval/data/psx_pdfs/<doc_id>.pdf
+    make_pdf(tmp_path / "DEMO_FY2026.pdf", ["Statement of Profit or Loss\nRevenue 1,234 1,000"])
+    monkeypatch.setattr(main, "_EVAL_PDFS", tmp_path)
+    r = client.get("/documents/DEMO_FY2026/pages/1")
+    assert r.status_code == 200 and "1,234" in r.json()["text"]
+    assert client.get("/documents/..%2Fsecret/pages/1").status_code == 404

@@ -28,7 +28,7 @@ from ..agent.engine import (
 from ..config import get_settings
 from ..ingest.pipeline import ingest_pdf, ingest_psx_symbol
 from ..models import Answer
-from ..ratios import canonical_ratio_name, compute as compute_ratio
+from ..ratios import RATIOS, canonical_ratio_name, compute as compute_ratio
 from ..services import get_engine, get_extractor, get_llm, get_retriever, reset_retriever
 from ..store import get_store
 
@@ -221,6 +221,45 @@ def ask(req: AskRequest):
                        evidence=number_evidence(ans, store))
 
 
+# The verified facts point at labelled reports ("LUCK_FY2026"). Those PDFs live in
+# eval/data/psx_pdfs/ even when they were never ingested into the running store,
+# so the page endpoints fall back to that folder (name pattern checked: no paths).
+_EVAL_PDFS = Path(__file__).resolve().parents[3] / "eval" / "data" / "psx_pdfs"
+_SAFE_DOC_ID = __import__("re").compile(r"^[A-Za-z0-9]+_[A-Za-z0-9]+$")
+
+
+def _pdf_path(doc_id: str) -> Optional[Path]:
+    doc = get_store().get_document(doc_id)
+    if doc is not None and doc.path and Path(doc.path).exists():
+        return Path(doc.path)
+    if _SAFE_DOC_ID.match(doc_id):
+        p = _EVAL_PDFS / f"{doc_id}.pdf"
+        if p.exists():
+            return p
+    return None
+
+
+@app.get("/facts")
+def facts_index():
+    """Every company with verified facts, and its periods (for the Compare / Trends pickers)."""
+    out: dict[str, dict] = {}
+    for f in get_store().get_facts():
+        c = out.setdefault(f.symbol, {"symbol": f.symbol, "company": f.company, "periods": {}, "bases": set()})
+        c["periods"][(f.period_end, f.period_type, f.months)] = True
+        c["bases"].add(f.basis)
+    return [{"symbol": c["symbol"], "company": c["company"], "bases": sorted(c["bases"]),
+             "periods": [{"period_end": pe, "period_type": pt, "months": m}
+                         for pe, pt, m in sorted(c["periods"])]}
+            for c in sorted(out.values(), key=lambda c: c["symbol"])]
+
+
+@app.get("/ratios")
+def ratios_index():
+    """The ratios ratios.py can compute, with their formulas (no LLM)."""
+    return [{"name": k, "formula": r.formula, "unit": r.unit, "description": r.description,
+             "n_periods": r.n_periods, "required_fields": list(r.required_fields)} for k, r in RATIOS.items()]
+
+
 @app.get("/facts/{symbol}")
 def facts(
     symbol: str,
@@ -310,6 +349,14 @@ def documents(symbol: Optional[str] = None):
 def page(doc_id: str, page: int):
     text = get_store().get_page(doc_id, page)
     if text is None:
+        path = _pdf_path(doc_id)              # a labelled report that was not ingested
+        if path is not None:
+            from ..ingest.parser import layout_text
+            import pymupdf
+            with pymupdf.open(str(path)) as pdf:
+                if 1 <= page <= len(pdf):
+                    text = layout_text(pdf[page - 1])
+    if text is None:
         raise HTTPException(404, "page not found")
     return {"doc_id": doc_id, "page": page, "text": text}
 
@@ -318,10 +365,10 @@ def page(doc_id: str, page: int):
 def page_image(doc_id: str, page: int, highlight: str = "", dpi: int = 110):
     """The real PDF page as a PNG, with every occurrence of `highlight` boxed."""
     import pymupdf
-    doc = get_store().get_document(doc_id)
-    if doc is None or not doc.path or not Path(doc.path).exists():
+    path = _pdf_path(doc_id)
+    if path is None:
         raise HTTPException(404, "PDF file not available for this document")
-    with pymupdf.open(doc.path) as pdf:
+    with pymupdf.open(str(path)) as pdf:
         if not 1 <= page <= len(pdf):
             raise HTTPException(404, "page not found")
         pg = pdf[page - 1]
