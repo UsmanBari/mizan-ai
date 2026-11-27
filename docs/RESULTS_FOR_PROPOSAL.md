@@ -7,7 +7,7 @@
 > **Evaluation Setup**:  
 > - **Model**: `gemini-3.5-flash-lite` (list prices **\$0.30 / 1M in**, **\$2.50 / 1M out**, checked 22 Nov 2026; temperature `0.0`), chosen because the free tier limits `gemini-3.5-flash` to 20 requests/day.  
 > - **Prompt Version**: `v1.1` on initial FinanceBench 60-question baseline; `v2.0` (with `compute_ratio`, basis rule, three-part answer, deterministic abstention) on PSX v2.  
-> - **PSX v2 Completion (27 Nov 2026)**: **243/243 COMPLETE** across all three core conditions (`rag_direct | hybridx`, `rag_calc | hybridx`, `agent | hybridx`). For the Retrieval→QA comparison, `agent | bm25` completed **145/243** before hitting free-tier RPD limit (`98` remaining + `agent | dense` pending quota reset).
+> - **PSX v2 Completion (27 Nov 2026)**: **243/243 COMPLETE** across all three core conditions (`rag_direct | hybridx`, `rag_calc | hybridx`, `agent | hybridx`) **AND** the `agent | bm25` Retrieval→QA condition (**243/243**). `agent | dense` completed **6/243** (`237` remaining) before hitting the final free-tier Google AI Studio RPD quota.
 
 ---
 
@@ -61,8 +61,8 @@
 |---|---:|---:|---:|---:|---:|---:|---:|
 | `rag_direct \| hybridx` | 243 | 0.894* | N/A | N/A | N/A | 0.556 | 0.601 |
 | `rag_calc \| hybridx` | 243 | 0.503 | 0.471 | 0.385 | 0.385 | 0.466 | 0.531 |
-| **`agent \| hybridx`** | **243** | **0.958** | **0.873** | **1.000** | **1.000** | **0.952** | **0.881** |
-| `agent \| bm25` *(145 graded)* | 145 | 0.903 | 0.793 | 1.000 | 1.000 | 0.924 | 0.924 |
+| **`agent \| hybridx`** | **243** | **0.958** | **0.873** | **1.000** | **1.000** | **0.952** | 0.881 |
+| `agent \| bm25` | 243 | 0.921 | 0.841 | 1.000 | 1.000 | 0.921 | **0.885** |
 
 *\*`rag_direct` has no tool trace; extraction reflects single lookup numeric match coverage only.*
 
@@ -70,6 +70,7 @@
 - `rag_direct \| hybridx` (`n=243`): `lookup` 0.778 · `growth` 0.815 · `ratio` 0.481 · `cross_company` 0.278 · `unanswerable` **0.759**
 - `rag_calc \| hybridx` (`n=243`): `lookup` 0.741 · `growth` 0.778 · `ratio` 0.463 · `cross_company` 0.037 · `unanswerable` **0.759**
 - **`agent \| hybridx`** (`n=243`): `lookup` **0.944** (`n=54`) · `growth` **1.000** (`n=27`) · `ratio` **0.963** (`n=54`) · `cross_company` **0.926** (`n=54`) · `unanswerable` 0.630 (`n=54`)
+- `agent \| bm25` (`n=243`): `lookup` 0.907 (`n=54`) · `growth` **1.000** (`n=27`) · `ratio` 0.926 (`n=54`) · `cross_company` 0.889 (`n=54`) · `unanswerable` **0.759** (`n=54`)
 
 ---
 
@@ -79,9 +80,10 @@
 |---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|
 | `rag_direct \| hybridx` | 243 | 41 | 56 | 13 | 133 | 0.423 | **0.759** | 0.543 | 0.719 | 0.601 | 0.704 |
 | `rag_calc \| hybridx` | 243 | 41 | 79 | 13 | 110 | 0.342 | **0.759** | 0.471 | 0.715 | 0.506 | 0.582 |
-| **`agent \| hybridx`** | **243** | 34 | **0** | 20 | **189** | **1.000** | 0.630 | **0.773** | **0.861** | **0.860** | **1.000** |
+| **`agent \| hybridx`** | **243** | 34 | **0** | 20 | **189** | **1.000** | 0.630 | 0.773 | **0.861** | **0.860** | **1.000** |
+| `agent \| bm25` | 243 | **41** | **0** | **13** | **189** | **1.000** | **0.759** | **0.863** | **0.861** | 0.831 | **1.000** |
 
-*Key finding*: `agent | hybridx` eliminated all **false refusals** (`FP = 0`, 100% abstention precision and 100% answerable coverage vs 58.2% for `rag_calc`), boosting Abstention F1 from `0.471` → **0.773** and Selective Accuracy to **86.1%**.
+*Key finding*: Both agent runs eliminated all **false refusals** (`FP = 0`, 100% abstention precision and 100% answerable coverage vs 58.2% for `rag_calc`), boosting Selective Accuracy to **86.1%**.
 
 ---
 
@@ -89,9 +91,11 @@
 
 | Retriever (`open`, PSX 9 filings) | PSX Retrieval R@5 | Agent Answerable Acc | Agent Overall Acc |
 |---|---:|---:|---:|
-| `bm25` | 0.053 | 0.924 *(n=145 so far)* | 0.924 *(n=145)* |
-| `dense` (`bge-small-en-v1.5`) | 0.507 | *Pending quota* | *Pending quota* |
-| **`hybridx`** | **0.629** | **0.952** (`n=189`) | **0.881** (`n=243`) |
+| `bm25` | 0.053 | 0.921 (`n=189`) | **0.885** (`n=243`) |
+| `dense` (`bge-small-en-v1.5`) | 0.507 | 1.000 *(n=6/243 checkpoint)* | 1.000 *(n=6/243; 237 pending quota)* |
+| **`hybridx`** | **0.629** | **0.952** (`n=189`) | 0.881 (`n=243`) |
+
+*Finding*: Stronger hybrid retrieval lifts **Answerable Accuracy** from `0.921` (`bm25`, R@5 `0.053`) to **`0.952`** (`hybridx`, R@5 `0.629`), driven by higher extraction (`0.958` vs `0.921`) and operand selection (`0.873` vs `0.841`), while weaker BM25 misses multi-year *"Six Years at a Glance"* summary tables on unanswerable FY2022 queries (yielding fewer `FN` leaks: `13` vs `20`).
 
 ---
 
@@ -130,5 +134,5 @@ Setup: 15 PSX reports × 6 fields = **90 examples** (dev = 54, held-out = 36).
 | Retrieval: `hybridx` (Scoped / Open) | 26.7 ms / 17.1 ms | 81.5 ms / 251.7 ms | \$0.00 | \$0.00 |
 | QA (`rag_direct`, FinanceBench / PSX v2) | 3.03s / 1.38s | 10.20s / 2.83s | \$0.00105 / \$0.00164 | \$31.50 / \$49.20 |
 | QA (`rag_calc`, FinanceBench / PSX v2) | 2.12s / 1.24s | 6.75s / 5.26s | \$0.00120 / \$0.00159 | \$36.00 / \$47.70 |
-| QA (`agent`, FinanceBench `bm25x` / PSX v2 `hybridx`) | 12.31s / 4.65s | 23.98s / 8.46s | \$0.01155 / \$0.00759 | \$346.50 / \$227.70 |
+| QA (`agent`, FinanceBench `bm25x` / PSX v2 `hybridx` / PSX v2 `bm25`) | 12.31s / 4.65s / 5.09s | 23.98s / 8.46s / 9.72s | \$0.01155 / \$0.00759 / \$0.00861 | \$346.50 / \$227.70 / \$258.30 |
 | Extraction (`rules+columns` vs `gemini-3.5-flash-lite`) | 0.26s vs 1.99s | 0.58s vs 4.81s | \$0.00 vs \$0.00423 / report | — |

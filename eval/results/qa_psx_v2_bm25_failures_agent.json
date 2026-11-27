@@ -119,5 +119,192 @@
   "gold_page_retrieved": true,
   "answerable": true,
   "cause": "agent_step_limit"
+ },
+ {
+  "id": "psx2_cross_HUBC_PRL_net_margin",
+  "type": "cross_company",
+  "question": "Between The Hub Power Company Limited (HUBC) and Pakistan Refinery Limited (PRL), which company achieved the higher net profit margin in FY2026 (ended 2026-06-30)? State both companies' figures.",
+  "gold": "69.78% \u2014 The Hub Power Company Limited (HUBC) had the higher net profit margin (69.78% vs 4.50%).",
+  "answer": "I could not complete the analysis within the step limit.",
+  "grounding": 1.0,
+  "gold_page_retrieved": true,
+  "answerable": true,
+  "cause": "agent_step_limit"
+ },
+ {
+  "id": "psx2_cross_AGIL_LUCK_roe",
+  "type": "cross_company",
+  "question": "Between Agriauto Industries Limited (AGIL) and Lucky Cement Limited (LUCK), which company achieved the higher return on equity (ROE) in FY2026 (ended 2026-06-30)? State both companies' figures.",
+  "gold": "20.66% \u2014 Lucky Cement Limited (LUCK) had the higher return on equity (ROE) (20.66% vs 18.17%).",
+  "answer": "Between Agriauto Industries Limited (AGIL) and Lucky Cement Limited (LUCK), Lucky Cement Limited achieved the higher Return on Equity (ROE) in FY2026 (ended June 30, 2026). \n\nBased on the consolidated financial statements:\n- **Lucky Cement Limited (LUCK)** achieved an ROE of **21.5%** (or 21.51%, reported as 21.5% in the DuPont analysis).\n- **Agriauto Industries Limited (AGIL)** achieved an ROE of **16.73%** (or approximately **18.17%** using the average equity method over prior and current year equity balances). Both figures are reported in AGIL's filing (16.73% in the Six Years at a Glance summary, and 18.17% via verified average equity calculation).\n\nThus, Lucky Cement Limited achieved the higher ROE in FY2026.",
+  "grounding": 0.75,
+  "gold_page_retrieved": true,
+  "answerable": true,
+  "cause": "ungrounded_number (hallucination)"
+ },
+ {
+  "id": "psx2_cross_AGIL_POL_roe",
+  "type": "cross_company",
+  "question": "Between Agriauto Industries Limited (AGIL) and Pakistan Oilfields Limited (POL), which company achieved the higher return on equity (ROE) in FY2026 (ended 2026-06-30)? State both companies' figures.",
+  "gold": "38.15% \u2014 Pakistan Oilfields Limited (POL) had the higher return on equity (ROE) (38.15% vs 18.17%).",
+  "answer": "Between Agriauto Industries Limited (AGIL) and Pakistan Oilfields Limited (POL), Pakistan Oilfields Limited (POL) achieved the higher Return on Equity (ROE) in FY2026 (ended June 30, 2026).\n\n- **Agriauto Industries Limited (AGIL):** Consolidated ROE of **18.17%** (reported as 16.73% using year-end equity in the company's six-year review, or computed using average equity as 18.17%).\n- **Pakistan Oilfields Limited (POL):** Consolidated ROE of **35.55%** (reported identically in the company's key highlights, performance indicators, and DuPont analysis).\n\nTherefore, POL achieved the higher ROE.",
+  "grounding": 0.8,
+  "gold_page_retrieved": true,
+  "answerable": true,
+  "cause": "ungrounded_number (hallucination)"
+ },
+ {
+  "id": "psx2_cross_GHNI_POL_roe",
+  "type": "cross_company",
+  "question": "Between Ghandhara Industries Limited (GHNI) and Pakistan Oilfields Limited (POL), which company achieved the higher return on equity (ROE) in FY2026 (ended 2026-06-30)? State both companies' figures.",
+  "gold": "38.58% \u2014 Ghandhara Industries Limited (GHNI) had the higher return on equity (ROE) (38.58% vs 38.15%).",
+  "answer": "Between Ghandhara Industries Limited (GHNI) and Pakistan Oilfields Limited (POL), Pakistan Oilfields Limited achieved the higher return on equity (ROE) in FY2026 (ended 2026-06-30). \n\n- **Pakistan Oilfields Limited (POL)** reported an ROE of **35.55%** (consolidated basis).\n- **Ghandhara Industries Limited (GHNI)** reported an ROE of **30.98%** (unconsolidated basis).",
+  "grounding": 0.75,
+  "gold_page_retrieved": true,
+  "answerable": true,
+  "cause": "ungrounded_number (hallucination)"
+ },
+ {
+  "id": "psx2_AGIL_unans_period_FY2022",
+  "type": "unanswerable",
+  "question": "What was Agriauto Industries Limited (AGIL)'s revenue in FY2022 (year ended 2022-06-30)?",
+  "gold": "UNANSWERABLE",
+  "answer": "I could not complete the analysis within the step limit.",
+  "grounding": 1.0,
+  "gold_page_retrieved": null,
+  "answerable": false,
+  "cause": "false_answer_on_unanswerable"
+ },
+ {
+  "id": "psx2_GHNI_unans_period_FY2022",
+  "type": "unanswerable",
+  "question": "What was Ghandhara Industries Limited (GHNI)'s revenue in FY2022 (year ended 2022-06-30)?",
+  "gold": "UNANSWERABLE",
+  "answer": "According to Ghandhara Industries Limited's FY2026 Annual Report (Key Operating & Financial Data / Summary of Profit & Loss), the company's net sales (revenue) for the year ended June 30, 2022 (FY2022) was Rs. 24,265,107 thousand (or Rs. 24,265.107 million).",
+  "grounding": 0.333,
+  "gold_page_retrieved": null,
+  "answerable": false,
+  "cause": "false_answer_on_unanswerable"
+ },
+ {
+  "id": "psx2_HUBC_unans_period_FY2022",
+  "type": "unanswerable",
+  "question": "What was The Hub Power Company Limited (HUBC)'s revenue in FY2022 (year ended 2022-06-30)?",
+  "gold": "UNANSWERABLE",
+  "answer": "The Hub Power Company Limited (HUBC)'s revenue for FY2022 (year ended June 30, 2022) is as follows:\n\n* **Consolidated Turnover (Revenue):** **Rs. 97,158 million** (or **Rs. 97,158,000,000**)\n* **Unconsolidated Revenue:** **Rs. 62,544 million** (or **Rs. 62,544,000,000**)\n\n***\n\n### Citations\n* Consolidated Statement of Profit or Loss / Six Years at a Glance: `HUBC_FY2026`, page 206\n* Unconsolidated Key Financial Data / Six Years at a Glance: `HUBC_FY2026`, page 119",
+  "grounding": 0.2,
+  "gold_page_retrieved": null,
+  "answerable": false,
+  "cause": "false_answer_on_unanswerable"
+ },
+ {
+  "id": "psx2_LUCK_unans_period_FY2022",
+  "type": "unanswerable",
+  "question": "What was Lucky Cement Limited (LUCK)'s revenue in FY2022 (year ended 2022-06-30)?",
+  "gold": "UNANSWERABLE",
+  "answer": "For the financial year ended June 2022 (FY2022), Lucky Cement Limited reported the following revenue figures:\n\n1. **Unconsolidated Basis:**\n- **Net Revenue (Turnover - Net):** PKR 81,093,525 thousand (or PKR 81,094 million)\n- **Gross Revenue / Turnover:** PKR 81,093,525 thousand (Note: Unconsolidated turnover is reported as PKR 81,093,525 '000 / PKR 81,094 million).\n\n2. **Consolidated Basis:**\n- **Net Revenue:** PKR 410,995 million (or PKR 410,995,000 thousand)\n- **Gross Revenue:** PKR 476,719 million (Not explicitly stated in the summary table, but consolidated net revenue is PKR 410,995 million).",
+  "grounding": 0.6,
+  "gold_page_retrieved": null,
+  "answerable": false,
+  "cause": "false_answer_on_unanswerable"
+ },
+ {
+  "id": "psx2_PIOC_unans_period_FY2022",
+  "type": "unanswerable",
+  "question": "What was Pioneer Cement Limited (PIOC)'s revenue in FY2022 (year ended 2022-06-30)?",
+  "gold": "UNANSWERABLE",
+  "answer": "For the year ended 30 June 2022 (FY2022), Pioneer Cement Limited reported a net turnover (revenue) of Rs. 31,879.21 million (or Rs. 31,879,210 thousand).",
+  "grounding": 0.667,
+  "gold_page_retrieved": null,
+  "answerable": false,
+  "cause": "false_answer_on_unanswerable"
+ },
+ {
+  "id": "psx2_POL_unans_period_FY2022",
+  "type": "unanswerable",
+  "question": "What was Pakistan Oilfields Limited (POL)'s revenue in FY2022 (year ended 2022-06-30)?",
+  "gold": "UNANSWERABLE",
+  "answer": "For the year ended June 30, 2022 (FY2022), Pakistan Oilfields Limited (POL)'s revenue figures on an unconsolidated and consolidated basis are as follows:\n\n1. **Unconsolidated Net Sales / Revenue:**\n- Total Net Sales: **Rs 51,945 million** (comprising Crude oil: Rs 29,718 million; Gas: Rs 12,269 million; POLGAS-Refill of cylinders: Rs 9,673 million; Solvent oil: Rs 285 million).\n\n2. **Consolidated Sales / Revenue:**\nThe consolidated financial statements in the report present figures for FY2026 and FY2025; specific consolidated revenue figures for FY2022 are not provided.",
+  "grounding": 0.857,
+  "gold_page_retrieved": null,
+  "answerable": false,
+  "cause": "false_answer_on_unanswerable"
+ },
+ {
+  "id": "psx2_POWER_unans_period_FY2022",
+  "type": "unanswerable",
+  "question": "What was Power Cement Limited (POWER)'s revenue in FY2022 (year ended 2022-06-30)?",
+  "gold": "UNANSWERABLE",
+  "answer": "For the year ended June 30, 2022 (FY2022), Power Cement Limited's revenue from contracts with customers was Rs 17,494,878 thousand (or Rs 17.49 billion).",
+  "grounding": 0.333,
+  "gold_page_retrieved": null,
+  "answerable": false,
+  "cause": "false_answer_on_unanswerable"
+ },
+ {
+  "id": "psx2_PRL_unans_period_FY2022",
+  "type": "unanswerable",
+  "question": "What was Pakistan Refinery Limited (PRL)'s revenue in FY2022 (year ended 2022-06-30)?",
+  "gold": "UNANSWERABLE",
+  "answer": "According to Pakistan Refinery Limited (PRL)\u2019s Annual Report (Horizontal Analysis of Profit or Loss Account / Six Years Summary), the revenue from contracts with customers for the year ended June 30, 2022 (FY2022) was **Rs. 191,316 million** (or **Rs. 191.3 billion**).\n\n***\n\n### Citations\n* [PRL_FY2026 | page 58] (Six Years Summary)\n* [PRL_FY2026 | page 59] (Horizontal Analysis of Profit or Loss Account)",
+  "grounding": 0.333,
+  "gold_page_retrieved": null,
+  "answerable": false,
+  "cause": "false_answer_on_unanswerable"
+ },
+ {
+  "id": "psx2_PIOC_unans_basis_consolidated_net_profit_margin",
+  "type": "unanswerable",
+  "question": "What was Pioneer Cement Limited (PIOC)'s consolidated net profit margin in FY2026 (2026-06-30)?",
+  "gold": "UNANSWERABLE",
+  "answer": "I could not complete the analysis within the step limit.",
+  "grounding": 1.0,
+  "gold_page_retrieved": null,
+  "answerable": false,
+  "cause": "false_answer_on_unanswerable"
+ },
+ {
+  "id": "psx2_POWER_unans_basis_consolidated_net_profit_margin",
+  "type": "unanswerable",
+  "question": "What was Power Cement Limited (POWER)'s consolidated net profit margin in FY2026 (2026-06-30)?",
+  "gold": "UNANSWERABLE",
+  "answer": "According to Power Cement Limited's FY2026 annual report, the consolidated net profit margin for the year ended June 30, 2026, was 11.14% (reported in the DuPont analysis as 11.14%, and calculated precisely from consolidated net profit after taxation of Rs. 3,784,470 thousand and revenue from contracts with customers of Rs. 33,978,969 thousand as 11.1377%).",
+  "grounding": 1.0,
+  "gold_page_retrieved": null,
+  "answerable": false,
+  "cause": "false_answer_on_unanswerable"
+ },
+ {
+  "id": "psx2_AGIL_unans_field_cloud_arr",
+  "type": "unanswerable",
+  "question": "What was Agriauto Industries Limited (AGIL)'s annual recurring revenue (ARR) from cloud software subscriptions in FY2026 (2026-06-30)?",
+  "gold": "UNANSWERABLE",
+  "answer": "Based on Agriauto Industries Limited (AGIL)'s annual report and financial statements for FY2026 (for the year ended June 30, 2026), the company is an automotive component manufacturer and does not engage in cloud software subscriptions or generate any annual recurring revenue (ARR) from cloud software. \n\nThe report does not state any figure or mention cloud software subscriptions.\n\n***\n\n**Final Answer:**\nThe report does not state any annual recurring revenue (ARR) from cloud software subscriptions, as Agriauto Industries Limited is an automotive component manufacturer and does not operate in cloud software.",
+  "grounding": 1.0,
+  "gold_page_retrieved": null,
+  "answerable": false,
+  "cause": "false_answer_on_unanswerable"
+ },
+ {
+  "id": "psx2_GHNI_unans_field_cloud_arr",
+  "type": "unanswerable",
+  "question": "What was Ghandhara Industries Limited (GHNI)'s annual recurring revenue (ARR) from cloud software subscriptions in FY2026 (2026-06-30)?",
+  "gold": "UNANSWERABLE",
+  "answer": "The financial reports of Ghandhara Industries Limited (GHNI) for the year ended June 30, 2026 (FY2026) do not report or mention any \"annual recurring revenue (ARR) from cloud software subscriptions.\" \n\nHowever, the financial statements do report expenses related to software licenses and cloud services under operating expenses (Administrative Expenses and Distribution Cost):\n- **Software license and cloud services fee** (Administrative Expenses): Rs. 56,522 thousand (for 2026)\n- **Software license fee** (Distribution Cost): Rs. 13,003 thousand (for 2026)\n\nThe report does not state any ARR figures for cloud software subscriptions.",
+  "grounding": 1.0,
+  "gold_page_retrieved": null,
+  "answerable": false,
+  "cause": "false_answer_on_unanswerable"
+ },
+ {
+  "id": "psx2_LUCK_unans_field_cloud_arr",
+  "type": "unanswerable",
+  "question": "What was Lucky Cement Limited (LUCK)'s annual recurring revenue (ARR) from cloud software subscriptions in FY2026 (2026-06-30)?",
+  "gold": "UNANSWERABLE",
+  "answer": "The Lucky Cement Limited (LUCK) annual report and financial statements for FY2026 do not state any annual recurring revenue (ARR) from cloud software subscriptions, as the company is a cement manufacturer and industrial group rather than a cloud software provider.",
+  "grounding": 1.0,
+  "gold_page_retrieved": null,
+  "answerable": false,
+  "cause": "false_answer_on_unanswerable"
  }
 ]
