@@ -119,9 +119,9 @@ ATRL_H1FY2026,ATRL,Attock Refinery Limited,2025-12-31,thousands,true,net_profit,
 ATRL_H1FY2026,ATRL,Attock Refinery Limited,2025-12-31,thousands,true,eps_basic,60.14,,36,claude-draft,Earnings per share - basic and diluted (Rupees) | prior not found in code - fill by hand | type: half-yearly | verify: usman
 ATRL_H1FY2026,ATRL,Attock Refinery Limited,2025-12-31,thousands,true,total_assets,230471209,220143508,35,claude-draft,TOTAL ASSETS | type: half-yearly | verify: usman
 ATRL_H1FY2026,ATRL,Attock Refinery Limited,2025-12-31,thousands,true,total_equity,159181156,153302673,34,claude-draft,TOTAL EQUITY | type: half-yearly | verify: usman
-ATRL_9MFY2026,ATRL,Attock Refinery Limited,2026-03-31,thousands,true,revenue,224942750,,36,claude-draft,Net sales | prior not found in code - fill by hand | type: nine-months | verify: burhan
-ATRL_9MFY2026,ATRL,Attock Refinery Limited,2026-03-31,thousands,true,profit_before_tax,25608859,,36,claude-draft,Profit before income tax from refinery operations and subsidiary | prior not found in code - fill by hand | type: nine-months | verify: burhan
-ATRL_9MFY2026,ATRL,Attock Refinery Limited,2026-03-31,thousands,true,net_profit,19076760,,36,claude-draft,Profit/(loss) for the period | prior not found in code - fill by hand | type: nine-months | verify: burhan
-ATRL_9MFY2026,ATRL,Attock Refinery Limited,2026-03-31,thousands,true,eps_basic,178.93,,36,claude-draft,Earnings/(loss) per share - basic and diluted (Rupees) | prior not found in code - fill by hand | type: nine-months | verify: burhan
-ATRL_9MFY2026,ATRL,Attock Refinery Limited,2026-03-31,thousands,true,total_assets,265858014,220143508,35,claude-draft,TOTAL ASSETS | type: nine-months | verify: burhan
-ATRL_9MFY2026,ATRL,Attock Refinery Limited,2026-03-31,thousands,true,total_equity,171579444,153302673,34,claude-draft,171 579 444 | type: nine-months | verify: burhan
+ATRL_9MFY2026,ATRL,Attock Refinery Limited,2026-03-31,thousands,true,revenue,224942750,235459359,36,burhan,Net sales | nine-month column (3rd of 4); prior filled by hand | type: nine-months | verify: burhan
+ATRL_9MFY2026,ATRL,Attock Refinery Limited,2026-03-31,thousands,true,profit_before_tax,25608859,12705985,36,burhan,Profit before income tax from refinery operations and subsidiary | nine-month column (3rd of 4); prior filled by hand | type: nine-months | verify: burhan
+ATRL_9MFY2026,ATRL,Attock Refinery Limited,2026-03-31,thousands,true,net_profit,19076760,6634919,36,burhan,Profit/(loss) for the period | nine-month column (3rd of 4); prior filled by hand | type: nine-months | verify: burhan
+ATRL_9MFY2026,ATRL,Attock Refinery Limited,2026-03-31,thousands,true,eps_basic,178.93,62.23,36,burhan,Earnings/(loss) per share - basic and diluted (Rupees) | nine-month column (3rd of 4); prior filled by hand | type: nine-months | verify: burhan
+ATRL_9MFY2026,ATRL,Attock Refinery Limited,2026-03-31,thousands,true,total_assets,265858014,220143508,35,burhan,TOTAL ASSETS | type: nine-months | verify: burhan
+ATRL_9MFY2026,ATRL,Attock Refinery Limited,2026-03-31,thousands,true,total_equity,171579444,153302673,34,burhan,171 579 444 | type: nine-months | verify: burhan
