@@ -89,12 +89,12 @@ DADX_FY2026,DADX,Dadex Eternit Limited,2026-06-30,thousands,false,net_profit,479
 DADX_FY2026,DADX,Dadex Eternit Limited,2026-06-30,thousands,false,eps_basic,44.56,,38,claude-draft,Profit/ (loss) per share - basic and diluted | prior not found in code - fill by hand | type: annual | verify: usman
 DADX_FY2026,DADX,Dadex Eternit Limited,2026-06-30,thousands,false,total_assets,2973109,,37,claude-draft,TOTAL ASSETS | prior not found in code - fill by hand | type: annual | verify: usman
 DADX_FY2026,DADX,Dadex Eternit Limited,2026-06-30,thousands,false,total_equity,914485,,37,claude-draft,TOTAL EQUITY | prior not found in code - fill by hand | type: annual | verify: usman
-SURC_FY2026,SURC,Suraj Cotton Mills Limited,2026-06-30,thousands,false,revenue,28650080,27411458,48,claude-draft,Revenue from Contracts with Customers | type: annual | verify: burhan
-SURC_FY2026,SURC,Suraj Cotton Mills Limited,2026-06-30,thousands,false,profit_before_tax,2392545,1878929,48,claude-draft,PROFIT BEFORE TAXATION | type: annual | verify: burhan
-SURC_FY2026,SURC,Suraj Cotton Mills Limited,2026-06-30,thousands,false,net_profit,1800967,1118683,48,claude-draft,PROFIT AFTER TAXATION | type: annual | verify: burhan
-SURC_FY2026,SURC,Suraj Cotton Mills Limited,2026-06-30,thousands,false,eps_basic,36.90,22.92,48,claude-draft,Earnings per share - basic and diluted (Rupees) | type: annual | verify: burhan
-SURC_FY2026,SURC,Suraj Cotton Mills Limited,2026-06-30,thousands,false,total_assets,25506589,24294152,35,claude-draft,Total assets | type: annual | verify: burhan
-SURC_FY2026,SURC,Suraj Cotton Mills Limited,2026-06-30,thousands,false,total_equity,15582173,13545795,35,claude-draft,Shareholders’ equity | type: annual | verify: burhan
+SURC_FY2026,SURC,Suraj Cotton Mills Limited,2026-06-30,thousands,false,revenue,28650080,27411458,48,burhan,Revenue from Contracts with Customers | type: annual | verify: burhan
+SURC_FY2026,SURC,Suraj Cotton Mills Limited,2026-06-30,thousands,false,profit_before_tax,2392545,1878929,48,burhan,PROFIT BEFORE TAXATION | type: annual | verify: burhan
+SURC_FY2026,SURC,Suraj Cotton Mills Limited,2026-06-30,thousands,false,net_profit,1800967,1118683,48,burhan,PROFIT AFTER TAXATION | type: annual | verify: burhan
+SURC_FY2026,SURC,Suraj Cotton Mills Limited,2026-06-30,thousands,false,eps_basic,36.90,22.92,48,burhan,Earnings per share - basic and diluted (Rupees) | type: annual | verify: burhan
+SURC_FY2026,SURC,Suraj Cotton Mills Limited,2026-06-30,thousands,false,total_assets,25506589,24294152,47,burhan,Total assets | type: annual | verify: burhan
+SURC_FY2026,SURC,Suraj Cotton Mills Limited,2026-06-30,thousands,false,total_equity,15582173,13545795,46,burhan,Shareholders’ equity | type: annual | verify: burhan
 FZCM_FY2026,FZCM,Fazal Cloth Mills Limited,2026-06-30,units,false,revenue,96023702425,,217,claude-draft,Revenue from contracts with customers - net | prior not found in code - fill by hand | type: annual | verify: usman
 FZCM_FY2026,FZCM,Fazal Cloth Mills Limited,2026-06-30,units,false,profit_before_tax,,,217,claude-draft,Not available | LLM found nothing - fill by hand | type: annual | verify: usman
 FZCM_FY2026,FZCM,Fazal Cloth Mills Limited,2026-06-30,units,false,net_profit,,,217,claude-draft,Not available | LLM found nothing - fill by hand | type: annual | verify: usman
