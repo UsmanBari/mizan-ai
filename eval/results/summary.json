@@ -409,41 +409,91 @@
   },
   "extraction": {
     "rules": {
-      "field_accuracy": 0.463,
-      "n_examples": 54,
-      "n_reports": 9,
-      "coverage": 0.722,
+      "field_accuracy": 0.378,
+      "n_examples": 90,
+      "n_reports": 15,
+      "coverage": 0.8,
       "schema_valid_rate": 1.0,
-      "unit_accuracy": 0.556,
-      "statement_page_located": 0.778,
+      "unit_accuracy": 0.533,
+      "statement_page_located": 0.867,
       "latency_p50_s": 0.05,
       "latency_p95_s": 0.11,
       "cost_per_report_usd": 0.0,
       "error_causes": {
-        "wrong_line_item_or_consolidation": 8,
-        "unit_scale": 3,
-        "page_not_located": 3,
-        "missing_field_page_not_located": 4,
-        "missing_field": 11
-      }
+        "wrong_line_item_or_consolidation": 22,
+        "unit_scale": 8,
+        "page_not_located": 8,
+        "missing_field_page_not_located": 6,
+        "missing_field": 12
+      },
+      "prior_column_rate": 0.0,
+      "field_accuracy_dev": 0.463,
+      "field_accuracy_heldout": 0.25,
+      "n_examples_heldout": 36
+    },
+    "rules+columns": {
+      "field_accuracy": 0.744,
+      "n_examples": 90,
+      "n_reports": 15,
+      "coverage": 0.778,
+      "schema_valid_rate": 1.0,
+      "unit_accuracy": 0.933,
+      "statement_page_located": 0.933,
+      "latency_p50_s": 0.26,
+      "latency_p95_s": 0.58,
+      "cost_per_report_usd": 0.0,
+      "error_causes": {
+        "missing_field": 14,
+        "missing_field_page_not_located": 6,
+        "wrong_line_item_or_consolidation": 3
+      },
+      "prior_column_rate": 0.0,
+      "field_accuracy_dev": 0.852,
+      "field_accuracy_heldout": 0.583,
+      "n_examples_heldout": 36
     },
     "api:gemini-3.5-flash-lite": {
-      "field_accuracy": 0.759,
-      "n_examples": 54,
-      "n_reports": 9,
-      "coverage": 0.852,
-      "schema_valid_rate": 0.889,
-      "unit_accuracy": 0.778,
-      "statement_page_located": 0.778,
-      "latency_p50_s": 3.07,
-      "latency_p95_s": 7.59,
-      "cost_per_report_usd": 0.00372,
+      "field_accuracy": 0.867,
+      "n_examples": 90,
+      "n_reports": 15,
+      "coverage": 0.944,
+      "schema_valid_rate": 1.0,
+      "unit_accuracy": 0.933,
+      "statement_page_located": 0.867,
+      "latency_p50_s": 1.99,
+      "latency_p95_s": 4.81,
+      "cost_per_report_usd": 0.00423,
       "error_causes": {
         "unit_scale": 3,
-        "page_not_located": 2,
-        "missing_field_page_not_located": 2,
-        "invalid_or_no_output": 6
-      }
+        "page_not_located": 4,
+        "missing_field_page_not_located": 5
+      },
+      "prior_column_rate": 0.0,
+      "field_accuracy_dev": 0.87,
+      "field_accuracy_heldout": 0.861,
+      "n_examples_heldout": 36
+    },
+    "api:gemini-3.5-flash-lite+columns": {
+      "field_accuracy": 0.867,
+      "n_examples": 90,
+      "n_reports": 15,
+      "coverage": 0.944,
+      "schema_valid_rate": 1.0,
+      "unit_accuracy": 0.933,
+      "statement_page_located": 0.867,
+      "latency_p50_s": 2.22,
+      "latency_p95_s": 5.15,
+      "cost_per_report_usd": 0.00423,
+      "error_causes": {
+        "unit_scale": 3,
+        "page_not_located": 4,
+        "missing_field_page_not_located": 5
+      },
+      "prior_column_rate": 0.0,
+      "field_accuracy_dev": 0.87,
+      "field_accuracy_heldout": 0.861,
+      "n_examples_heldout": 36,
+      "values_corrected_by_code": 0
     }
   },
   "qa_psx_v2_bm25": {
