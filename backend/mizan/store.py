@@ -94,7 +94,8 @@ def _facts_from_highlights(doc_id: str, fh: FinancialHighlights, doc: Optional[D
     company = fh.company or (doc.company if doc else symbol)
     doc_type = doc.doc_type if doc else "annual"
     months = _MONTHS_BY_DOC_TYPE.get(doc_type, 12)
-    period_end = fh.period_end or (doc.period if doc else "")
+    # the period end checked against the statement headers at ingest wins
+    period_end = (doc.period_end if doc and doc.period_end else "") or fh.period_end or (doc.period if doc else "")
     if not period_end:
         return []
     basis = "consolidated" if fh.consolidated else "unconsolidated"
@@ -591,9 +592,19 @@ def load_psx_labels(store: Store, csv_path: str | Path | None = None, verified_o
     if path is None or not path.exists():
         return 0
     facts: list[FinancialFact] = []
+    # period type per report from psx_reports.csv (doc_id = SYMBOL_PERIOD); before
+    # interim reports were added every label was annual
+    doc_types: dict[str, str] = {}
+    reports = path.parent / "psx_reports.csv"
+    if reports.exists():
+        with open(reports, newline="", encoding="utf-8") as rf:
+            for rep in csv.DictReader(rf):
+                doc_types[f"{rep['symbol']}_{rep['period']}"] = (rep.get("doc_type") or "annual").strip()
     with open(path, newline="", encoding="utf-8") as f:
         for r in csv.DictReader(f):
             if r["doc_id"].startswith("EXAMPLE"):
+                continue
+            if not (r.get("value_current") or "").strip():
                 continue
             labeller = (r.get("labeller") or "").strip()
             if verified_only and labeller.lower() in ("", "claude-draft"):
@@ -602,13 +613,15 @@ def load_psx_labels(store: Store, csv_path: str | Path | None = None, verified_o
             unit = "Rupees per share" if r["field"] == "eps_basic" else r["unit"]
             page = int(r["page"]) if r.get("page") else None
             cur = float(str(r["value_current"]).replace(",", ""))
+            ptype = doc_types.get(r["doc_id"], "annual")
+            months = _MONTHS_BY_DOC_TYPE.get(ptype, 12)
             facts.append(FinancialFact(
                 company=r["company"],
                 symbol=r["symbol"].upper(),
                 field=r["field"],
                 period_end=r["period_end"],
-                period_type="annual",
-                months=12,
+                period_type=ptype,
+                months=months,
                 basis=basis,
                 value=cur,
                 unit=unit,
@@ -617,15 +630,18 @@ def load_psx_labels(store: Store, csv_path: str | Path | None = None, verified_o
                 source="label",
                 labeller=labeller,
             ))
-            if r.get("value_prior"):
+            # interim balance sheets compare with the last YEAR-END, not the same date a
+            # year earlier, so their prior column is not a same-length period: skip it
+            balance_field = r["field"] in ("total_assets", "total_liabilities", "total_equity")
+            if r.get("value_prior") and not (ptype != "annual" and balance_field):
                 prior = float(str(r["value_prior"]).replace(",", ""))
                 facts.append(FinancialFact(
                     company=r["company"],
                     symbol=r["symbol"].upper(),
                     field=r["field"],
                     period_end=_prior_year_date(r["period_end"]),
-                    period_type="annual",
-                    months=12,
+                    period_type=ptype,
+                    months=months,
                     basis=basis,
                     value=prior,
                     unit=unit,
