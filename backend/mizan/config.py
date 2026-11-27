@@ -25,7 +25,7 @@ class Settings(BaseSettings):
     # --- LLM (any OpenAI-compatible endpoint: Gemini, Groq, OpenAI, Ollama) --
     llm_base_url: str = "https://generativelanguage.googleapis.com/v1beta/openai/"
     llm_api_key: str = ""
-    llm_model: str = "gemini-3.5-flash"   # 2.5 Flash is closed to new API users
+    llm_model: str = "gemini-3.5-flash-lite"   # 2.5 Flash is closed to new API users
     # second model used for the "API vs local" extraction comparison
     local_llm_base_url: str = "http://localhost:11434/v1"
     local_llm_model: str = "qwen2.5:7b"
@@ -34,13 +34,13 @@ class Settings(BaseSettings):
     # USD per 1M tokens (input, output) -- used only for cost reporting
     # gemini-3.5-flash list price (ai.google.dev/pricing, checked 22 Nov 2026);
     # gemini-3.5-flash-lite is 0.30 / 2.50
-    price_in_per_m: float = 1.50
-    price_out_per_m: float = 9.00
+    price_in_per_m: float = 0.30
+    price_out_per_m: float = 2.50
 
     # --- Retrieval ---------------------------------------------------------
     embed_model: str = "BAAI/bge-small-en-v1.5"
     rerank_model: str = "BAAI/bge-reranker-base"
-    use_reranker: bool = True
+    use_reranker: bool = False
     chunk_chars: int = 1500
     chunk_overlap: int = 200
     top_k: int = 6

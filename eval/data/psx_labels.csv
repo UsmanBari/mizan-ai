@@ -29,27 +29,27 @@ PRL_FY2026,PRL,Pakistan Refinery Limited,2026-06-30,thousands,false,net_profit,1
 PRL_FY2026,PRL,Pakistan Refinery Limited,2026-06-30,thousands,false,eps_basic,25.05,-7.4,67,burhan,prior year loss per share | verify: burhan
 PRL_FY2026,PRL,Pakistan Refinery Limited,2026-06-30,thousands,false,total_assets,130748549,107940926,67,burhan,no label; column total | verify: burhan
 PRL_FY2026,PRL,Pakistan Refinery Limited,2026-06-30,thousands,false,total_equity,42769992,26604224,67,burhan,no label | verify: burhan
-HUBC_FY2026,HUBC,The Hub Power Company Limited,2026-06-30,thousands,true,revenue,71126352,83351492,275,claude-draft,continuing operations | verify: usman
-HUBC_FY2026,HUBC,The Hub Power Company Limited,2026-06-30,thousands,true,profit_before_tax,69600910,64115150,275,claude-draft,"continuing operations, after levy | verify: usman"
-HUBC_FY2026,HUBC,The Hub Power Company Limited,2026-06-30,thousands,true,net_profit,49630724,46131156,275,claude-draft,attributable to owners; total 56257178 | verify: usman
-HUBC_FY2026,HUBC,The Hub Power Company Limited,2026-06-30,thousands,true,eps_basic,38.26,35.56,275,claude-draft,attributable to owners | verify: usman
-HUBC_FY2026,HUBC,The Hub Power Company Limited,2026-06-30,thousands,true,total_assets,422563444,414722187,277,claude-draft, | verify: usman
-HUBC_FY2026,HUBC,The Hub Power Company Limited,2026-06-30,thousands,true,total_equity,258007509,243921905,277,claude-draft,no label; incl. NCI (owners 235381655) | verify: usman
-AGIL_FY2026,AGIL,Agriauto Industries Limited,2026-06-30,thousands,true,revenue,17383149,11863435,151,claude-draft,Turnover - net | verify: usman
-AGIL_FY2026,AGIL,Agriauto Industries Limited,2026-06-30,thousands,true,profit_before_tax,1685924,206236,151,claude-draft,text uses ﬁ ligature ('Proﬁt') | verify: usman
-AGIL_FY2026,AGIL,Agriauto Industries Limited,2026-06-30,thousands,true,net_profit,1203408,238324,151,claude-draft,ﬁ ligature | verify: usman
-AGIL_FY2026,AGIL,Agriauto Industries Limited,2026-06-30,thousands,true,eps_basic,33.43,6.62,151,claude-draft, | verify: usman
-AGIL_FY2026,AGIL,Agriauto Industries Limited,2026-06-30,thousands,true,total_assets,10416925,9654576,150,claude-draft, | verify: usman
-AGIL_FY2026,AGIL,Agriauto Industries Limited,2026-06-30,thousands,true,total_equity,7192975,6052567,150,claude-draft,no label | verify: usman
-GHNI_FY2026,GHNI,Ghandhara Industries Limited,2026-06-30,thousands,false,revenue,60658134,37462866,112,claude-draft,Sales - net; no consolidated statements | verify: usman
-GHNI_FY2026,GHNI,Ghandhara Industries Limited,2026-06-30,thousands,false,profit_before_tax,11412478,6453181,112,claude-draft,'Profit before income taxation' (after final taxes) | verify: usman
-GHNI_FY2026,GHNI,Ghandhara Industries Limited,2026-06-30,thousands,false,net_profit,6926718,4583655,112,claude-draft,Profit for the year | verify: usman
-GHNI_FY2026,GHNI,Ghandhara Industries Limited,2026-06-30,thousands,false,eps_basic,162.57,107.58,112,claude-draft, | verify: usman
-GHNI_FY2026,GHNI,Ghandhara Industries Limited,2026-06-30,thousands,false,total_assets,46268569,29275270,110,claude-draft, | verify: usman
-GHNI_FY2026,GHNI,Ghandhara Industries Limited,2026-06-30,thousands,false,total_equity,22355334,13551899,111,claude-draft, | verify: usman
-POWER_FY2026,POWER,Power Cement Limited,2026-06-30,thousands,false,revenue,33978969,29520136,168,claude-draft,no consolidated statements | verify: usman
-POWER_FY2026,POWER,Power Cement Limited,2026-06-30,thousands,false,profit_before_tax,5595964,1572313,168,claude-draft, | verify: usman
-POWER_FY2026,POWER,Power Cement Limited,2026-06-30,thousands,false,net_profit,3784470,814996,168,claude-draft, | verify: usman
-POWER_FY2026,POWER,Power Cement Limited,2026-06-30,thousands,false,eps_basic,2.86,0.44,168,claude-draft,basic (diluted 2.72) | verify: usman
-POWER_FY2026,POWER,Power Cement Limited,2026-06-30,thousands,false,total_assets,47400245,47680009,166,claude-draft, | verify: usman
-POWER_FY2026,POWER,Power Cement Limited,2026-06-30,thousands,false,total_equity,24014746,23529257,167,claude-draft, | verify: usman
+HUBC_FY2026,HUBC,The Hub Power Company Limited,2026-06-30,thousands,true,revenue,71126352,83351492,275,usman,continuing operations | verify: usman
+HUBC_FY2026,HUBC,The Hub Power Company Limited,2026-06-30,thousands,true,profit_before_tax,69600910,64115150,275,usman,"continuing operations, after levy | verify: usman"
+HUBC_FY2026,HUBC,The Hub Power Company Limited,2026-06-30,thousands,true,net_profit,49630724,46131156,275,usman,attributable to owners; total 56257178 | verify: usman
+HUBC_FY2026,HUBC,The Hub Power Company Limited,2026-06-30,thousands,true,eps_basic,38.26,35.56,275,usman,attributable to owners | verify: usman
+HUBC_FY2026,HUBC,The Hub Power Company Limited,2026-06-30,thousands,true,total_assets,422563444,414722187,277,usman, | verify: usman
+HUBC_FY2026,HUBC,The Hub Power Company Limited,2026-06-30,thousands,true,total_equity,258007509,243921905,277,usman,no label; incl. NCI (owners 235381655) | verify: usman
+AGIL_FY2026,AGIL,Agriauto Industries Limited,2026-06-30,thousands,true,revenue,17383149,11863435,151,usman,Turnover - net | verify: usman
+AGIL_FY2026,AGIL,Agriauto Industries Limited,2026-06-30,thousands,true,profit_before_tax,1685924,206236,151,usman,text uses ﬁ ligature ('Proﬁt') | verify: usman
+AGIL_FY2026,AGIL,Agriauto Industries Limited,2026-06-30,thousands,true,net_profit,1203408,238324,151,usman,ﬁ ligature | verify: usman
+AGIL_FY2026,AGIL,Agriauto Industries Limited,2026-06-30,thousands,true,eps_basic,33.43,6.62,151,usman, | verify: usman
+AGIL_FY2026,AGIL,Agriauto Industries Limited,2026-06-30,thousands,true,total_assets,10416925,9654576,150,usman, | verify: usman
+AGIL_FY2026,AGIL,Agriauto Industries Limited,2026-06-30,thousands,true,total_equity,7192975,6052567,150,usman,no label | verify: usman
+GHNI_FY2026,GHNI,Ghandhara Industries Limited,2026-06-30,thousands,false,revenue,60658134,37462866,112,usman,Sales - net; no consolidated statements | verify: usman
+GHNI_FY2026,GHNI,Ghandhara Industries Limited,2026-06-30,thousands,false,profit_before_tax,11412478,6453181,112,usman,'Profit before income taxation' (after final taxes) | verify: usman
+GHNI_FY2026,GHNI,Ghandhara Industries Limited,2026-06-30,thousands,false,net_profit,6926718,4583655,112,usman,Profit for the year | verify: usman
+GHNI_FY2026,GHNI,Ghandhara Industries Limited,2026-06-30,thousands,false,eps_basic,162.57,107.58,112,usman, | verify: usman
+GHNI_FY2026,GHNI,Ghandhara Industries Limited,2026-06-30,thousands,false,total_assets,46268569,29275270,110,usman, | verify: usman
+GHNI_FY2026,GHNI,Ghandhara Industries Limited,2026-06-30,thousands,false,total_equity,22355334,13551899,111,usman, | verify: usman
+POWER_FY2026,POWER,Power Cement Limited,2026-06-30,thousands,false,revenue,33978969,29520136,168,usman,no consolidated statements | verify: usman
+POWER_FY2026,POWER,Power Cement Limited,2026-06-30,thousands,false,profit_before_tax,5595964,1572313,168,usman, | verify: usman
+POWER_FY2026,POWER,Power Cement Limited,2026-06-30,thousands,false,net_profit,3784470,814996,168,usman, | verify: usman
+POWER_FY2026,POWER,Power Cement Limited,2026-06-30,thousands,false,eps_basic,2.86,0.44,168,usman,basic (diluted 2.72) | verify: usman
+POWER_FY2026,POWER,Power Cement Limited,2026-06-30,thousands,false,total_assets,47400245,47680009,166,usman, | verify: usman
+POWER_FY2026,POWER,Power Cement Limited,2026-06-30,thousands,false,total_equity,24014746,23529257,167,usman, | verify: usman
