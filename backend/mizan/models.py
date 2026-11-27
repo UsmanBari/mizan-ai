@@ -57,6 +57,11 @@ class Answer(BaseModel):
     citations: list[Citation] = []
     calculations: list[Calculation] = []
     context_pages: list[Citation] = []   # every page the system retrieved/read (for error analysis)
+    reported_figures: list[dict] = []    # [{field, value, unit, statement, period, page}]
+    calculated_values: list[dict] = []   # [{name, formula, operands, result}]
+    explanation: str = ""                # only quoted report text with citations; else "The report does not state a reason."
+    refusal_reason: Optional[str] = None
+    basis: Optional[str] = None
     mode: str = "agent"
     steps: int = 0
     latency_s: float = 0.0
@@ -64,6 +69,23 @@ class Answer(BaseModel):
     tokens_out: int = 0
     cost_usd: float = 0.0
     refused: bool = False             # True when the system says it cannot answer
+
+
+class FinancialFact(BaseModel):
+    company: str
+    symbol: str
+    field: str
+    period_end: str                   # YYYY-MM-DD
+    period_type: str = "annual"       # annual | quarterly | half-yearly | nine-months | other
+    months: int = 12
+    basis: Literal["consolidated", "unconsolidated"] = "consolidated"
+    value: float
+    unit: str = "thousands"
+    doc_id: str = ""
+    page: Optional[int] = None
+    source: Literal["label", "extraction"] = "extraction"
+    conflict: bool = False
+    labeller: str = ""
 
 
 # --- structured extraction --------------------------------------------------
