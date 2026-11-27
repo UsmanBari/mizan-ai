@@ -53,3 +53,81 @@ POWER_FY2026,POWER,Power Cement Limited,2026-06-30,thousands,false,net_profit,37
 POWER_FY2026,POWER,Power Cement Limited,2026-06-30,thousands,false,eps_basic,2.86,0.44,168,usman,basic (diluted 2.72) | verify: usman
 POWER_FY2026,POWER,Power Cement Limited,2026-06-30,thousands,false,total_assets,47400245,47680009,166,usman, | verify: usman
 POWER_FY2026,POWER,Power Cement Limited,2026-06-30,thousands,false,total_equity,24014746,23529257,167,usman, | verify: usman
+ATRL_FY2026,ATRL,Attock Refinery Limited,2026-06-30,thousands,true,revenue,341794386,301519955,236,claude-draft,Net sales | type: annual | verify: burhan
+ATRL_FY2026,ATRL,Attock Refinery Limited,2026-06-30,thousands,true,profit_before_tax,35945788,18253969,236,claude-draft,Profit before income tax from refinery operations and subsidiary | type: annual | verify: burhan
+ATRL_FY2026,ATRL,Attock Refinery Limited,2026-06-30,thousands,true,net_profit,26062169,8948467,236,claude-draft,Profit for the year | type: annual | verify: burhan
+ATRL_FY2026,ATRL,Attock Refinery Limited,2026-06-30,thousands,true,eps_basic,244.45,83.93,236,claude-draft,Earnings per share - basic and diluted (Rupees) | type: annual | verify: burhan
+ATRL_FY2026,ATRL,Attock Refinery Limited,2026-06-30,thousands,true,total_assets,,,148,claude-draft,Total Assets | LLM found nothing - fill by hand | type: annual | verify: burhan
+ATRL_FY2026,ATRL,Attock Refinery Limited,2026-06-30,thousands,true,total_equity,,,148,claude-draft,Equity and reserves | LLM found nothing - fill by hand | type: annual | verify: burhan
+APL_FY2026,APL,Attock Petroleum Limited,2026-06-30,thousands,false,revenue,533096747,474097307,184,claude-draft,NET SALES | type: annual | verify: usman
+APL_FY2026,APL,Attock Petroleum Limited,2026-06-30,thousands,false,profit_before_tax,27712542,16978879,184,claude-draft,PROFIT BEFORE TAXATION | type: annual | verify: usman
+APL_FY2026,APL,Attock Petroleum Limited,2026-06-30,thousands,false,net_profit,16958895,10392588,184,claude-draft,PROFIT FOR THE YEAR | type: annual | verify: usman
+APL_FY2026,APL,Attock Petroleum Limited,2026-06-30,thousands,false,eps_basic,136.31,83.53,184,claude-draft,Earnings per share - Basic and diluted (Rupees) | type: annual | verify: usman
+APL_FY2026,APL,Attock Petroleum Limited,2026-06-30,thousands,false,total_assets,139456377,122302709,183,claude-draft,Total assets | type: annual | verify: usman
+APL_FY2026,APL,Attock Petroleum Limited,2026-06-30,thousands,false,total_equity,75486139,62628870,182,claude-draft,SHARE CAPITAL AND RESERVES | type: annual | verify: usman
+KOHC_FY2026,KOHC,Kohat Cement Company Limited,2026-06-30,units,true,revenue,38530653234,37535700372,148,claude-draft,Revenue from contract with customers - net | type: annual | verify: burhan
+KOHC_FY2026,KOHC,Kohat Cement Company Limited,2026-06-30,units,true,profit_before_tax,15927964099,17688192049,148,claude-draft,Profit before taxation | type: annual | verify: burhan
+KOHC_FY2026,KOHC,Kohat Cement Company Limited,2026-06-30,units,true,net_profit,10697459177,11575154071,148,claude-draft,Profit after taxation | type: annual | verify: burhan
+KOHC_FY2026,KOHC,Kohat Cement Company Limited,2026-06-30,units,true,eps_basic,11.64,11.97,148,claude-draft,Earnings per share - basic and diluted | type: annual | verify: burhan
+KOHC_FY2026,KOHC,Kohat Cement Company Limited,2026-06-30,units,true,total_assets,,,,claude-draft,Total assets | LLM found nothing - fill by hand | type: annual | verify: burhan
+KOHC_FY2026,KOHC,Kohat Cement Company Limited,2026-06-30,units,true,total_equity,,,,claude-draft,Total equity | LLM found nothing - fill by hand | type: annual | verify: burhan
+BERG_FY2026,BERG,Berger Paints Pakistan Limited,2026-06-30,thousands,true,revenue,9176156,8944694,129,claude-draft,Revenue from contract with customers - net | type: annual | verify: usman
+BERG_FY2026,BERG,Berger Paints Pakistan Limited,2026-06-30,thousands,true,profit_before_tax,506230,461486,129,claude-draft,Profit before income tax | type: annual | verify: usman
+BERG_FY2026,BERG,Berger Paints Pakistan Limited,2026-06-30,thousands,true,net_profit,310317,297289,129,claude-draft,Owners of the Company | type: annual | verify: usman
+BERG_FY2026,BERG,Berger Paints Pakistan Limited,2026-06-30,thousands,true,eps_basic,12.64,12.11,129,claude-draft,Earnings per share - basic and diluted (Rupees) | type: annual | verify: usman
+BERG_FY2026,BERG,Berger Paints Pakistan Limited,2026-06-30,thousands,true,total_assets,9363083,7957496,128,claude-draft,TOTAL ASSETS | type: annual | verify: usman
+BERG_FY2026,BERG,Berger Paints Pakistan Limited,2026-06-30,thousands,true,total_equity,4389210,3705195,128,claude-draft,TOTAL EQUITY | type: annual | verify: usman
+BCL_FY2026,BCL,Bolan Castings Limited,2026-06-30,thousands,true,revenue,64238354,53347603,194,claude-draft,Revenue from contracts with customers | type: annual | verify: burhan
+BCL_FY2026,BCL,Bolan Castings Limited,2026-06-30,thousands,true,profit_before_tax,14638779,8080792,194,claude-draft,Profit before income tax | type: annual | verify: burhan
+BCL_FY2026,BCL,Bolan Castings Limited,2026-06-30,thousands,true,net_profit,7945058,6357985,194,claude-draft,Profit after tax | type: annual | verify: burhan
+BCL_FY2026,BCL,Bolan Castings Limited,2026-06-30,thousands,true,eps_basic,20.23,15.85,194,claude-draft,Earnings per share - basic and diluted (Rupees) | type: annual | verify: burhan
+BCL_FY2026,BCL,Bolan Castings Limited,2026-06-30,thousands,true,total_assets,,,90,claude-draft,Total Assets | LLM found nothing - fill by hand | type: annual | verify: burhan
+BCL_FY2026,BCL,Bolan Castings Limited,2026-06-30,thousands,true,total_equity,10881050,,195,claude-draft,Total equity | prior not found in code - fill by hand | type: annual | verify: burhan
+DADX_FY2026,DADX,Dadex Eternit Limited,2026-06-30,thousands,false,revenue,959910,,38,claude-draft,Sales - net | prior not found in code - fill by hand | type: annual | verify: usman
+DADX_FY2026,DADX,Dadex Eternit Limited,2026-06-30,thousands,false,profit_before_tax,516723,,38,claude-draft,Profit/(loss) before taxation | prior not found in code - fill by hand | type: annual | verify: usman
+DADX_FY2026,DADX,Dadex Eternit Limited,2026-06-30,thousands,false,net_profit,479682,,38,claude-draft,Net profit/ (loss) for the year | prior not found in code - fill by hand | type: annual | verify: usman
+DADX_FY2026,DADX,Dadex Eternit Limited,2026-06-30,thousands,false,eps_basic,44.56,,38,claude-draft,Profit/ (loss) per share - basic and diluted | prior not found in code - fill by hand | type: annual | verify: usman
+DADX_FY2026,DADX,Dadex Eternit Limited,2026-06-30,thousands,false,total_assets,2973109,,37,claude-draft,TOTAL ASSETS | prior not found in code - fill by hand | type: annual | verify: usman
+DADX_FY2026,DADX,Dadex Eternit Limited,2026-06-30,thousands,false,total_equity,914485,,37,claude-draft,TOTAL EQUITY | prior not found in code - fill by hand | type: annual | verify: usman
+SURC_FY2026,SURC,Suraj Cotton Mills Limited,2026-06-30,thousands,false,revenue,28650080,27411458,48,claude-draft,Revenue from Contracts with Customers | type: annual | verify: burhan
+SURC_FY2026,SURC,Suraj Cotton Mills Limited,2026-06-30,thousands,false,profit_before_tax,2392545,1878929,48,claude-draft,PROFIT BEFORE TAXATION | type: annual | verify: burhan
+SURC_FY2026,SURC,Suraj Cotton Mills Limited,2026-06-30,thousands,false,net_profit,1800967,1118683,48,claude-draft,PROFIT AFTER TAXATION | type: annual | verify: burhan
+SURC_FY2026,SURC,Suraj Cotton Mills Limited,2026-06-30,thousands,false,eps_basic,36.90,22.92,48,claude-draft,Earnings per share - basic and diluted (Rupees) | type: annual | verify: burhan
+SURC_FY2026,SURC,Suraj Cotton Mills Limited,2026-06-30,thousands,false,total_assets,25506589,24294152,35,claude-draft,Total assets | type: annual | verify: burhan
+SURC_FY2026,SURC,Suraj Cotton Mills Limited,2026-06-30,thousands,false,total_equity,15582173,13545795,35,claude-draft,Shareholders’ equity | type: annual | verify: burhan
+FZCM_FY2026,FZCM,Fazal Cloth Mills Limited,2026-06-30,units,false,revenue,96023702425,,217,claude-draft,Revenue from contracts with customers - net | prior not found in code - fill by hand | type: annual | verify: usman
+FZCM_FY2026,FZCM,Fazal Cloth Mills Limited,2026-06-30,units,false,profit_before_tax,,,217,claude-draft,Not available | LLM found nothing - fill by hand | type: annual | verify: usman
+FZCM_FY2026,FZCM,Fazal Cloth Mills Limited,2026-06-30,units,false,net_profit,,,217,claude-draft,Not available | LLM found nothing - fill by hand | type: annual | verify: usman
+FZCM_FY2026,FZCM,Fazal Cloth Mills Limited,2026-06-30,units,false,eps_basic,,,217,claude-draft,Not available | LLM found nothing - fill by hand | type: annual | verify: usman
+FZCM_FY2026,FZCM,Fazal Cloth Mills Limited,2026-06-30,units,false,total_assets,,,217,claude-draft,Not available | LLM found nothing - fill by hand | type: annual | verify: usman
+FZCM_FY2026,FZCM,Fazal Cloth Mills Limited,2026-06-30,units,false,total_equity,,,217,claude-draft,Not available | LLM found nothing - fill by hand | type: annual | verify: usman
+MLCF_Q1FY2027,MLCF,Maple Leaf Cement Factory Limited,2026-09-30,thousands,true,revenue,30917726,16483361,29,claude-draft,Revenue from contracts with customers - net | type: quarterly | verify: burhan
+MLCF_Q1FY2027,MLCF,Maple Leaf Cement Factory Limited,2026-09-30,thousands,true,profit_before_tax,6854372,4050784,29,claude-draft,Profit before income tax | type: quarterly | verify: burhan
+MLCF_Q1FY2027,MLCF,Maple Leaf Cement Factory Limited,2026-09-30,thousands,true,net_profit,3706974,2728256,29,claude-draft,Profit is attributable to: Equity holders of the Holding Company | type: quarterly | verify: burhan
+MLCF_Q1FY2027,MLCF,Maple Leaf Cement Factory Limited,2026-09-30,thousands,true,eps_basic,3.54,2.60,29,claude-draft,Earnings per share for profit attributable to the equity holders of the Holding Company - basic and diluted | type: quarterly | verify: burhan
+MLCF_Q1FY2027,MLCF,Maple Leaf Cement Factory Limited,2026-09-30,thousands,true,total_assets,245332202,242369341,27,claude-draft,TOTAL ASSETS | type: quarterly | verify: burhan
+MLCF_Q1FY2027,MLCF,Maple Leaf Cement Factory Limited,2026-09-30,thousands,true,total_equity,98119318,94204867,27,claude-draft,Total equity | type: quarterly | verify: burhan
+PPL_Q1FY2027,PPL,Pakistan Petroleum Limited,2026-09-30,millions,false,revenue,73998,56812,3,claude-draft,Sales revenue (net) | type: quarterly | verify: burhan
+PPL_Q1FY2027,PPL,Pakistan Petroleum Limited,2026-09-30,millions,false,profit_before_tax,37606,30849,3,claude-draft,Profit before taxation | type: quarterly | verify: burhan
+PPL_Q1FY2027,PPL,Pakistan Petroleum Limited,2026-09-30,millions,false,net_profit,25203,20088,3,claude-draft,Profit after taxation | type: quarterly | verify: burhan
+PPL_Q1FY2027,PPL,Pakistan Petroleum Limited,2026-09-30,millions,false,eps_basic,9.26,7.38,3,claude-draft,Basic and Diluted Earnings Per Share | type: quarterly | verify: burhan
+PPL_Q1FY2027,PPL,Pakistan Petroleum Limited,2026-09-30,millions,false,total_assets,,,3,claude-draft,LLM found nothing - fill by hand | type: quarterly | verify: burhan
+PPL_Q1FY2027,PPL,Pakistan Petroleum Limited,2026-09-30,millions,false,total_equity,,,3,claude-draft,LLM found nothing - fill by hand | type: quarterly | verify: burhan
+DGKC_Q1FY2027,DGKC,D.G. Khan Cement Company Limited,2026-09-30,thousands,true,revenue,25046467,21424658,36,claude-draft,Revenue | type: quarterly | verify: usman
+DGKC_Q1FY2027,DGKC,D.G. Khan Cement Company Limited,2026-09-30,thousands,true,profit_before_tax,4040906,3422906,36,claude-draft,Profit before income tax | type: quarterly | verify: usman
+DGKC_Q1FY2027,DGKC,D.G. Khan Cement Company Limited,2026-09-30,thousands,true,net_profit,2636133,2178537,36,claude-draft,Profit for the period attributable to Equity holders of the parent | type: quarterly | verify: usman
+DGKC_Q1FY2027,DGKC,D.G. Khan Cement Company Limited,2026-09-30,thousands,true,eps_basic,6.02,4.97,36,claude-draft,Earnings per share (basic and diluted - in Rupees) | type: quarterly | verify: usman
+DGKC_Q1FY2027,DGKC,D.G. Khan Cement Company Limited,2026-09-30,thousands,true,total_assets,212890003,213275367,35,claude-draft,Total Assets | type: quarterly | verify: usman
+DGKC_Q1FY2027,DGKC,D.G. Khan Cement Company Limited,2026-09-30,thousands,true,total_equity,127345300,126705678,34,claude-draft,Total equity | type: quarterly | verify: usman
+ATRL_H1FY2026,ATRL,Attock Refinery Limited,2025-12-31,thousands,true,revenue,137170417,,36,claude-draft,Net sales | prior not found in code - fill by hand | type: half-yearly | verify: usman
+ATRL_H1FY2026,ATRL,Attock Refinery Limited,2025-12-31,thousands,true,profit_before_tax,7708245,,36,claude-draft,Profit before income tax from refinery operations and subsidiary | prior not found in code - fill by hand | type: half-yearly | verify: usman
+ATRL_H1FY2026,ATRL,Attock Refinery Limited,2025-12-31,thousands,true,net_profit,6411931,,36,claude-draft,Profit for the period | prior not found in code - fill by hand | type: half-yearly | verify: usman
+ATRL_H1FY2026,ATRL,Attock Refinery Limited,2025-12-31,thousands,true,eps_basic,60.14,,36,claude-draft,Earnings per share - basic and diluted (Rupees) | prior not found in code - fill by hand | type: half-yearly | verify: usman
+ATRL_H1FY2026,ATRL,Attock Refinery Limited,2025-12-31,thousands,true,total_assets,230471209,220143508,35,claude-draft,TOTAL ASSETS | type: half-yearly | verify: usman
+ATRL_H1FY2026,ATRL,Attock Refinery Limited,2025-12-31,thousands,true,total_equity,159181156,153302673,34,claude-draft,TOTAL EQUITY | type: half-yearly | verify: usman
+ATRL_9MFY2026,ATRL,Attock Refinery Limited,2026-03-31,thousands,true,revenue,224942750,,36,claude-draft,Net sales | prior not found in code - fill by hand | type: nine-months | verify: burhan
+ATRL_9MFY2026,ATRL,Attock Refinery Limited,2026-03-31,thousands,true,profit_before_tax,25608859,,36,claude-draft,Profit before income tax from refinery operations and subsidiary | prior not found in code - fill by hand | type: nine-months | verify: burhan
+ATRL_9MFY2026,ATRL,Attock Refinery Limited,2026-03-31,thousands,true,net_profit,19076760,,36,claude-draft,Profit/(loss) for the period | prior not found in code - fill by hand | type: nine-months | verify: burhan
+ATRL_9MFY2026,ATRL,Attock Refinery Limited,2026-03-31,thousands,true,eps_basic,178.93,,36,claude-draft,Earnings/(loss) per share - basic and diluted (Rupees) | prior not found in code - fill by hand | type: nine-months | verify: burhan
+ATRL_9MFY2026,ATRL,Attock Refinery Limited,2026-03-31,thousands,true,total_assets,265858014,220143508,35,claude-draft,TOTAL ASSETS | type: nine-months | verify: burhan
+ATRL_9MFY2026,ATRL,Attock Refinery Limited,2026-03-31,thousands,true,total_equity,171579444,153302673,34,claude-draft,171 579 444 | type: nine-months | verify: burhan
