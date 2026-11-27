@@ -101,12 +101,12 @@ FZCM_FY2026,FZCM,Fazal Cloth Mills Limited,2026-06-30,units,false,net_profit,,,2
 FZCM_FY2026,FZCM,Fazal Cloth Mills Limited,2026-06-30,units,false,eps_basic,,,217,claude-draft,Not available | LLM found nothing - fill by hand | type: annual | verify: usman
 FZCM_FY2026,FZCM,Fazal Cloth Mills Limited,2026-06-30,units,false,total_assets,,,217,claude-draft,Not available | LLM found nothing - fill by hand | type: annual | verify: usman
 FZCM_FY2026,FZCM,Fazal Cloth Mills Limited,2026-06-30,units,false,total_equity,,,217,claude-draft,Not available | LLM found nothing - fill by hand | type: annual | verify: usman
-MLCF_Q1FY2027,MLCF,Maple Leaf Cement Factory Limited,2026-09-30,thousands,true,revenue,30917726,16483361,29,claude-draft,Revenue from contracts with customers - net | type: quarterly | verify: burhan
-MLCF_Q1FY2027,MLCF,Maple Leaf Cement Factory Limited,2026-09-30,thousands,true,profit_before_tax,6854372,4050784,29,claude-draft,Profit before income tax | type: quarterly | verify: burhan
-MLCF_Q1FY2027,MLCF,Maple Leaf Cement Factory Limited,2026-09-30,thousands,true,net_profit,3706974,2728256,29,claude-draft,Profit is attributable to: Equity holders of the Holding Company | type: quarterly | verify: burhan
-MLCF_Q1FY2027,MLCF,Maple Leaf Cement Factory Limited,2026-09-30,thousands,true,eps_basic,3.54,2.60,29,claude-draft,Earnings per share for profit attributable to the equity holders of the Holding Company - basic and diluted | type: quarterly | verify: burhan
-MLCF_Q1FY2027,MLCF,Maple Leaf Cement Factory Limited,2026-09-30,thousands,true,total_assets,245332202,242369341,27,claude-draft,TOTAL ASSETS | type: quarterly | verify: burhan
-MLCF_Q1FY2027,MLCF,Maple Leaf Cement Factory Limited,2026-09-30,thousands,true,total_equity,98119318,94204867,27,claude-draft,Total equity | type: quarterly | verify: burhan
+MLCF_Q1FY2027,MLCF,Maple Leaf Cement Factory Limited,2026-09-30,thousands,true,revenue,30917726,16483361,29,burhan,Revenue from contracts with customers - net | type: quarterly | verify: burhan
+MLCF_Q1FY2027,MLCF,Maple Leaf Cement Factory Limited,2026-09-30,thousands,true,profit_before_tax,6854372,4050784,29,burhan,Profit before income tax | type: quarterly | verify: burhan
+MLCF_Q1FY2027,MLCF,Maple Leaf Cement Factory Limited,2026-09-30,thousands,true,net_profit,3706974,2728256,29,burhan,Profit is attributable to: Equity holders of the Holding Company | type: quarterly | verify: burhan
+MLCF_Q1FY2027,MLCF,Maple Leaf Cement Factory Limited,2026-09-30,thousands,true,eps_basic,3.54,2.60,29,burhan,Earnings per share for profit attributable to the equity holders of the Holding Company - basic and diluted | type: quarterly | verify: burhan
+MLCF_Q1FY2027,MLCF,Maple Leaf Cement Factory Limited,2026-09-30,thousands,true,total_assets,245332202,242369341,28,burhan,TOTAL ASSETS | type: quarterly | verify: burhan
+MLCF_Q1FY2027,MLCF,Maple Leaf Cement Factory Limited,2026-09-30,thousands,true,total_equity,98119318,94204867,27,burhan,Total equity | type: quarterly | verify: burhan
 PPL_Q1FY2027,PPL,Pakistan Petroleum Limited,2026-09-30,millions,false,revenue,73998,56812,3,claude-draft,Sales revenue (net) | type: quarterly | verify: burhan
 PPL_Q1FY2027,PPL,Pakistan Petroleum Limited,2026-09-30,millions,false,profit_before_tax,37606,30849,3,claude-draft,Profit before taxation | type: quarterly | verify: burhan
 PPL_Q1FY2027,PPL,Pakistan Petroleum Limited,2026-09-30,millions,false,net_profit,25203,20088,3,claude-draft,Profit after taxation | type: quarterly | verify: burhan
