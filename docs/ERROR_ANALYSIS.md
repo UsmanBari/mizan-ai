@@ -49,14 +49,11 @@ Under the scoped evaluation setting (searching within the 10-K/10-Q filing ident
 
 ---
 
-## 3. RQ1 Stage-Wise Error Analysis on PSX v2 (`rag_calc | hybridx`, n=225)
+## 3. RQ1 Stage-Wise Error Analysis on PSX v2 (`rag_calc` & `agent` over `hybridx`)
 
-In PSX v2 stage-wise attribution, `rag_calc | hybridx` achieved:
-- **Operand extraction accuracy**: **0.503**
-- **Operand selection accuracy (field + period + basis)**: **0.471**
-- **Formula selection accuracy**: **0.385**
-- **Arithmetic accuracy**: **0.385**
-- **Answerable accuracy**: **0.466** (Overall accuracy including abstention: **0.520**)
+In PSX v2 stage-wise attribution:
+- `rag_calc | hybridx` ($n=243$): extraction **0.503**, operand selection **0.471**, formula selection **0.385**, arithmetic **0.385**, answerable accuracy **0.466** (overall **0.531**).
+- `agent | hybridx` ($n=101$ completed): extraction **0.921**, operand selection **0.762**, formula selection **1.000**, arithmetic **1.000**, answerable accuracy **0.950** (0.0% hallucination; only 5 failures across 101 questions: 4 `agent_step_limit` on `OGDC`, `PRL`, `HUBC` + 1 `LUCK` total-PAT vs owners-PAT error).
 
 ### 3.1 Failure Breakdown & 12 Real Examples (`qa_psx_v2_failures_rag_calc.json` / `.jsonl`)
 
@@ -79,9 +76,9 @@ In PSX v2 stage-wise attribution, `rag_calc | hybridx` achieved:
 
 ## 4. RQ3 Abstention Error Analysis on PSX v2
 
-Across `243` questions in `rag_direct | hybridx` (54 unanswerable) and `225` completed in `rag_calc | hybridx` (36 unanswerable):
+Across all `243` questions (189 answerable, 54 unanswerable) on `hybridx`:
 - `rag_direct`: Abstention **Precision = 0.423**, **Recall = 0.759**, Selective Accuracy = **0.719**, Coverage = **0.601** (13 false answers on unanswerables, 56 false refusals on answerables).
-- `rag_calc`: Abstention **Precision = 0.269**, **Recall = 0.806**, Selective Accuracy = **0.752**, Coverage = **0.520** (7 false answers on unanswerables, 79 false refusals on answerables).
+- `rag_calc`: Abstention **Precision = 0.342**, **Recall = 0.759**, Selective Accuracy = **0.715**, Coverage = **0.506** (13 false answers on unanswerables, 79 false refusals on answerables).
 
 ### 4.1 False Answers on Unanswerable Questions (`false_answer_on_unanswerable`) — Key Finding
 

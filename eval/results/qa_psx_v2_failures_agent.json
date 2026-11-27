@@ -1,0 +1,57 @@
+[
+ {
+  "id": "psx2_LUCK_FY2026_net_profit_lookup",
+  "type": "lookup",
+  "question": "According to its consolidated annual financial statements, what was Lucky Cement Limited (LUCK)'s net profit (profit after tax) for FY2026 (year ended 2026-06-30)? Answer in Rs '000.",
+  "gold": "89,042,169.00",
+  "answer": "According to its consolidated annual financial statements for FY2026 (year ended June 30, 2026), Lucky Cement Limited's net profit (profit after taxation) was Rs 96,456,241 thousand (consolidated basis).",
+  "grounding": 1.0,
+  "gold_page_retrieved": true,
+  "answerable": true,
+  "cause": "wrong_value_or_reasoning_with_evidence"
+ },
+ {
+  "id": "psx2_OGDC_FY2026_total_equity_lookup",
+  "type": "lookup",
+  "question": "According to its consolidated annual financial statements, what was Oil & Gas Development Company Limited (OGDC)'s total equity for FY2026 (year ended 2026-06-30)? Answer in Rs '000.",
+  "gold": "1,519,547,299.00",
+  "answer": "I could not complete the analysis within the step limit.",
+  "grounding": 1.0,
+  "gold_page_retrieved": false,
+  "answerable": true,
+  "cause": "agent_step_limit"
+ },
+ {
+  "id": "psx2_PRL_FY2026_total_equity_lookup",
+  "type": "lookup",
+  "question": "According to its unconsolidated annual financial statements, what was Pakistan Refinery Limited (PRL)'s total equity for FY2026 (year ended 2026-06-30)? Answer in Rs '000.",
+  "gold": "42,769,992.00",
+  "answer": "I could not complete the analysis within the step limit.",
+  "grounding": 1.0,
+  "gold_page_retrieved": true,
+  "answerable": true,
+  "cause": "agent_step_limit"
+ },
+ {
+  "id": "psx2_HUBC_FY2026_roe",
+  "type": "ratio",
+  "question": "Based on The Hub Power Company Limited (HUBC)'s consolidated annual statements, what was its return on equity (ROE %, net profit / average equity) in FY2026 (year ended 2026-06-30)?",
+  "gold": "19.78%",
+  "answer": "I could not complete the analysis within the step limit.",
+  "grounding": 1.0,
+  "gold_page_retrieved": true,
+  "answerable": true,
+  "cause": "agent_step_limit"
+ },
+ {
+  "id": "psx2_HUBC_FY2025_debt_to_equity",
+  "type": "ratio",
+  "question": "Based on The Hub Power Company Limited (HUBC)'s consolidated annual statements, what was its debt-to-equity ratio (using liabilities = assets - equity) in FY2025 (year ended 2025-06-30)?",
+  "gold": "0.70x",
+  "answer": "I could not complete the analysis within the step limit.",
+  "grounding": 1.0,
+  "gold_page_retrieved": true,
+  "answerable": true,
+  "cause": "agent_step_limit"
+ }
+]

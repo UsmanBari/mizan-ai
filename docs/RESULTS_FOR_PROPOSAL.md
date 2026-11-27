@@ -7,7 +7,7 @@
 > **Evaluation Setup**:  
 > - **Model**: `gemini-3.5-flash-lite` (list prices **\$0.30 / 1M in**, **\$2.50 / 1M out**, checked 22 Nov 2026; temperature `0.0`), chosen because the free tier limits `gemini-3.5-flash` to 20 requests/day.  
 > - **Prompt Version**: `v1.1` on initial FinanceBench 60-question baseline; `v2.0` (with `compute_ratio`, basis rule, three-part answer, deterministic abstention) on PSX v2.  
-> - **Quota Status (27 Nov 2026)**: PSX v2 completed **243/243** (`rag_direct | hybridx`) and **225/243** (`rag_calc | hybridx`) before hitting the ~500 RPD free-tier cap; `agent` (`hybridx`, `bm25`, `dense`) runs are queued to resume once quota resets / second key is provided.
+> - **Quota Status (27 Nov 2026)**: PSX v2 completed **243/243** (`rag_direct | hybridx`), **243/243** (`rag_calc | hybridx`), and **101/243** (`agent | hybridx`: all `54` lookup, all `27` growth, `20` ratio) across two free-tier API keys before hitting the daily 429 limit. Remaining `142` `agent | hybridx` (34 ratio, 54 cross_company, 54 unanswerable), `agent | bm25` (`3/243`), and `agent | dense` (`0/243`) runs are queued to resume upon quota reset.
 
 ---
 
@@ -45,10 +45,10 @@
 | Mode | n Graded | Overall Acc | Numeric Acc | Hallucination Rate | Refusal Rate | Grounding | Citation Correct | Latency p50 / p95 | Cost / Req |
 |---|---:|---:|---:|---:|---:|---:|---:|---|---|
 | `rag_direct` | 243 | 0.601 | 0.696 | 0.151 | 0.399 | 0.828 | 0.587 | 1.38s / 2.83s | \$0.00164 |
-| `rag_calc` | 225 | 0.520 | 0.642 | **0.051** | 0.480 | **0.948** | 0.460 | 1.24s / 5.26s | \$0.00160 |
-| `agent` (`hybridx`) | *Pending quota* | — | — | — | — | — | — | — | — |
+| `rag_calc` | 243 | 0.531 | 0.642 | 0.057 | 0.494 | **0.947** | 0.460 | **1.24s** / 5.26s | **\$0.00159** |
+| **`agent`** *(101 graded so far)* | 101 | **0.950** | **0.950** | **0.000** | **0.000** | 0.903 | **0.921** | 4.36s / 7.46s | \$0.00661 |
 
-- Paired McNemar (`n=225`): `rag_direct` vs `rag_calc` $p = 0.0015$ (`rag_calc` reduced hallucinations from **15.1%** → **5.1%** while increasing conservative refusals from 39.9% → 48.0%).
+- Paired McNemar tests: `rag_direct` vs `rag_calc` **$p = 0.0023$** ($n=243$); `rag_direct` vs `agent` **$p = 0.0000$** ($n=101$, 21 vs 1 discordant); `rag_calc` vs `agent` **$p = 0.0000$** ($n=101$, 25 vs 1 discordant).
 
 ---
 
@@ -57,15 +57,16 @@
 | Condition | n Total | Extraction Acc | Operand Selection | Formula Selection | Arithmetic Acc | Answerable Acc | Overall Acc |
 |---|---:|---:|---:|---:|---:|---:|---:|
 | `rag_direct \| hybridx` | 243 | 0.894* | N/A | N/A | N/A | 0.556 | 0.601 |
-| `rag_calc \| hybridx` | 225 | 0.503 | 0.471 | 0.385 | 0.385 | 0.466 | 0.520 |
+| `rag_calc \| hybridx` | 243 | 0.503 | 0.471 | 0.385 | 0.385 | 0.466 | 0.531 |
+| **`agent \| hybridx`** *(in progress)* | 101 | **0.921** | **0.762** | **1.000** | **1.000** | **0.950** | **0.950** |
 | `agent \| bm25` *(smoke)* | 3 | 1.000 | 0.667 | N/A | N/A | 1.000 | 1.000 |
-| `agent \| hybridx` | *Pending quota* | — | — | — | — | — | — |
 
 *\*`rag_direct` has no tool trace; extraction reflects single lookup numeric match coverage only.*
 
 **PSX v2 Accuracy by Question Type**:
 - `rag_direct \| hybridx` (`n=243`): `lookup` 0.778 · `growth` 0.815 · `ratio` 0.481 · `cross_company` 0.278 · `unanswerable` 0.759
-- `rag_calc \| hybridx` (`n=225`): `lookup` 0.741 · `growth` 0.778 · `ratio` 0.463 · `cross_company` 0.037 · `unanswerable` 0.806 *(36 unanswerables graded before 429 limit)*
+- `rag_calc \| hybridx` (`n=243`): `lookup` 0.741 · `growth` 0.778 · `ratio` 0.463 · `cross_company` 0.037 · `unanswerable` 0.759
+- **`agent \| hybridx`** (`n=101`): `lookup` **0.944** (`n=54`) · `growth` **1.000** (`n=27`) · `ratio` **0.900** (`n=20`) · `cross_company` & `unanswerable` pending quota reset
 
 ---
 
@@ -73,9 +74,11 @@
 
 | Condition | n | TP | FP | FN | TN | Precision | Recall | F1 | Selective Acc | Coverage | Answerable Coverage |
 |---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|
-| `rag_direct \| hybridx` | 243 | 41 | 56 | 13 | 133 | **0.423** | 0.759 | **0.543** | 0.719 | 0.601 | 0.704 |
-| `rag_calc \| hybridx` | 225 | 29 | 79 | 7 | 110 | 0.269 | **0.806** | 0.403 | **0.752** | 0.520 | 0.582 |
-| `agent \| hybridx` | *Pending quota* | — | — | — | — | — | — | — | — | — | — |
+| `rag_direct \| hybridx` | 243 | 41 | 56 | 13 | 133 | **0.423** | **0.759** | **0.543** | 0.719 | 0.601 | 0.704 |
+| `rag_calc \| hybridx` | 243 | 41 | 79 | 13 | 110 | 0.342 | **0.759** | 0.471 | 0.715 | 0.506 | 0.582 |
+| `agent \| hybridx` *(101 answerable so far)* | 101 | 0 | 0 | 0 | 101 | — | — | — | **0.950** | 1.000 | **1.000** |
+
+*(Abstention P/R/F1 for `agent` will populate once the 54 unanswerable questions complete.)*
 
 ---
 
@@ -83,21 +86,21 @@
 
 | Retriever (`open`, PSX 9 filings) | PSX Retrieval R@5 | Agent Answerable Acc | Agent Overall Acc |
 |---|---:|---:|---:|
-| `bm25` | 0.053 | 1.000 *(n=3 smoke; full pending quota)* | 1.000 *(n=3)* |
+| `bm25` | 0.053 | 1.000 *(n=3 smoke; full pending)* | 1.000 *(n=3)* |
 | `dense` (`bge-small-en-v1.5`) | 0.507 | *Pending quota* | *Pending quota* |
-| `hybridx` | **0.629** | *Pending quota* | *Pending quota* |
+| **`hybridx`** | **0.629** | **0.950** *(n=101 so far)* | **0.950** *(n=101)* |
 
 ---
 
 ## 6. RQ2 Controlled Cross-Market Transfer (`rq2_transfer`, Open `hybridx`)
 
 | Template | FinanceBench R@5 | PSX R@5 | FinanceBench Agent Acc (n) | PSX Agent Acc (n) |
-|---|---:|---:|---:|---|
-| `lookup` | 0.559 | **0.741** | 0.857 (14) | *Pending quota* (`rag_direct`: 0.778) |
-| `growth` | 0.556 | 0.556 | 0.667 (3) | *Pending quota* (`rag_direct`: 0.815) |
-| `margin` | 0.200 | **0.722** | 0.800 (5) | *Pending quota* |
+|---|---:|---:|---:|---:|
+| `lookup` | 0.559 | **0.741** | 0.857 (14) | **0.944** (54) |
+| `growth` | 0.556 | 0.556 | 0.667 (3) | **1.000** (27) |
+| `margin` | 0.200 | **0.722** | 0.800 (5) | **1.000** (8) |
 
-*(PSX failure difference-type counts will populate automatically when `agent | hybridx` completes and `eval/score_stages.py` runs.)*
+PSX `agent | hybridx` failure tags so far (`n=5` total across 101): `basis`: 5 (including `LUCK` total PAT vs attributable-to-owners `89,042,169`, and 4 step-limit timeouts on `OGDC`, `PRL`, and `HUBC`).
 
 ---
 
@@ -120,5 +123,5 @@ Setup: 9 verified PSX FY2026 annual reports × 6 fields = **54 examples**.
 | Retrieval: `hybridx` (Scoped / Open) | 26.7 ms / 17.1 ms | 81.5 ms / 251.7 ms | \$0.00 | \$0.00 |
 | QA (`rag_direct`, FinanceBench / PSX v2) | 3.03s / 1.38s | 10.20s / 2.83s | \$0.00105 / \$0.00164 | \$31.50 / \$49.20 |
 | QA (`rag_calc`, FinanceBench / PSX v2) | 2.12s / 1.24s | 6.75s / 5.26s | \$0.00120 / \$0.00160 | \$36.00 / \$48.00 |
-| QA (`agent`, FinanceBench `bm25x`) | 12.31s | 23.98s | \$0.01155 | \$346.50 |
+| QA (`agent`, FinanceBench `bm25x` / PSX v2 `hybridx`) | 12.31s / 4.36s | 23.98s / 7.46s | \$0.01155 / \$0.00661 | \$346.50 / \$198.30 |
 | Extraction (`rules` vs `gemini-3.5-flash-lite`) | 0.05s vs 3.07s | 0.11s vs 7.59s | \$0.00 vs \$0.00372 / report | — |

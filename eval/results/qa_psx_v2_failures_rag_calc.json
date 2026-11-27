@@ -1186,5 +1186,71 @@
   "gold_page_retrieved": null,
   "answerable": false,
   "cause": "false_answer_on_unanswerable"
+ },
+ {
+  "id": "psx2_GHNI_unans_basis_consolidated_revenue",
+  "type": "unanswerable",
+  "question": "What was Ghandhara Industries Limited (GHNI)'s consolidated revenue in FY2026 (2026-06-30)?",
+  "gold": "UNANSWERABLE",
+  "answer": "Ghandhara Industries Limited's consolidated revenue was Rs. 60,658,134 thousand in FY2026.",
+  "grounding": 1.0,
+  "gold_page_retrieved": null,
+  "answerable": false,
+  "cause": "false_answer_on_unanswerable"
+ },
+ {
+  "id": "psx2_GHNI_unans_basis_consolidated_net_profit_margin",
+  "type": "unanswerable",
+  "question": "What was Ghandhara Industries Limited (GHNI)'s consolidated net profit margin in FY2026 (2026-06-30)?",
+  "gold": "UNANSWERABLE",
+  "answer": "Ghandhara Industries Limited's net profit margin in FY2026 was 11.42% on a consolidated basis.",
+  "grounding": 1.0,
+  "gold_page_retrieved": null,
+  "answerable": false,
+  "cause": "false_answer_on_unanswerable"
+ },
+ {
+  "id": "psx2_PIOC_unans_basis_consolidated_revenue",
+  "type": "unanswerable",
+  "question": "What was Pioneer Cement Limited (PIOC)'s consolidated revenue in FY2026 (2026-06-30)?",
+  "gold": "UNANSWERABLE",
+  "answer": "Pioneer Cement Limited's revenue for the year ended June 30, 2026 was Rs. 38,578,528 thousand on a standalone basis (the report states that performance-related data pertains strictly to PIOC and does not include information for its holding or associated companies).",
+  "grounding": 1.0,
+  "gold_page_retrieved": null,
+  "answerable": false,
+  "cause": "false_answer_on_unanswerable"
+ },
+ {
+  "id": "psx2_PIOC_unans_basis_consolidated_net_profit_margin",
+  "type": "unanswerable",
+  "question": "What was Pioneer Cement Limited (PIOC)'s consolidated net profit margin in FY2026 (2026-06-30)?",
+  "gold": "UNANSWERABLE",
+  "answer": "The consolidated net profit margin for Pioneer Cement Limited in FY2026 was 17.09% based on net profit after taxation of Rupees in thousands 6,594,152 and revenue from contracts with customers - net of Rupees in thousands 38,578,528.",
+  "grounding": 1.0,
+  "gold_page_retrieved": null,
+  "answerable": false,
+  "cause": "false_answer_on_unanswerable"
+ },
+ {
+  "id": "psx2_POWER_unans_basis_consolidated_revenue",
+  "type": "unanswerable",
+  "question": "What was Power Cement Limited (POWER)'s consolidated revenue in FY2026 (2026-06-30)?",
+  "gold": "UNANSWERABLE",
+  "answer": "Power Cement Limited's consolidated revenue in FY2026 was PKR 33,978,969 '000.",
+  "grounding": 0.0,
+  "gold_page_retrieved": null,
+  "answerable": false,
+  "cause": "false_answer_on_unanswerable"
+ },
+ {
+  "id": "psx2_POWER_unans_basis_consolidated_net_profit_margin",
+  "type": "unanswerable",
+  "question": "What was Power Cement Limited (POWER)'s consolidated net profit margin in FY2026 (2026-06-30)?",
+  "gold": "UNANSWERABLE",
+  "answer": "Power Cement Limited's consolidated net profit margin for FY2026 was 11.14% on a consolidated basis.",
+  "grounding": 1.0,
+  "gold_page_retrieved": null,
+  "answerable": false,
+  "cause": "false_answer_on_unanswerable"
  }
 ]

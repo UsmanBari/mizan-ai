@@ -513,26 +513,26 @@
     },
     "rag_calc": {
       "runs": 1,
-      "accuracy_mean": 0.52,
+      "accuracy_mean": 0.531,
       "accuracy_std": 0.0,
       "accuracy_by_type": {
         "cross_company": 0.037,
         "growth": 0.778,
         "lookup": 0.741,
         "ratio": 0.463,
-        "unanswerable": 0.806
+        "unanswerable": 0.759
       },
       "numeric_accuracy": 0.642,
-      "refusal_rate": 0.48,
-      "hallucination_rate": 0.051,
-      "grounding_mean": 0.948,
+      "refusal_rate": 0.494,
+      "hallucination_rate": 0.057,
+      "grounding_mean": 0.947,
       "gold_page_retrieved": 0.799,
       "citation_correct": 0.46,
       "inline_page_mismatch_rate": 0.004,
       "latency_p50_s": 1.24,
       "latency_p95_s": 5.26,
-      "cost_per_request_usd": 0.0016,
-      "api_failure_rate": 0.013,
+      "cost_per_request_usd": 0.00159,
+      "api_failure_rate": 0.0,
       "steps_mean": 0,
       "tool_calls_per_task": 0.23,
       "calc_tool_success_rate": 1.0,
@@ -543,17 +543,59 @@
         "retrieval_miss": 5,
         "calculation_tool_error": 2,
         "ungrounded_number (hallucination)": 2,
-        "false_answer_on_unanswerable": 7
+        "false_answer_on_unanswerable": 13
       },
-      "n_graded": 225,
-      "judge_share": 0.031
+      "n_graded": 243,
+      "judge_share": 0.029
+    },
+    "agent": {
+      "runs": 1,
+      "accuracy_mean": 0.95,
+      "accuracy_std": 0.0,
+      "accuracy_by_type": {
+        "growth": 1.0,
+        "lookup": 0.944,
+        "ratio": 0.9
+      },
+      "numeric_accuracy": 0.95,
+      "refusal_rate": 0,
+      "hallucination_rate": 0.0,
+      "grounding_mean": 0.903,
+      "gold_page_retrieved": 0.99,
+      "citation_correct": 0.921,
+      "inline_page_mismatch_rate": 0.02,
+      "latency_p50_s": 4.36,
+      "latency_p95_s": 7.46,
+      "cost_per_request_usd": 0.00661,
+      "api_failure_rate": 0.029,
+      "steps_mean": 3.85,
+      "tool_calls_per_task": 1.08,
+      "calc_tool_success_rate": 1.0,
+      "error_causes": {
+        "wrong_value_or_reasoning_with_evidence": 1,
+        "agent_step_limit": 4
+      },
+      "n_graded": 101,
+      "judge_share": 0.0
     },
     "paired_tests": {
       "rag_direct_vs_rag_calc": {
-        "a_only_correct": 22,
-        "b_only_correct": 5,
-        "p_value": 0.0015,
-        "n": 225
+        "a_only_correct": 23,
+        "b_only_correct": 6,
+        "p_value": 0.0023,
+        "n": 243
+      },
+      "rag_direct_vs_agent": {
+        "a_only_correct": 1,
+        "b_only_correct": 21,
+        "p_value": 0.0,
+        "n": 101
+      },
+      "rag_calc_vs_agent": {
+        "a_only_correct": 1,
+        "b_only_correct": 25,
+        "p_value": 0.0,
+        "n": 101
       }
     }
   },
@@ -591,14 +633,14 @@
       }
     },
     "rag_calc|hybridx": {
-      "n_total": 225,
+      "n_total": 243,
       "n_answerable": 189,
       "extraction_accuracy": 0.503,
       "operand_selection_accuracy": 0.471,
       "formula_selection_accuracy": 0.385,
       "arithmetic_accuracy": 0.385,
       "answerable_accuracy": 0.466,
-      "overall_accuracy": 0.52,
+      "overall_accuracy": 0.531,
       "by_type": {
         "lookup": {
           "n": 54,
@@ -617,8 +659,32 @@
           "accuracy": 0.037
         },
         "unanswerable": {
-          "n": 36,
-          "accuracy": 0.806
+          "n": 54,
+          "accuracy": 0.759
+        }
+      }
+    },
+    "agent|hybridx": {
+      "n_total": 101,
+      "n_answerable": 101,
+      "extraction_accuracy": 0.921,
+      "operand_selection_accuracy": 0.762,
+      "formula_selection_accuracy": 1,
+      "arithmetic_accuracy": 1,
+      "answerable_accuracy": 0.95,
+      "overall_accuracy": 0.95,
+      "by_type": {
+        "lookup": {
+          "n": 54,
+          "accuracy": 0.944
+        },
+        "growth": {
+          "n": 27,
+          "accuracy": 1.0
+        },
+        "ratio": {
+          "n": 20,
+          "accuracy": 0.9
         }
       }
     },
@@ -654,17 +720,30 @@
       "answerable_coverage": 0.704
     },
     "rag_calc|hybridx": {
-      "n_total": 225,
-      "tp": 29,
+      "n_total": 243,
+      "tp": 41,
       "fp": 79,
-      "fn": 7,
+      "fn": 13,
       "tn": 110,
-      "precision": 0.269,
-      "recall": 0.806,
-      "f1": 0.403,
-      "selective_accuracy": 0.752,
-      "coverage": 0.52,
+      "precision": 0.342,
+      "recall": 0.759,
+      "f1": 0.471,
+      "selective_accuracy": 0.715,
+      "coverage": 0.506,
       "answerable_coverage": 0.582
+    },
+    "agent|hybridx": {
+      "n_total": 101,
+      "tp": 0,
+      "fp": 0,
+      "fn": 0,
+      "tn": 101,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "selective_accuracy": 0.95,
+      "coverage": 1.0,
+      "answerable_coverage": 1.0
     },
     "agent|bm25": {
       "n_total": 3,
@@ -693,8 +772,8 @@
     },
     "hybridx": {
       "retrieval_r5": 0.629,
-      "answerable_accuracy": null,
-      "overall_accuracy": null
+      "answerable_accuracy": 0.95,
+      "overall_accuracy": 0.95
     }
   },
   "rq2_transfer": {
@@ -703,28 +782,76 @@
         "financebench_n_qa": 14,
         "financebench_accuracy": 0.857,
         "financebench_retrieval_r5_open_hybridx": 0.559,
-        "psx_n_qa": 0,
-        "psx_accuracy": null,
+        "psx_n_qa": 54,
+        "psx_accuracy": 0.944,
         "psx_retrieval_r5_open_hybridx": 0.741
       },
       "growth": {
         "financebench_n_qa": 3,
         "financebench_accuracy": 0.667,
         "financebench_retrieval_r5_open_hybridx": 0.556,
-        "psx_n_qa": 0,
-        "psx_accuracy": null,
+        "psx_n_qa": 27,
+        "psx_accuracy": 1,
         "psx_retrieval_r5_open_hybridx": 0.556
       },
       "margin": {
         "financebench_n_qa": 5,
         "financebench_accuracy": 0.8,
         "financebench_retrieval_r5_open_hybridx": 0.2,
-        "psx_n_qa": 0,
-        "psx_accuracy": null,
+        "psx_n_qa": 8,
+        "psx_accuracy": 1,
         "psx_retrieval_r5_open_hybridx": 0.722
       }
     },
-    "psx_failure_diff_types": {},
-    "psx_failure_examples": []
+    "psx_failure_diff_types": {
+      "basis": 5
+    },
+    "psx_failure_examples": [
+      {
+        "id": "psx2_LUCK_FY2026_net_profit_lookup",
+        "type": "lookup",
+        "template": "lookup",
+        "diff_type": "basis",
+        "gold": "89,042,169.00",
+        "answer": "According to its consolidated annual financial statements for FY2026 (year ended June 30, 2026), Lucky Cement Limited's net profit (profit after taxation) was Rs 96,456,241 thousand (consolidated basi",
+        "refused": false
+      },
+      {
+        "id": "psx2_OGDC_FY2026_total_equity_lookup",
+        "type": "lookup",
+        "template": "lookup",
+        "diff_type": "basis",
+        "gold": "1,519,547,299.00",
+        "answer": "I could not complete the analysis within the step limit.",
+        "refused": false
+      },
+      {
+        "id": "psx2_PRL_FY2026_total_equity_lookup",
+        "type": "lookup",
+        "template": "lookup",
+        "diff_type": "basis",
+        "gold": "42,769,992.00",
+        "answer": "I could not complete the analysis within the step limit.",
+        "refused": false
+      },
+      {
+        "id": "psx2_HUBC_FY2026_roe",
+        "type": "ratio",
+        "template": "ratio",
+        "diff_type": "basis",
+        "gold": "19.78%",
+        "answer": "I could not complete the analysis within the step limit.",
+        "refused": false
+      },
+      {
+        "id": "psx2_HUBC_FY2025_debt_to_equity",
+        "type": "ratio",
+        "template": "ratio",
+        "diff_type": "basis",
+        "gold": "0.70x",
+        "answer": "I could not complete the analysis within the step limit.",
+        "refused": false
+      }
+    ]
   }
 }
