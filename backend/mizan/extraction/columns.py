@@ -57,6 +57,7 @@ class Column:
     year: int | None = None
     month: int | None = None
     is_note: bool = False
+    months: int | None = None    # 3 / 6 / 9 / 12 from a "Nine months ended" header above it
 
     @property
     def cx(self) -> float:
@@ -163,6 +164,7 @@ def detect_tables(rows: list[Row]) -> list[Table]:
                 if 0 < r.y - r2.y <= 16:
                     cols += [c for c in _header_columns(r2) if c.is_note]
         cols.sort(key=lambda c: c.x0)
+        _tag_spans(cols, [r2 for r2 in rows if 0 < r.y - r2.y <= 45])
         # side-by-side tables: a big horizontal gap between dated columns splits them
         groups, cur_g = [], [cols[0]]
         for a, b in zip(cols, cols[1:]):
@@ -186,12 +188,56 @@ def detect_tables(rows: list[Row]) -> list[Table]:
     return tables
 
 
+_SPAN_WORDS = [(r"twelve months|year ended|\byear\b", 12), (r"nine months|9 months", 9),
+               (r"six months|half[\s-]*year|6 months", 6), (r"three months|3 months|quarter", 3)]
+
+
+def _span_months(text: str) -> int | None:
+    t = text.lower()
+    for rx, m in _SPAN_WORDS[1:] + _SPAN_WORDS[:1]:      # "nine months" before a stray "year"
+        if re.search(rx, t):
+            return m
+    return None
+
+
+def _tag_spans(cols: list[Column], above: list[Row]) -> None:
+    """Interim statements put two periods side by side: "Three months ended |
+    Nine months ended" over "2026 2025 2026 2025". Each dated column gets the
+    period length of the header cell above it. The order differs between
+    companies (ATRL puts three months first), so it must be read, not assumed."""
+    spans = []
+    for r2 in above:
+        for cell in _cells(r2, gap=12):
+            m = _span_months(" ".join(w.text for w in cell))
+            if m:
+                spans.append((cell[0].x0, cell[-1].x1, m))
+    if len({m for *_, m in spans}) < 2:
+        return                      # one period only (annual reports): nothing to tell apart
+    for c in cols:
+        if c.year is None:
+            continue
+        inside = [m for x0, x1, m in spans if x0 - 15 <= c.cx <= x1 + 15]
+        if inside:
+            c.months = inside[0]
+        else:
+            near = min(spans, key=lambda s: abs((s[0] + s[1]) / 2 - c.cx))
+            if abs((near[0] + near[1]) / 2 - c.cx) <= 90:
+                c.months = near[2]
+
+
 def _make_table(y: float, cols: list[Column]) -> Table | None:
     if True:
         dated = [i for i, c in enumerate(cols) if c.year is not None]
         if len(dated) < 2:          # a lone date is a title ("for the year ended June 30, 2026")
             return None
-        cur = max(dated, key=lambda i: (cols[i].year, cols[i].month or 0, -cols[i].x0))
+        # current = the longest period (the report's own, e.g. nine months), then the latest date
+        cur = max(dated, key=lambda i: (cols[i].months or 0, cols[i].year, cols[i].month or 0, -cols[i].x0))
+        if cols[cur].months:
+            same = [i for i in dated if cols[i].months == cols[cur].months]
+            earlier_same = [i for i in same if (cols[i].year, cols[i].month or 0) < (cols[cur].year, cols[cur].month or 0)]
+            if earlier_same:
+                prior = max(earlier_same, key=lambda i: (cols[i].year, cols[i].month or 0))
+                return Table(y, cols, cur, prior)
         later = [i for i in dated if i > cur]
         earlier = [i for i in dated if cols[i].year < cols[cur].year or
                    (cols[i].year == cols[cur].year and (cols[i].month or 0) < (cols[cur].month or 0))]
