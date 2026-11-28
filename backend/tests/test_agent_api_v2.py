@@ -199,3 +199,9 @@ def test_api_facts_index_ratios_and_labelled_pdf_pages(tmp_path, monkeypatch):
     r = client.get("/documents/DEMO_FY2026/pages/1")
     assert r.status_code == 200 and "1,234" in r.json()["text"]
     assert client.get("/documents/..%2Fsecret/pages/1").status_code == 404
+
+
+def test_dates_are_not_claimed_numbers():
+    from mizan.agent.engine import answer_numbers
+    got = [v for _, v in answer_numbers("For the year ended June 30, 2026, net revenue was 516,358,811 (30 June 2026; Sep. 30).")]
+    assert got == [516358811]
