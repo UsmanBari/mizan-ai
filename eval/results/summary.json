@@ -789,22 +789,6 @@
           "accuracy": 0.759
         }
       }
-    },
-    "agent|dense": {
-      "n_total": 6,
-      "n_answerable": 6,
-      "extraction_accuracy": 0.833,
-      "operand_selection_accuracy": 0.667,
-      "formula_selection_accuracy": null,
-      "arithmetic_accuracy": null,
-      "answerable_accuracy": 1.0,
-      "overall_accuracy": 1.0,
-      "by_type": {
-        "lookup": {
-          "n": 6,
-          "accuracy": 1.0
-        }
-      }
     }
   },
   "psx_v2_abstention": {
@@ -859,36 +843,56 @@
       "selective_accuracy": 0.861,
       "coverage": 0.831,
       "answerable_coverage": 1.0
-    },
-    "agent|dense": {
-      "n_total": 6,
-      "tp": 0,
-      "fp": 0,
-      "fn": 0,
-      "tn": 6,
-      "precision": 0.0,
-      "recall": 0.0,
-      "f1": 0.0,
-      "selective_accuracy": 1.0,
-      "coverage": 1.0,
-      "answerable_coverage": 1.0
     }
   },
   "psx_v2_retrieval_qa": {
     "bm25": {
       "retrieval_r5": 0.053,
       "answerable_accuracy": 0.921,
-      "overall_accuracy": 0.885
+      "overall_accuracy": 0.885,
+      "tool_traces": {
+        "n": 243,
+        "deterministic_guard_steps0": 18,
+        "compute_ratio_used": 144,
+        "compute_ratio_only_no_search_pages": 34,
+        "search_or_read_page_used": 191,
+        "mean_steps": 4.4,
+        "mean_context_pages": 9.28
+      }
     },
     "dense": {
       "retrieval_r5": 0.507,
-      "answerable_accuracy": 1.0,
-      "overall_accuracy": 1.0
+      "answerable_accuracy": null,
+      "overall_accuracy": null,
+      "status": "not run (free-tier quota)"
     },
     "hybridx": {
       "retrieval_r5": 0.629,
       "answerable_accuracy": 0.952,
-      "overall_accuracy": 0.881
+      "overall_accuracy": 0.881,
+      "tool_traces": {
+        "n": 243,
+        "deterministic_guard_steps0": 18,
+        "compute_ratio_used": 143,
+        "compute_ratio_only_no_search_pages": 33,
+        "search_or_read_page_used": 192,
+        "mean_steps": 3.97,
+        "mean_context_pages": 7.52
+      }
+    },
+    "mcnemar_bm25_vs_hybridx": {
+      "overall_all_243": {
+        "n": 243,
+        "a_only_correct": 15,
+        "b_only_correct": 14,
+        "p_value": 1.0
+      },
+      "answerable_189": {
+        "n": 189,
+        "a_only_correct": 8,
+        "b_only_correct": 14,
+        "p_value": 0.2863
+      }
     }
   },
   "rq2_transfer": {

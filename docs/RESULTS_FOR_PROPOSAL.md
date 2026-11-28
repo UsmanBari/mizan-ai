@@ -7,7 +7,7 @@
 > **Evaluation Setup**:  
 > - **Model**: `gemini-3.5-flash-lite` (list prices **\$0.30 / 1M in**, **\$2.50 / 1M out**, checked 22 Nov 2026; temperature `0.0`), chosen because the free tier limits `gemini-3.5-flash` to 20 requests/day.  
 > - **Prompt Version**: `v1.1` on initial FinanceBench 60-question baseline; `v2.0` (with `compute_ratio`, basis rule, three-part answer, deterministic abstention) on PSX v2.  
-> - **PSX v2 Completion (27 Nov 2026)**: **243/243 COMPLETE** across all three core conditions (`rag_direct | hybridx`, `rag_calc | hybridx`, `agent | hybridx`) **AND** the `agent | bm25` Retrieval→QA condition (**243/243**). `agent | dense` completed **6/243** (`237` remaining) before hitting the final free-tier Google AI Studio RPD quota.
+> - **PSX v2 Completion (27 Nov 2026)**: **243/243 COMPLETE** across all three core conditions (`rag_direct | hybridx`, `rag_calc | hybridx`, `agent | hybridx`) **AND** the `agent | bm25` Retrieval→QA condition (**243/243**). `agent | dense` was **not run (free-tier quota)**.
 
 ---
 
@@ -89,13 +89,18 @@
 
 ## 5. Retrieval → Answer Accuracy (`psx_v2_retrieval_qa`)
 
-| Retriever (`open`, PSX 9 filings) | PSX Retrieval R@5 | Agent Answerable Acc | Agent Overall Acc |
-|---|---:|---:|---:|
-| `bm25` | 0.053 | 0.921 (`n=189`) | **0.885** (`n=243`) |
-| `dense` (`bge-small-en-v1.5`) | 0.507 | 1.000 *(n=6/243 checkpoint)* | 1.000 *(n=6/243; 237 pending quota)* |
-| **`hybridx`** | **0.629** | **0.952** (`n=189`) | 0.881 (`n=243`) |
+| Retriever (`open`, PSX 9 filings) | PSX Retrieval R@5 | Agent Answerable Acc | Agent Overall Acc | Mean Steps / Context Pages |
+|---|---:|---:|---:|---:|
+| `bm25` | 0.053 | 0.921 (`n=189`) | **0.885** (`n=243`) | 4.40 / 9.28 |
+| `dense` (`bge-small-en-v1.5`) | 0.507 | *not run (free-tier quota)* | *not run (free-tier quota)* | — |
+| **`hybridx`** | **0.629** | **0.952** (`n=189`) | 0.881 (`n=243`) | **3.97** / **7.52** |
 
-*Finding*: Stronger hybrid retrieval lifts **Answerable Accuracy** from `0.921` (`bm25`, R@5 `0.053`) to **`0.952`** (`hybridx`, R@5 `0.629`), driven by higher extraction (`0.958` vs `0.921`) and operand selection (`0.873` vs `0.841`), while weaker BM25 misses multi-year *"Six Years at a Glance"* summary tables on unanswerable FY2022 queries (yielding fewer `FN` leaks: `13` vs `20`).
+- **Paired McNemar tests (`agent | bm25` vs `agent | hybridx`)**:
+  - **All 243 paired questions**: **$p = 1.0000$** (`bm25_only=15`, `hybridx_only=14`) — **no statistically significant difference**.
+  - **Answerable 189 paired questions**: **$p = 0.2863$** (`bm25_only=8`, `hybridx_only=14`) — **not statistically significant** ($p \ge 0.05$; we do not claim a lift).
+- **Finding & tool-trace breakdown (`n=243`)**: Despite an 11.9× gap in open-corpus single-shot retrieval R@5 (`0.053` for `bm25` vs `0.629` for `hybridx`), agent overall accuracy is nearly identical (`0.885` vs `0.881`). Because `run_qa.py` logs aggregated trace fields rather than raw tool names (`get_financials` leaves no separate marker in `context_pages`), direct JSONL trace counts show:
+  - **`compute_ratio` (verified database facts)**: used in **`144/243`** (`bm25`) and **`143/243`** (`hybridx`) answers — covering **100% (`135/135`)** of `growth`, `ratio`, and `cross_company` questions (of which `34/243` in `bm25` and `33/243` in `hybridx` required zero additional `search_filings`/`read_page` pages).
+  - **`search_filings` / `read_page` (extra pages in `context_pages`)**: used in **`191/243`** (`bm25`, mean `4.40` steps and `9.28` pages) vs **`192/243`** (`hybridx`, mean `3.97` steps and `7.52` pages) — under weak `bm25`, the agent takes more steps and reads more pages (plus `18/243` `steps=0` deterministic period-mismatch refusals in both runs), making the agent largely robust to single-shot retrieval quality.
 
 ---
 

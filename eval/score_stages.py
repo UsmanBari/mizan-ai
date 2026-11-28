@@ -357,10 +357,9 @@ def main() -> None:
         ("rag_calc|hybridx", RESULTS / "qa_psx_v2_rag_calc_run1.jsonl"),
         ("agent|hybridx", RESULTS / "qa_psx_v2_agent_run1.jsonl"),
         ("agent|bm25", RESULTS / "qa_psx_v2_bm25_agent_run1.jsonl"),
-        ("agent|dense", RESULTS / "qa_psx_v2_dense_agent_run1.jsonl"),
     ]
     stages_out, abstention_out = {}, {}
-    psx_agent_recs = {}
+    recs_by_key = {}
     for key, p in candidates:
         if not p.exists():
             continue
@@ -377,10 +376,13 @@ def main() -> None:
             "n_total": scored["n_total"],
             **scored["abstention"],
         }
-        if key == "agent|hybridx":
-            for row in map(json.loads, open(p, encoding="utf-8")):
-                if "error" not in row:
-                    psx_agent_recs[row["id"]] = row
+        last_rows = {}
+        for row in map(json.loads, open(p, encoding="utf-8")):
+            if "error" in row and row["id"] in last_rows and "error" not in last_rows[row["id"]]:
+                continue
+            last_rows[row["id"]] = row
+        recs_by_key[key] = {k: v for k, v in last_rows.items() if "error" not in v and k in q_map}
+    psx_agent_recs = recs_by_key.get("agent|hybridx", {})
 
     if stages_out:
         update_summary("psx_v2_stages", stages_out)
@@ -405,17 +407,81 @@ def main() -> None:
     for rkind in ("bm25", "dense", "hybridx"):
         psx_ret[rkind] = compute_psx_retrieval_r5(psx_qs, store, rkind)
 
+    def _mcnemar(a: list[bool], b: list[bool]) -> dict:
+        n01 = sum(1 for x, y in zip(a, b) if not x and y)
+        n10 = sum(1 for x, y in zip(a, b) if x and not y)
+        n = n01 + n10
+        if n == 0:
+            return {"n": len(a), "a_only_correct": 0, "b_only_correct": 0, "p_value": 1.0}
+        k = min(n01, n10)
+        p = min(1.0, 2 * sum(math.comb(n, i) for i in range(k + 1)) / 2 ** n)
+        return {"n": len(a), "a_only_correct": n10, "b_only_correct": n01, "p_value": round(p, 4)}
+
+    def _trace_stats(recs: dict[str, dict]) -> dict:
+        rows = list(recs.values())
+        comp_ratio = 0
+        only_comp_pages = 0
+        search_or_read = 0
+        det_guard = 0
+        for r in rows:
+            has_comp = any(cv.get("name") not in (None, "calculation") for cv in (r.get("calculated_values") or []))
+            if has_comp:
+                comp_ratio += 1
+            op_pages = {
+                (o.get("doc_id"), o.get("page"))
+                for cv in (r.get("calculated_values") or [])
+                if cv.get("name") != "calculation"
+                for o in (cv.get("operands") or [])
+                if o.get("doc_id") and o.get("page")
+            }
+            ctx_pages = {(c.get("doc_id"), c.get("page")) for c in (r.get("context_pages") or [])}
+            if not ctx_pages:
+                det_guard += 1
+            elif not (ctx_pages - op_pages):
+                only_comp_pages += 1
+            else:
+                search_or_read += 1
+        return {
+            "n": len(rows),
+            "deterministic_guard_steps0": det_guard,
+            "compute_ratio_used": comp_ratio,
+            "compute_ratio_only_no_search_pages": only_comp_pages,
+            "search_or_read_page_used": search_or_read,
+            "mean_steps": round(statistics.mean(r.get("steps", 0) for r in rows), 2),
+            "mean_context_pages": round(statistics.mean(len(r.get("context_pages") or []) for r in rows), 2),
+        }
+
     ret_qa = {}
     for rkind, tag_key in [("bm25", "agent|bm25"), ("dense", "agent|dense"), ("hybridx", "agent|hybridx")]:
+        if rkind == "dense":
+            ret_qa[rkind] = {
+                "retrieval_r5": psx_ret[rkind]["all"],
+                "answerable_accuracy": None,
+                "overall_accuracy": None,
+                "status": "not run (free-tier quota)",
+            }
+            continue
         ret_qa[rkind] = {
             "retrieval_r5": psx_ret[rkind]["all"],
             "answerable_accuracy": stages_out[tag_key]["answerable_accuracy"] if tag_key in stages_out else None,
             "overall_accuracy": stages_out[tag_key]["overall_accuracy"] if tag_key in stages_out else None,
+            "tool_traces": _trace_stats(recs_by_key[tag_key]) if tag_key in recs_by_key else {},
+        }
+    if "agent|bm25" in recs_by_key and "agent|hybridx" in recs_by_key:
+        bm_d, hy_d = recs_by_key["agent|bm25"], recs_by_key["agent|hybridx"]
+        paired_all = sorted(set(bm_d) & set(hy_d))
+        paired_ans = [qid for qid in paired_all if q_map[qid].get("answerable", True)]
+        ret_qa["mcnemar_bm25_vs_hybridx"] = {
+            "overall_all_243": _mcnemar([bool(bm_d[i].get("correct")) for i in paired_all], [bool(hy_d[i].get("correct")) for i in paired_all]),
+            "answerable_189": _mcnemar([bool(bm_d[i].get("correct")) for i in paired_ans], [bool(hy_d[i].get("correct")) for i in paired_ans]),
         }
     update_summary("psx_v2_retrieval_qa", ret_qa)
     print("\n=== Retrieval -> Answers (PSX v2 Agent) ===")
-    for rkind, v in ret_qa.items():
-        print(f"{rkind:10s} R@5={v['retrieval_r5']} ans_acc={v['answerable_accuracy']} overall={v['overall_accuracy']}")
+    for rkind in ("bm25", "dense", "hybridx"):
+        v = ret_qa[rkind]
+        print(f"{rkind:10s} R@5={v['retrieval_r5']} ans_acc={v['answerable_accuracy']} overall={v['overall_accuracy']} {v.get('status','')}")
+    if "mcnemar_bm25_vs_hybridx" in ret_qa:
+        print("McNemar bm25 vs hybridx:", ret_qa["mcnemar_bm25_vs_hybridx"])
 
     # RQ2 Cross-Market Transfer: FinanceBench vs PSX per shared template ---
     fb_qs = {q["id"]: q for q in load_financebench("test")}
