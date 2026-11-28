@@ -31,7 +31,7 @@ export const METRICS: Metric[] = [
   { id: "earnings_growth", label: "Profit growth", kind: "pct" },
   { id: "eps_growth", label: "EPS growth", kind: "pct" },
 ];
-export const metric = (id: string): Metric => METRICS.find(m => m.id === id) ?? { id, label: id.replaceAll("_", " "), kind: "pct" };
+export const metric = (id: string): Metric => METRICS.find(m => m.id === id) ?? { id: String(id ?? ""), label: String(id ?? "").replaceAll("_", " "), kind: "pct" };
 
 const SCALE: Record<string, number> = { units: 1, rupees: 1, thousands: 1e3, millions: 1e6, billions: 1e9 };
 

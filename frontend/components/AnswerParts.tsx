@@ -2,18 +2,22 @@
 import { docLabel, fmt, type Answer, type Doc } from "@/lib/api";
 import { metric } from "@/lib/facts";
 
-const fieldName = (f: string) => { const m = metric(f); return m.label === f.replaceAll("_", " ") ? f.replaceAll("_", " ") : m.label; };
-const printedAs = (v: number) => Math.abs(v).toLocaleString("en-US", { maximumFractionDigits: 2 });
+// The agent's structured parts come from the model and code together, so any field can be
+// missing or the wrong type: render what is there, never crash the page.
+const fieldName = (f: unknown) => metric(String(f ?? "value")).label || "value";
+const num = (v: unknown): number | null => { const n = typeof v === "number" ? v : Number(String(v ?? "").replace(/,/g, "")); return Number.isFinite(n) ? n : null; };
+const printedAs = (v: unknown) => { const n = num(v); return n == null ? String(v ?? "—") : Math.abs(n).toLocaleString("en-US", { maximumFractionDigits: 2 }); };
 
 /** The answer split into its three parts, so the reader can see which numbers were read from
  *  the report, which were calculated by code, and that any "why" is quoted, not invented. */
 export function AnswerParts({ ans, docs, openPage }: {
   ans: Answer; docs: Doc[]; openPage: (doc_id: string, page: number, highlight?: string) => void;
 }) {
-  const rep = ans.reported_figures || [];
-  const calc = ans.calculated_values || [];
+  const rep = (Array.isArray(ans.reported_figures) ? ans.reported_figures : []).filter(r => r && typeof r === "object");
+  const calc = (Array.isArray(ans.calculated_values) ? ans.calculated_values : []).filter(c => c && typeof c === "object");
+  const cites = Array.isArray(ans.citations) ? ans.citations : [];
   const docFor = (page?: number | null, doc?: string) =>
-    doc || ans.citations.find(c => c.page === page)?.doc_id || ans.citations[0]?.doc_id || "";
+    doc || cites.find(c => c.page === page)?.doc_id || cites[0]?.doc_id || "";
   if (!rep.length && !calc.length && !ans.explanation && !ans.refusal_reason) return null;
 
   return (
@@ -37,9 +41,9 @@ export function AnswerParts({ ans, docs, openPage }: {
                   const d = docFor(r.page, r.doc_id);
                   return (
                     <tr key={i}>
-                      <td>{fieldName(r.field)}{r.statement ? <span className="muted"> · {r.statement}</span> : null}</td>
-                      <td>{r.period || "—"}</td>
-                      <td className="num">{printedAs(r.value)}{r.unit ? <span className="muted"> {r.unit === "thousands" ? "Rs '000" : r.unit}</span> : null}</td>
+                      <td>{fieldName(r.field)}{r.statement ? <span className="muted"> · {String(r.statement)}</span> : null}</td>
+                      <td>{String(r.period ?? "") || "—"}</td>
+                      <td className="num">{printedAs(r.value)}{r.unit ? <span className="muted"> {r.unit === "thousands" ? "Rs '000" : String(r.unit)}</span> : null}</td>
                       <td>{r.page && d
                         ? <button type="button" className="link" onClick={() => openPage(d, r.page!, printedAs(r.value))}>{docLabel(d, docs)}, p. {r.page}</button>
                         : <span className="muted">—</span>}</td>
@@ -58,10 +62,10 @@ export function AnswerParts({ ans, docs, openPage }: {
           <ul className="calc-list">
             {calc.map((c, i) => (
               <li key={i}>
-                <strong>{fieldName(c.name)}</strong> = <code>{c.formula}</code> = <strong>{fmt(c.result, 4)}{/margin|growth|ro[ae]|pct/i.test(c.name) ? "%" : ""}</strong>
-                {c.operands && c.operands.length > 0 && (
+                <strong>{fieldName(c.name)}</strong> = <code>{String(c.formula ?? "")}</code> = <strong>{fmt(num(c.result), 4)}{/margin|growth|ro[ae]|pct/i.test(String(c.name ?? "")) ? "%" : ""}</strong>
+                {Array.isArray(c.operands) && c.operands.length > 0 && (
                   <span className="muted"> using {c.operands.map((o, j) => (
-                    <span key={j}>{j ? ", " : ""}{fieldName(o.field)} {o.period} = {o.page && (o.doc_id || docFor(o.page))
+                    <span key={j}>{j ? ", " : ""}{fieldName(o.field)} {String(o.period ?? "")} = {o.page && (o.doc_id || docFor(o.page))
                       ? <button type="button" className="link" onClick={() => openPage(o.doc_id || docFor(o.page), o.page!, printedAs(o.value))}>{printedAs(o.value)}</button>
                       : printedAs(o.value)}</span>))}</span>
                 )}
@@ -71,10 +75,10 @@ export function AnswerParts({ ans, docs, openPage }: {
         </div>
       )}
 
-      {(ans.explanation || "").trim() && (
+      {String(ans.explanation ?? "").trim() !== "" && (
         <div className="part">
           <h2><span className="part-mark quote" aria-hidden="true" />Explanation</h2>
-          <p className={/does not state a reason/i.test(ans.explanation!) ? "muted" : ""}>{ans.explanation}</p>
+          <p className={/does not state a reason/i.test(String(ans.explanation)) ? "muted" : ""}>{String(ans.explanation)}</p>
           <p className="hint">Only text quoted from a cited page may appear here. If the report gives no reason, Mizan says so instead of inventing one.</p>
         </div>
       )}
