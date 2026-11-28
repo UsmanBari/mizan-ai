@@ -735,13 +735,19 @@ def _parse_num(raw: str) -> float | None:
     return -v if neg else v
 
 
+# "June 30, 2026", "30 June 2026", "Sep. 30": the day of a date is not a figure
+_MON = r"(?:jan|feb|mar|apr|may|jun|jul|aug|sep|sept|oct|nov|dec)[a-z]*\.?"
+_DATE_RE = re.compile(rf"(?i)\b{_MON}\s+\d{{1,2}}(?:st|nd|rd|th)?\b|\b\d{{1,2}}(?:st|nd|rd|th)?\s+{_MON}(?=\s|,|$)")
+
+
 def answer_numbers(text: str) -> list[tuple[str, float]]:
     """Numbers an answer CLAIMS: (raw text, value). Skips years, values <= 1,
-    document ids and page references."""
+    dates, document ids and page references."""
     skip = [m.span() for r in (_DOCID_RE, _PAGEREF_RE) for m in r.finditer(text)]
+    dates = [m.span() for m in _DATE_RE.finditer(text)]
     out = []
     for m in _NUM_RE.finditer(text):
-        if any(a <= m.start() < b for a, b in skip):
+        if any(a <= m.start() < b for a, b in skip) or any(a < m.end() and m.start() < b for a, b in dates):
             continue
         v = _parse_num(m.group())
         if v is None or abs(v) <= 1 or (1990 <= abs(v) <= 2035 and float(v).is_integer()):
