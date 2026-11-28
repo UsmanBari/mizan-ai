@@ -95,12 +95,12 @@ def plot_rq1_stages(summary: dict) -> None:
         _label_bars(ax, rects, fmt="{:.2f}", fontsize=7.5)
 
     ax.set_ylabel("Accuracy")
-    ax.set_ylim(0, 1.14)
+    ax.set_ylim(0, 1.24)
     ax.set_xticks(x)
     ax.set_xticklabels([m[1] for m in metrics])
     ax.set_title("RQ1 Stage-Wise Error Attribution on PSX v2 (n=243)")
     ax.grid(axis="y", linestyle="--", alpha=0.35)
-    ax.legend(loc="upper left", frameon=True)
+    ax.legend(loc="upper center", ncol=3, frameon=True)
 
     plt.tight_layout()
     plt.savefig(FIGS / "rq1_stages.png", dpi=150)
@@ -129,7 +129,7 @@ def plot_rq3_abstention(summary: dict) -> None:
         _label_bars(ax, rects, fmt="{:.2f}", fontsize=7)
 
     ax.set_ylabel("Score")
-    ax.set_ylim(0, 1.14)
+    ax.set_ylim(0, 1.22)
     ax.set_xticks(x)
     ax.set_xticklabels(cond_labels)
     ax.set_title("RQ3 Evidence-Aware Abstention on PSX v2 (189 Answerable + 54 Unanswerable)")
